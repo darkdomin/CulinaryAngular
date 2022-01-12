@@ -11,6 +11,6 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
   imports: [
     CommonModule
   ],
-  exports:[RecipesListComponent]
+  exports: [RecipesListComponent]
 })
 export class RecipesModule { }
