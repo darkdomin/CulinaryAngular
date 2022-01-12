@@ -1,1 +1,30 @@
-<p>recipes-list works!</p>
+<div class = "container">
+    <div class = "row">
+        <div class="col-sm-12">
+            <table class="rl-table table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nazwa:</th>
+                        <th>Gramatura:</th>
+                        <th>Wykonanie:</th>
+                        <th>Rodzaj posiłku:</th>
+                        <th>Kuchnia:</th>
+                        <th>Trudność Wykonania:</th>
+                        <th>Czas:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let recipe of recipes">
+                    <td>{{recipe.name}}</td>
+                    <td>{{recipe.grammar}}</td>
+                    <td>{{recipe.execution}}</td>
+                    <td>{{recipe.meal.name}}</td>
+                    <td>{{recipe.cuisine.name}}</td>
+                    <td>{{recipe.difficult.name}}</td>
+                    <td>{{recipe.time.name}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

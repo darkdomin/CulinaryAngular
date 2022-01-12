@@ -12,7 +12,8 @@ import { RecipesListComponent } from './cars/recipes-list/recipes-list.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RecipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
