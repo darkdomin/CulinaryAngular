@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -5,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
 import { RecipesModule } from './recipes/recipes.module';
+import { RecipesService } from './recipes/recipes.service';
+
 
 @NgModule({
   declarations: [
@@ -13,9 +16,10 @@ import { RecipesModule } from './recipes/recipes.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RecipesModule
+    RecipesModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RecipesService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
