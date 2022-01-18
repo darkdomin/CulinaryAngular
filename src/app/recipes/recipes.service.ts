@@ -14,6 +14,5 @@ export class RecipesService {
 
   getRecipes(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(this.apiUrl)
-           //.map((res)=>res.json);
   }
 }
