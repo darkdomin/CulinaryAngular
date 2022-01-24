@@ -15,7 +15,6 @@ import { RecipesRoutingModule } from './recipes/recipes-list/recipes-routing.mod
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     RecipesModule,
     HttpClientModule,
     CoreModule,
