@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Recipe } from '../models/recipe';
 import { RecipesService } from '../recipes.service';
 
@@ -8,7 +9,8 @@ import { RecipesService } from '../recipes.service';
   styleUrls: ['./recipes-list.component.less'],
 })
 export class RecipesListComponent implements OnInit {
-  constructor(private recipeService: RecipesService) {}
+  constructor(private recipeService: RecipesService,
+              private router: Router) {}
 
   ngOnInit(): void {
     this.loadRecipes();
@@ -84,6 +86,10 @@ export class RecipesListComponent implements OnInit {
   // convertToBr(name: string): string {
   //   return (name = name.replace(/(?:\r\n|\r|\n)/g, '<br>'));
   // }
+
+  goToRecipeDetails(recipe: Recipe){
+      this.router.navigate(['/recipes', recipe?.id]);
+  }
 
   loadRecipes(): void{
     this.recipeService.getRecipes().subscribe((recipes)=>{
