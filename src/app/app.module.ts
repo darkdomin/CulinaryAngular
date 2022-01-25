@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core-module/core.module';
 import { RecipesModule } from './recipes/recipes.module';
 import { RecipesService } from './recipes/recipes.service';
-import { RecipesRoutingModule } from './recipes/recipes-list/recipes-routing.module';
+import { RecipesRoutingModule } from './recipes/recipes-routing.module';
 
 
 @NgModule({

@@ -22,7 +22,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let recipe of recipes">
+          <!--  -->
+          <tr *ngFor="let recipe of recipes" class="row-recipe" [routerLink]="['/recipes', recipe?.id]">
             <td>{{ recipe?.name }}</td>
             <td>{{ recipe?.grammar}} </td>
             <td>{{ recipe?.execution }}</td>

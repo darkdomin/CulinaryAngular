@@ -13,7 +13,7 @@ export class RecipesListComponent implements OnInit {
   ngOnInit(): void {
     this.loadRecipes();
   }
-  recipes: Recipe[] | undefined;
+  recipes!: Recipe[];
 
   // recipesList: Recipe[] = [
   //   {
