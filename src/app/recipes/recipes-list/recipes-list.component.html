@@ -12,25 +12,15 @@
       <table *ngIf="recipes && recipes.length > 0 else noRecipeInfo" class="rl-table table table-striped">
         <thead>
           <tr>
+            <th>Lp:</th>
             <th>Nazwa:</th>
-            <th>Gramatura:</th>
-            <th>Wykonanie:</th>
-            <th>Rodzaj posiłku:</th>
-            <th>Kuchnia:</th>
-            <th>Trudność Wykonania:</th>
-            <th>Czas:</th>
           </tr>
         </thead>
         <tbody>
           <!--  -->
-          <tr *ngFor="let recipe of recipes" class="row-recipe" (click)="goToRecipeDetails(recipe)">
+          <tr *ngFor="let recipe of recipes; let i=index" class="row-recipe" (click)="goToRecipeDetails(recipe)">
+            <td>{{ i+1 }}</td>
             <td>{{ recipe?.name }}</td>
-            <td>{{ recipe?.grammar}} </td>
-            <td>{{ recipe?.execution }}</td>
-            <td>{{ recipe?.meal }}</td>
-            <td>{{ recipe?.cuisine }}</td>
-            <td>{{ recipe?.difficulty }}</td>
-            <td>{{ recipe?.time }}</td>
           </tr>
         </tbody>
       </table>

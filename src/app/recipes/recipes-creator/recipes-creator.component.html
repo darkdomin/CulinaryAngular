@@ -1,0 +1,25 @@
+<rl-header>
+  <p levels> Nazwa Przepisu - {{ creator?.name }}</p>
+
+  <div content>
+  <p>Przepis</p>
+</div>
+</rl-header>
+<div>
+  <form>
+    <label for="name">Nazwa</label><br>
+    <input type="text" id="name"><br>
+    <label for="grammar">Gramatura</label><br>
+    <textarea id="grammar"></textarea><br>
+    <label for="execution">Wykonanie</label><br>
+    <textarea id="execution"></textarea><br>
+
+    <rl-meal></rl-meal>
+
+    <rl-cuisines-list></rl-cuisines-list>
+
+    <rl-difficulty-level-list></rl-difficulty-level-list>
+
+    <rl-execution-time></rl-execution-time>
+  </form>
+</div>
