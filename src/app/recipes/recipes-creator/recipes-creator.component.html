@@ -1,25 +1,38 @@
 <rl-header>
-  <p levels> Nazwa Przepisu - {{ creator?.name }}</p>
+  <p levels> Nazwa Przepisu</p>
 
   <div content>
   <p>Przepis</p>
 </div>
 </rl-header>
-<div>
-  <form>
+<div >
+  <form [formGroup]="recipesForm" >
     <label for="name">Nazwa</label><br>
-    <input type="text" id="name"><br>
+    <input formControlName="name" type="text" id="name" placeholder="Nazwa przepisu" /><br>
+    <!-- <p *ngIf="recipesForm.get('name').valid"> This field is required</p> -->
+
     <label for="grammar">Gramatura</label><br>
-    <textarea id="grammar"></textarea><br>
+    <textarea formControlName="grammar" id="grammar" placeholder="Gramatura"></textarea><br>
+
     <label for="execution">Wykonanie</label><br>
-    <textarea id="execution"></textarea><br>
+    <textarea formControlName="execution" id="execution" placeholder="Wykonanie"></textarea><br>
 
-    <rl-meal></rl-meal>
+    <label for="link">Link do zdjęcia</label><br>
+    <input formControlName="photo" id="link" placeholder="zdjęcie"><br>
 
-    <rl-cuisines-list></rl-cuisines-list>
+    <rl-meal [recipesForm]="recipesForm" ></rl-meal> <br>
 
-    <rl-difficulty-level-list></rl-difficulty-level-list>
+    <rl-cuisines-list [recipesForm]="recipesForm"></rl-cuisines-list> <br>
 
-    <rl-execution-time></rl-execution-time>
+    <rl-difficulty-level-list [recipesForm]="recipesForm"></rl-difficulty-level-list><br>
+
+    <rl-execution-time [recipesForm]="recipesForm"></rl-execution-time><br>
   </form>
+  <br>
+
+  <button  (click)="addRecipe()" >Dodaj Przepis</button>
+
+
+  <pre>{{recipesForm.value | json}}</pre>
+
 </div>

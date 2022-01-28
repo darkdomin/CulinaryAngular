@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Meal } from '../models/meal';
 import { MealService } from '../meals.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'rl-meal',
@@ -9,16 +10,33 @@ import { MealService } from '../meals.service';
 })
 export class MealComponent implements OnInit {
 
+  @Input() recipesForm!: FormGroup;
   meals!: Meal[];
-  constructor(private mealService: MealService) { }
+  mealForm!: FormGroup;
+  constructor(private mealService: MealService,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.loadMeals()
+    this.loadMeals();
+    this.mealForm = this.buildMealForm();
   }
 
   loadMeals(): void{
     this.mealService.getMeals().subscribe((meals)=>{
       this.meals = meals;
     })
+  }
+
+  buildMealForm(): FormGroup{
+    return this.formBuilder.group({
+      id: '',
+      name: ''
+    })
+  }
+
+  convertToInt(name: string){
+
+
+
   }
 }

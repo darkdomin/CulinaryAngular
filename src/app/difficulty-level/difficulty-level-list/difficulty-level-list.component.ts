@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { DifficultyLevelService } from '../difficulty-level.service';
 import { Level } from '../models/level';
 
@@ -9,16 +10,28 @@ import { Level } from '../models/level';
 })
 export class DifficultyLevelListComponent implements OnInit {
 
+  @Input() recipesForm!: FormGroup;
   difficultiesLevel!: Level[];
-  constructor(private serviceLevel: DifficultyLevelService) { }
+  levelForm!: FormGroup;
+
+  constructor(private serviceLevel: DifficultyLevelService,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.loadLevels();
+    this.levelForm = this.buildMealForm();
   }
 
   loadLevels(): void{
     this.serviceLevel.getDifficultyLevels().subscribe((levels)=>{
     this.difficultiesLevel = levels;
+    })
+  }
+
+  buildMealForm(): FormGroup{
+    return this.formBuilder.group({
+      id: '',
+      name: ''
     })
   }
 }

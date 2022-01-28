@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DifficultyLevelListComponent } from './difficulty-level-list/difficulty-level-list.component';
 import { DifficultyLevelService } from './difficulty-level.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -10,7 +11,8 @@ import { DifficultyLevelService } from './difficulty-level.service';
     DifficultyLevelListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports:[
     DifficultyLevelListComponent

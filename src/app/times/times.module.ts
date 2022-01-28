@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExecutionTimeComponent } from './execution-time/execution-time.component';
 import { ExecutionTimeService } from './execution-time.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,8 @@ import { ExecutionTimeService } from './execution-time.service';
   ],
   providers:[ExecutionTimeService],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
    exports:[ExecutionTimeComponent]
 })

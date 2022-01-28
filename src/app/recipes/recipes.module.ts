@@ -10,6 +10,7 @@ import { TimesModule } from '../times/times.module';
 import { MealModule } from '../meals/meal.module';
 import { CuisinesModule } from '../cuisines/cuisines.module';
 import { DifficultyLevelModule } from '../difficulty-level/difficulty-level.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -26,7 +27,8 @@ import { DifficultyLevelModule } from '../difficulty-level/difficulty-level.modu
     TimesModule,
     MealModule,
     CuisinesModule,
-    DifficultyLevelModule
+    DifficultyLevelModule,
+    ReactiveFormsModule
   ],
   providers:[RecipeResolve],
   exports: [RecipesListComponent]
