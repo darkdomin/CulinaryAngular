@@ -1,7 +1,8 @@
 <form [formGroup]="recipesForm">
   <label for="diff" >Poziom wykonania:</label><br />
-    <select id="diff" formControlName="difficult">
-      <option *ngFor="let level of difficultiesLevel" >{{ level.name }}</option>
+    <select id="diff" formControlName="difficulty">
+      <option>Brak</option>
+      <option value="{{level.name}}" *ngFor="let level of difficultiesLevel" >{{ level.name }}</option>
     </select>
   </form>
 

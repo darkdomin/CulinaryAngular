@@ -1,6 +1,9 @@
 <form [formGroup]="recipesForm">
   <label for="time2">Czas wykonania:</label><br>
-    <select id="time2" formControlName="time">
-      <option *ngFor="let time of times" >{{ time.name }}</option>
+    <select id="time2" formControlName="time" >
+      <option>Brak</option>
+      <option value="{{time.name}}" *ngFor="let time of times" >{{ time.name }}</option>
     </select>
   </form>
+
+

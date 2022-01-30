@@ -24,4 +24,8 @@ export class RecipesDetailsComponent implements OnInit {
   loadRecipe() {
      this.recipe = this.route.snapshot.data['recipe'];
   }
+
+  removeRecipe(recipe: Recipe){
+    this.recipesService.deleteRecipe(recipe.id).subscribe(()=>{});
+  }
 }

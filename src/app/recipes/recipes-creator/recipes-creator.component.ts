@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
-import { Recipe } from '../models/recipe';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { RecipesService } from '../recipes.service';
 
 @Component({
@@ -22,18 +21,16 @@ export class RecipesCreatorComponent implements OnInit {
 
   buildRecipeForm(): FormGroup{
     return this.formBuilder.group({
-     // id: '',
-      name: [''],
+      name: ['', Validators.required],
       grammar: '',
       execution: '',
       photo: '',
-      meal: '',
-      cuisine: '',
-      difficult: '',
-      time: ''
-    })
+      meal: ['', Validators.required],
+      cuisine: ['', Validators.required],
+      difficulty: ['', Validators.required],
+      time: ['', Validators.required]
+    });
   }
-
   addRecipe() {
     this.recipeService.createRecipe(this.recipesForm.value).subscribe(() => {})
   }

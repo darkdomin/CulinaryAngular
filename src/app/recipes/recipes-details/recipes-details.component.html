@@ -1,7 +1,22 @@
 <rl-header>
-  <p levels>Przepisy - {{ recipe?.name }}</p>
+  <h1 levels>Nazwa - {{ recipe?.name }}</h1>
 
   <div content>
-  <p>Przepis</p>
-</div>
+    <pre>Kuchnia: {{ recipe?.cuisine}}   Czas wykonania: {{ recipe?.time}}   Poziom wykonania: {{ recipe?.difficulty}}  Posiłek: {{ recipe?.meal}}</pre>
+  </div>
 </rl-header>
+<div>
+  <pre>gramatura: {{ recipe?.grammar }}</pre>
+</div>
+<div>
+  <pre>Wykonanie: {{recipe?.execution }}</pre>
+</div>
+<div>
+  <img src={{recipe?.photo}} alt= "Culinary Recipes - {{ recipe?.name }}" >
+</div>
+
+
+<button (click)="removeRecipe(recipe)" [routerLink]="['/recipes']" routerLinkActive="active">Usuń Przepis</button>
+
+
+

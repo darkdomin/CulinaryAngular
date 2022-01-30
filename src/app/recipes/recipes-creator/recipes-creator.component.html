@@ -1,38 +1,57 @@
 <rl-header>
-  <p levels> Nazwa Przepisu</p>
+  <p levels>Nazwa Przepisu</p>
 
   <div content>
-  <p>Przepis</p>
-</div>
+    <p>Przepis</p>
+  </div>
 </rl-header>
-<div >
-  <form [formGroup]="recipesForm" >
-    <label for="name">Nazwa</label><br>
-    <input formControlName="name" type="text" id="name" placeholder="Nazwa przepisu" /><br>
-    <!-- <p *ngIf="recipesForm.get('name').valid"> This field is required</p> -->
+<div>
+  <form [formGroup]="recipesForm">
+    <label for="name">Nazwa</label><br />
+    <input
+      formControlName="name"
+      type="text"
+      id="name"
+      placeholder="Nazwa przepisu"
+    /><br />
+    <p *ngIf="!recipesForm.get('name')?.valid">Uzupełnij Pole</p>
 
-    <label for="grammar">Gramatura</label><br>
-    <textarea formControlName="grammar" id="grammar" placeholder="Gramatura"></textarea><br>
+    <label for="grammar">Gramatura</label><br />
+    <textarea
+      formControlName="grammar"
+      id="grammar"
+      placeholder="Gramatura"
+    ></textarea
+    ><br />
 
-    <label for="execution">Wykonanie</label><br>
-    <textarea formControlName="execution" id="execution" placeholder="Wykonanie"></textarea><br>
+    <label for="execution">Wykonanie</label><br />
+    <textarea
+      formControlName="execution"
+      id="execution"
+      placeholder="Wykonanie"
+    ></textarea
+    ><br />
 
-    <label for="link">Link do zdjęcia</label><br>
-    <input formControlName="photo" id="link" placeholder="zdjęcie"><br>
+    <label for="link">Link do zdjęcia</label><br />
+    <input formControlName="photo" id="link" placeholder="zdjęcie" /><br />
 
-    <rl-meal [recipesForm]="recipesForm" ></rl-meal> <br>
+    <rl-meal [recipesForm]="recipesForm"></rl-meal>
+    <p *ngIf="!recipesForm.get('meal')?.valid">Uzupełnij Pole</p>
 
-    <rl-cuisines-list [recipesForm]="recipesForm"></rl-cuisines-list> <br>
+    <rl-cuisines-list [recipesForm]="recipesForm"></rl-cuisines-list>
+    <p *ngIf="!recipesForm.get('cuisine')?.valid">Uzupełnij Pole</p>
 
-    <rl-difficulty-level-list [recipesForm]="recipesForm"></rl-difficulty-level-list><br>
+    <rl-difficulty-level-list
+      [recipesForm]="recipesForm"
+    ></rl-difficulty-level-list>
+    <p *ngIf="!recipesForm.get('difficulty')?.valid">Uzupełnij Pole</p>
 
-    <rl-execution-time [recipesForm]="recipesForm"></rl-execution-time><br>
+    <rl-execution-time [recipesForm]="recipesForm"></rl-execution-time>
+    <p *ngIf="!recipesForm.get('time')?.valid">Uzupełnij Pole</p>
   </form>
-  <br>
+  <br />
 
-  <button  (click)="addRecipe()" >Dodaj Przepis</button>
+  <button (click)="addRecipe()">Dodaj Przepis</button>
 
-
-  <pre>{{recipesForm.value | json}}</pre>
-
+  <pre>{{ recipesForm.value | json }}</pre>
 </div>

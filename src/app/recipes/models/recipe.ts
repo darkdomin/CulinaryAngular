@@ -11,6 +11,6 @@ export interface Recipe {
   photo: string;
   meal: string;
   cuisine: string;
-  difficult: string;
+  difficulty: string;
   time: string;
 }
