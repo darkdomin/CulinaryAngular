@@ -1,22 +1,53 @@
-<rl-header>
-  <h1 levels>Nazwa - {{ recipe?.name }}</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-lg-4">
+      <div class="name">{{ recipe?.name }}</div>
 
-  <div content>
-    <pre>Kuchnia: {{ recipe?.cuisine}}   Czas wykonania: {{ recipe?.time}}   Poziom wykonania: {{ recipe?.difficulty}}  Posiłek: {{ recipe?.meal}}</pre>
+      <div class="gramm">
+        <span class="ingridient"> SKŁADNIKI<br /><br></span>
+        <pre>{{ recipe?.grammar }}</pre>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-lg-8">
+      <div class="photo">
+        <img
+          src="{{ recipe?.photo }}"
+          alt="Culinary Recipes - {{ recipe?.name }}"
+        />
+      </div>
+      <div class="underPhotoPanel">
+        <div class="time">
+          Czas:<br />
+          <span class="great">{{ recipe?.time }}</span>
+        </div>
+        <div class="cuisine">
+          Kuchnia:<br />
+          <span class="great">{{ recipe?.cuisine }}</span>
+        </div>
+        <div class="level">
+          Poziom:<br />
+          <span class="great">{{ recipe?.difficulty }}</span>
+        </div>
+        <div class="meal">
+          Posiłek:<br />
+          <span class="great">{{ recipe?.meal }}</span>
+        </div>
+      </div>
+      <div class="exec">
+        <!-- <pre> -->
+        {{ recipe?.execution }}
+        <!-- </pre> -->
+      </div>
+    </div>
   </div>
-</rl-header>
-<div>
-  <pre>gramatura: {{ recipe?.grammar }}</pre>
 </div>
-<div>
-  <pre>Wykonanie: {{recipe?.execution }}</pre>
+<div class="but">
+<button (click)="removeRecipe(recipe)" [routerLink]="['/recipes']" routerLinkActive="active">
+  Usuń Przepis
+</button>
+
+<button (click)="removeRecipe(recipe)" [routerLink]="['/recipes']" routerLinkActive="active">
+  aktualizuj Przepis
+</button>
 </div>
-<div>
-  <img src={{recipe?.photo}} alt= "Culinary Recipes - {{ recipe?.name }}" >
-</div>
-
-
-<button (click)="removeRecipe(recipe)" [routerLink]="['/recipes']" routerLinkActive="active">Usuń Przepis</button>
-
-
-

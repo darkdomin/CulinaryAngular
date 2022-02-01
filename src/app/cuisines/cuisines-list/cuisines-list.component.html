@@ -1,7 +1,10 @@
-<form [formGroup]="recipesForm">
-  <label for="type" >Rodzaj kuchnii:</label><br />
+<div class="row">
+  <form [formGroup]="recipesForm" class="cuisine">
+    <label for="type">Rodzaj kuchnii:</label><br />
     <select id="type" formControlName="cuisine">
-      <option>Brak</option>
-      <option value="{{cuisine.name}}" *ngFor="let cuisine of cuisines" >{{ cuisine.name }}</option>
+      <option value="{{ cuisine.name }}" *ngFor="let cuisine of cuisines">
+        {{ cuisine.name }}
+      </option>
     </select>
   </form>
+</div>

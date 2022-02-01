@@ -1,9 +1,15 @@
-<div class="sidebar">
-  <img src="../../../assets/logo.png" alt="culinary recipes" class="logo">
-  <nav>
-    <ul>
-      <li [routerLink]="['/recipes']" routerLinkActive="active" >Home</li>
-      <li>Przepisy</li>
-      <li [routerLink]="['/recipes/creator']" routerLinkActive="active" >Dodaj Przepis</li>
-    </ul>
-  </nav>
+    <div class="row">
+    <div class="text-center col-lg-12 text-lg-end">
+      <div class="link">
+        <ul>
+          <li [routerLink]="['/recipes']" routerLinkActive="active">Home</li>
+          <li [routerLink]="['/recipes']" routerLinkActive="active">Przepisy</li>
+          <li [routerLink]="['/recipes/creator']" routerLinkActive="active" >Dodaj Przepis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel">
+    <img src="../../../assets/panel.png" alt="culinary recipes" />
+    <div class="frame"></div>
+  </div>

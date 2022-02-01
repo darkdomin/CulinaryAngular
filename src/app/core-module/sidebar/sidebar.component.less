@@ -1,38 +1,43 @@
 @import '../../../assets/styles/variables.less';
-.sidebar{
-  width: 180px;
-  background: @blue;
+
+.link{
+  padding: 15px 0 5px 0;
+  background-color: rgba(12,12,16,90%);
+  color: @white;
   position: fixed;
-  top: 0;
-  left:0;
-  min-height: 100%;
+  right: 0;
+  left: 0;
 }
 
-.logo{
-  margin: 30px auto;
-  width: 150px;
-  display:block;
-}
-
-ul{
+ul {
+  display: inline-flex;
   list-style: none;
-  padding-left: 0;
 
-  li{
-    text-transform: uppercase;
-    font-weight: 700;
+  li {
+    padding-right: 2rem;
+    text-transform:capitalize;
     cursor: pointer;
-    color: @white;
-    padding: 10px;
-    border-bottom: 1px solid @white;
+    padding-right: 2rem;
+    text-transform:capitalize;
   }
 
   li:hover{
-    background: #10447d;
-    transition: linear 300ms;
-  }
-
-  li.active{
-    background: @cyan;
-  }
+        background: @red;
+        transition: linear 300ms;
+      }
 }
+
+.panel {
+  background-color: @darkGray;
+  margin-top: 60px;
+}
+
+.panel img {
+  max-width: 100%;
+}
+
+.frame{
+  background-color: @red;
+  height: 3px;
+}
+
