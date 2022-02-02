@@ -1,7 +1,5 @@
 <div class="container-fluid">
-
   <form [formGroup]="recipesForm" class="formularz">
-
     <div class="row">
       <div class="col name">
         <label for="name">Nazwa</label><br />
@@ -49,19 +47,22 @@
       <div class="col-6 col-lg-3">
         <rl-meal [recipesForm]="recipesForm"></rl-meal>
         <p *ngIf="!recipesForm.get('meal')?.valid">Uzupełnij Pole</p>
-      </div><br>
+      </div>
+      <br />
 
       <div class="col-6 col-lg-3">
         <rl-cuisines-list [recipesForm]="recipesForm"></rl-cuisines-list>
         <p *ngIf="!recipesForm.get('cuisine')?.valid">Uzupełnij Pole</p>
-      </div><br>
+      </div>
+      <br />
 
       <div class="col-6 col-lg-3">
         <rl-difficulty-level-list
           [recipesForm]="recipesForm"
         ></rl-difficulty-level-list>
         <p *ngIf="!recipesForm.get('difficulty')?.valid">Uzupełnij Pole</p>
-      </div><br>
+      </div>
+      <br />
 
       <div class="col-6 col-lg-3">
         <rl-execution-time [recipesForm]="recipesForm"></rl-execution-time>
@@ -71,7 +72,10 @@
   </form>
   <br />
 
-  <button (click)="addRecipe()">Dodaj Przepis</button>
+
+    <button class="button" role="button" (click)="addRecipe()">Dodaj</button>
+
+
 
   <!-- <pre>{{ recipesForm.value | json }}</pre> -->
 </div>

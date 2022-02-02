@@ -9,7 +9,7 @@
 
   input {
     width:100%;
-    border: 1px solid #d2cfc6;
+    border: 1px solid @gray;
     height: 50px;
     line-height: 1.8;
     padding: 0 0 0 20px;
@@ -27,7 +27,7 @@ label {
 
 
 .selection  {
-  background-color: @lightGray;
+  background-color: @gray;
   width: 100%;
   padding: 2rem 0;
   margin: 0 auto;
@@ -42,12 +42,39 @@ label {
 
 textarea{
   width:100%;
-  border: 1px solid #d2cfc6;
+  border: 1px solid @gray;
   min-height: 300px;
   line-height: 1.8;
   padding: 20px 10px 10px 20px;
   margin: 0 auto;
 }
+
+
+.button {
+  background-color: @red;
+  border-radius: 2px;
+  border: 0;
+ box-shadow: rgba(117, 2, 2, 0.5) 0 -1px 3px 0 inset,rgba(34, 0, 2, 0.1) 0 3px 6px 0;
+  box-sizing: border-box;
+  color: #fff;
+  display: block;
+  padding: 0.8rem;
+  width: 11rem;
+  margin: 1rem auto 3rem;
+  text-align: center;
+  touch-action: manipulation;
+  transition: all .3s cubic-bezier(.22, .61, .36, 1);
+}
+
+.button:hover {
+  background-color: @darkred;
+  transform: translateY(-2px);
+}
+
+
+
+
+
 
 
 

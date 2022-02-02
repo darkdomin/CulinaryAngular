@@ -2,9 +2,9 @@
     <div class="text-center col-lg-12 text-lg-end">
       <div class="link">
         <ul>
-          <li [routerLink]="['/recipes']" routerLinkActive="active">Home</li>
-          <li [routerLink]="['/recipes']" routerLinkActive="active">Przepisy</li>
-          <li [routerLink]="['/recipes/creator']" routerLinkActive="active" >Dodaj Przepis</li>
+          <li class="hover-underline-animation" [routerLink]="['/recipes']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><a>Home</a></li>
+          <li class="hover-underline-animation" [routerLink]="['/recipes/27']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><a>Przepisy</a></li>
+          <li class="hover-underline-animation" [routerLink]="['/recipes/creator']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><a>Dodaj</a></li>
         </ul>
       </div>
     </div>

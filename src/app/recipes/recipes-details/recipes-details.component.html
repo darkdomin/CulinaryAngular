@@ -42,12 +42,14 @@
     </div>
   </div>
 </div>
-<div class="but">
-<button (click)="removeRecipe(recipe)" [routerLink]="['/recipes']" routerLinkActive="active">
-  Usuń Przepis
+
+<div class="buttons">
+<button class="but" (click)="removeRecipe(recipe)" [routerLink]="['/recipes']" routerLinkActive="active">
+  Aktualizuj
 </button>
 
-<button (click)="removeRecipe(recipe)" [routerLink]="['/recipes']" routerLinkActive="active">
-  aktualizuj Przepis
+<button class="but" (click)="removeRecipe(recipe)" [routerLink]="['/recipes']" routerLinkActive="active">
+Usuń
 </button>
 </div>
+

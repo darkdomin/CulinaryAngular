@@ -2,29 +2,59 @@
 
 .link{
   padding: 15px 0 5px 0;
-  background-color: rgba(12,12,16,90%);
+  background-color: rgba(12,12,16,90%);//12,12,16
   color: @white;
   position: fixed;
   right: 0;
   left: 0;
 }
 
+
 ul {
   display: inline-flex;
   list-style: none;
 
-  li {
-    padding-right: 2rem;
-    text-transform:capitalize;
-    cursor: pointer;
-    padding-right: 2rem;
-    text-transform:capitalize;
-  }
 
-  li:hover{
-        background: @red;
-        transition: linear 300ms;
-      }
+  li {
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    padding-right: 3.5rem;
+  }
+  li.active {
+
+    text-decoration: underline;
+    text-decoration-thickness: 0.13rem;
+    text-underline-offset: 0.6rem;
+ }
+
+ }
+
+
+
+ .hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: @white ;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 20%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -0.5rem;
+  left: 0;
+  background-color: @white;
+  transform-origin: bottom right;
+  transition: transform 0.30s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .panel {
@@ -40,4 +70,3 @@ ul {
   background-color: @red;
   height: 3px;
 }
-
