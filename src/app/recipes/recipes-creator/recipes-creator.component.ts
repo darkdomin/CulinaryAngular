@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Recipe } from '../models/recipe';
 import { RecipesService } from '../recipes.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { RecipesService } from '../recipes.service';
 export class RecipesCreatorComponent implements OnInit {
 
   recipesForm!: FormGroup;
+  recipe!: Recipe;
 
   constructor(private formBuilder: FormBuilder,
               private recipeService: RecipesService) {

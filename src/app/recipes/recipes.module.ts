@@ -11,6 +11,7 @@ import { MealModule } from '../meals/meal.module';
 import { CuisinesModule } from '../cuisines/cuisines.module';
 import { DifficultyLevelModule } from '../difficulty-level/difficulty-level.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
 
 
 
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     RecipesListComponent,
     RecipesDetailsComponent,
-    RecipesCreatorComponent
+    RecipesCreatorComponent,
+    UpdateRecipeComponent
   ],
   imports: [
     CommonModule,

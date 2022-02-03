@@ -1,5 +1,5 @@
-<div class="container-fluid">
-  <form [formGroup]="recipesForm" class="formularz">
+<div class="container-fluid" >
+  <form [formGroup]="recipesForm" class="formularz" >
     <div class="row">
       <div class="col name">
         <label for="name">Nazwa</label><br />
@@ -9,7 +9,7 @@
           id="name"
           placeholder="Nazwa przepisu"
         />
-        <p *ngIf="!recipesForm.get('name')?.valid">Uzupełnij Pole</p>
+        <p *ngIf="!recipesForm.get('name')?.valid" >Uzupełnij Pole</p>
       </div>
     </div>
     <br />
@@ -45,36 +45,34 @@
 
     <div class="row mt-5 selection">
       <div class="col-6 col-lg-3">
-        <rl-meal [recipesForm]="recipesForm"></rl-meal>
+        <rl-meal [mealForm]="recipesForm" ></rl-meal>
         <p *ngIf="!recipesForm.get('meal')?.valid">Uzupełnij Pole</p>
       </div>
       <br />
 
       <div class="col-6 col-lg-3">
-        <rl-cuisines-list [recipesForm]="recipesForm"></rl-cuisines-list>
+        <rl-cuisines-list [cuisineForm]="recipesForm"></rl-cuisines-list>
         <p *ngIf="!recipesForm.get('cuisine')?.valid">Uzupełnij Pole</p>
       </div>
       <br />
 
       <div class="col-6 col-lg-3">
         <rl-difficulty-level-list
-          [recipesForm]="recipesForm"
+          [levelForm]="recipesForm"
         ></rl-difficulty-level-list>
         <p *ngIf="!recipesForm.get('difficulty')?.valid">Uzupełnij Pole</p>
       </div>
       <br />
 
       <div class="col-6 col-lg-3">
-        <rl-execution-time [recipesForm]="recipesForm"></rl-execution-time>
+        <rl-execution-time [timeForm]="recipesForm"></rl-execution-time>
         <p *ngIf="!recipesForm.get('time')?.valid">Uzupełnij Pole</p>
       </div>
     </div>
   </form>
   <br />
 
-
     <button class="button" role="button" (click)="addRecipe()">Dodaj</button>
-
 
 
   <!-- <pre>{{ recipesForm.value | json }}</pre> -->

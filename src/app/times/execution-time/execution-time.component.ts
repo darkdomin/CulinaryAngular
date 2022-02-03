@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ExecutionTimeComponent implements OnInit {
 
-  @Input() recipesForm!: FormGroup;
+  @Input('timeForm') recipesForm!: FormGroup;
   times!: Time[];
   timeForm!: FormGroup;
   constructor(private timeService: ExecutionTimeService,

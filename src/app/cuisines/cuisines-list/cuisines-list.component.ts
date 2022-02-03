@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class CuisinesListComponent implements OnInit {
 
-  @Input() recipesForm!: FormGroup;
+  @Input('cuisineForm') recipesForm!: FormGroup;
   cuisines!: Cuisine[];
   cuisineForm!: FormGroup;
   constructor(private serviceCuisine: CuisinesService,

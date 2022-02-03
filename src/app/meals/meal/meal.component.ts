@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class MealComponent implements OnInit {
 
-  @Input() recipesForm!: FormGroup;
+  @Input('mealForm') recipesForm!: FormGroup;
   meals!: Meal[];
   mealForm!: FormGroup;
   constructor(private mealService: MealService,

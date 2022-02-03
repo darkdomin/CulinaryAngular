@@ -10,7 +10,7 @@ import { Level } from '../models/level';
 })
 export class DifficultyLevelListComponent implements OnInit {
 
-  @Input() recipesForm!: FormGroup;
+  @Input('levelForm') recipesForm!: FormGroup;
   difficultiesLevel!: Level[];
   levelForm!: FormGroup;
 
