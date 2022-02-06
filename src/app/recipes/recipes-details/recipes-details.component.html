@@ -1,144 +1,89 @@
+<!-- DO POPRAWY CAŁOŚĆ-->
+
 <div class="container-fluid">
-  <div class="row" >
-    <div class="col-xs-12 col-lg-4">
-      <div class="name">{{ recipe?.name }}</div>
-
-      <div class="gramm">
-        <span class="ingridient"> SKŁADNIKI<br /><br></span>
-        <pre>{{ recipe?.grammar }}</pre>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-lg-8">
+  <div class="row">
+    <div class="col-xs-12 col-lg-12">
       <div class="photo">
         <img
           src="{{ recipe?.photo }}"
           alt="Culinary Recipes - {{ recipe?.name }}"
         />
       </div>
-      <div class="underPhotoPanel">
-        <div class="time">
-          Czas:<br />
-          <span class="great">{{ recipe?.time }}</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-lg-12">
+      <div class="name">
+        <div class="text">
+          <div class="line"></div>
+          <h3>{{ recipe?.name }}</h3>
         </div>
-        <div class="cuisine">
-          Kuchnia:<br />
-          <span class="great">{{ recipe?.cuisine }}</span>
-        </div>
-        <div class="level">
-          Poziom:<br />
-          <span class="great">{{ recipe?.difficulty }}</span>
-        </div>
-        <div class="meal">
-          Posiłek:<br />
-          <span class="great">{{ recipe?.meal }}</span>
-        </div>
-      </div>
-      <div class="exec">
-        <!-- <pre> -->
-        {{ recipe?.execution }}
-        <!-- </pre> -->
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-lg-12">
+      <div class="underPhotoPanel">
+        <div class="time">
+          Czas:<br />
+          <span class="great">{{ recipe?.timeId }}</span>
+        </div>
+        <div class="cuisine">
+          Kuchnia:<br />
+          <span class="great">{{ recipe?.cuisineId }}</span>
+        </div>
+        <div class="level">
+          Poziom:<br />
+          <span class="great">{{ recipe?.difficultId }}</span>
+        </div>
+        <div class="meal">
+          Posiłek:<br />
+          <span class="great">{{ recipe?.mealId }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 gramm">
+      <span class="ingridient"> SKŁADNIKI<br /><br /></span>
+      <pre>{{ recipe?.grammar }}</pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-lg-12">
+      <div class="exec">
+        {{ recipe?.execution }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 buttons">
+      <button
+        class="but hover-underline-animation"
+        (click)="switchUpdate()"
+        [routerLink]="['/home']"
+      >
+        Aktualizuj
+      </button>
+
+      <button
+        class="col-sm-6 but"
+        (click)="removeRecipe(recipe)"
+        [routerLink]="['/home']"
+      >
+        Usuń
+      </button>
+    </div>
+
+    <div class="updateForm" *ngIf="isUpdated == true">
+      <rl-update-recipe [updateForm]="recipesForm"></rl-update-recipe>
+    </div>
+
+    <!-- <pre>{{ recipesForm.value | json }}</pre> -->
+  </div>
 </div>
-
-<div class="buttons">
-<button class="but hover-underline-animation" (click)="switchUpdate()">
-  Aktualizuj
-</button>
-
-
-<button class="but" (click)="removeRecipe(recipe)" [routerLink]="['/recipes']" routerLinkActive="active"
->
-Usuń
-</button>
-
-
-<div *ngIf="isUpdated==true">
-  <form [formGroup]="recipesForm" class="formularz" >
-    <div class="row">
-      <div class="col name">
-        <label for="name">Nazwa</label><br />
-        <input
-          formControlName="name"
-          type="text"
-          id="name"
-          placeholder="Nazwa przepisu"
-        />
-        <p *ngIf="!recipesForm.get('name')?.valid" >Uzupełnij Pole</p>
-      </div>
-    </div>
-    <br />
-    <div class="row">
-      <div class="col">
-        <label for="grammar">Gramatura</label><br />
-        <textarea
-          formControlName="grammar"
-          id="grammar"
-          placeholder="Gramatura"
-        ></textarea>
-      </div>
-    </div>
-    <br />
-    <div class="row">
-      <div class="col">
-        <label for="execution">Wykonanie</label><br />
-        <textarea
-          formControlName="execution"
-          id="execution"
-          placeholder="Wykonanie"
-        ></textarea>
-      </div>
-    </div>
-    <br />
-
-    <div class="row">
-      <div class="col">
-        <label for="link">Link do zdjęcia</label><br />
-        <input formControlName="photo" id="link" placeholder="zdjęcie" /><br />
-      </div>
-    </div>
-
-    <div class="row mt-5 selection">
-      <div class="col-6 col-lg-3">
-        <rl-meal [mealForm]="recipesForm" ></rl-meal>
-        <p *ngIf="!recipesForm.get('meal')?.valid">Uzupełnij Pole</p>
-      </div>
-      <br />
-
-      <div class="col-6 col-lg-3">
-        <rl-cuisines-list [cuisineForm]="recipesForm"></rl-cuisines-list>
-        <p *ngIf="!recipesForm.get('cuisine')?.valid">Uzupełnij Pole</p>
-      </div>
-      <br />
-
-      <div class="col-6 col-lg-3">
-        <rl-difficulty-level-list
-          [levelForm]="recipesForm"
-        ></rl-difficulty-level-list>
-        <p *ngIf="!recipesForm.get('difficulty')?.valid">Uzupełnij Pole</p>
-      </div>
-      <br />
-
-      <div class="col-6 col-lg-3">
-        <rl-execution-time [timeForm]="recipesForm"></rl-execution-time>
-        <p *ngIf="!recipesForm.get('time')?.valid">Uzupełnij Pole</p>
-      </div>
-    </div>
-  </form>
-  <br />
-
-</div>
-
-
-
-
-
-
-
-
-
-  <!-- <pre>{{ recipesForm.value | json }}</pre> -->
-</div>
-

@@ -1,1 +1,73 @@
-<p>update-recipe works!</p>
+<form [formGroup]="recipesForm" class="formularz">
+  <div class="row">
+    <div class="col name" id="test">
+
+      <label for="name">Nazwa</label><br />
+      <input
+        formControlName="name"
+        type="text"
+        id="name"
+        placeholder="Nazwa przepisu"
+      />
+      <p *ngIf="!recipesForm.get('name')?.valid">Uzupełnij Pole</p>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col">
+      <label for="grammar">Gramatura</label><br />
+      <textarea
+        formControlName="grammar"
+        id="grammar"
+        placeholder="Gramatura"
+      ></textarea>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col">
+      <label for="execution">Wykonanie</label><br />
+      <textarea
+        formControlName="execution"
+        id="execution"
+        placeholder="Wykonanie"
+      ></textarea>
+    </div>
+  </div>
+  <br />
+
+  <div class="row">
+    <div class="col">
+      <label for="link">Link do zdjęcia</label><br />
+      <input formControlName="photo" id="link" placeholder="zdjęcie" /><br />
+    </div>
+  </div>
+
+  <div class="row mt-5 selection">
+    <div class="col-6 col-lg-3">
+      <rl-meal [mealForm]="recipesForm"></rl-meal>
+      <p *ngIf="!recipesForm.get('meal')?.valid">Uzupełnij Pole</p>
+    </div>
+    <br />
+
+    <div class="col-6 col-lg-3">
+      <rl-cuisines-list [cuisineForm]="recipesForm"></rl-cuisines-list>
+      <p *ngIf="!recipesForm.get('cuisine')?.valid">Uzupełnij Pole</p>
+    </div>
+    <br />
+
+    <div class="col-6 col-lg-3">
+      <rl-difficulty-level-list
+        [levelForm]="recipesForm"
+      ></rl-difficulty-level-list>
+      <p *ngIf="!recipesForm.get('difficult')?.valid">Uzupełnij Pole</p>
+    </div>
+    <br />
+
+    <div  class="col-6 col-lg-3">
+
+      <rl-execution-time [timeForm]="recipesForm"></rl-execution-time>
+      <p *ngIf="!recipesForm.get('time')?.valid">Uzupełnij Pole</p>
+    </div>
+  </div>
+</form>

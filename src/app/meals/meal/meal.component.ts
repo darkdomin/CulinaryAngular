@@ -33,7 +33,4 @@ export class MealComponent implements OnInit {
       name: ''
     })
   }
-
-  convertToInt(name: string){
-  }
 }

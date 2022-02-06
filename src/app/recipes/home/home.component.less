@@ -1,0 +1,137 @@
+@import '../../../assets/styles/variables.less';
+
+/*
+0.General
+1.Reset
+2.Header
+3.Photo
+4.Text
+*/
+
+ /*
+          1. RESET
+-----------------------------
+  */
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section {
+      display: block;
+  }
+
+
+   /*
+         0.General
+-----------------------------
+  */
+
+.oneRecipe {
+  width: 23rem;
+  height: 14.2rem;
+  margin: 0.5rem auto 4rem auto;
+}
+
+   /*
+          2. Header
+-----------------------------
+  */
+.header {
+  padding-top: 5rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: @green;
+  font-size: x-large;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+   /*
+          3.Photo
+-----------------------------
+  */
+
+.photo {
+  overflow: hidden;
+  width: 23rem;
+  height: 10rem;
+  border: 1px solid @lightGray;
+  background-color: @green;
+
+  img {
+    transition: all 0.2s ease-in-out;
+    max-width: 100%;
+  }
+
+    :hover img {
+    cursor: pointer;
+    -webkit-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+}
+
+.overlayT:hover{
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+
+   /*
+          4. Text
+-----------------------------
+  */
+p {
+   color: @red;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   padding-top: 0.1rem;
+   margin-bottom: 0.5rem;
+}
+
+.text {
+  display: flex;
+}
+
+.line {
+  flex: wrap;
+  width: 0.2rem;
+  max-height: 100%;
+  margin-right: 0.8rem;
+  border-radius: 5px;
+  padding-right: 0.25rem;
+  background-color: @green;
+}
+
+h3{
+  flex: wrap;
+  font-size: larger;
+  line-height: 1;
+  text-transform: lowercase;
+  padding-right: 0.5rem;
+}
+
+h3::first-letter {
+  text-transform: uppercase;
+}
+
+
+

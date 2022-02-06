@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
 import { RecipesCreatorComponent } from './recipes/recipes-creator/recipes-creator.component';
+import { HomeComponent } from './recipes/home/home.component';
 
 const routes: Routes = [
-  {path:'',pathMatch: 'full',redirectTo: 'recipes'},
+  {path:'',pathMatch: 'full',redirectTo: 'home'},
+  {path:'home', component: HomeComponent},
   {path:'recipes', component: RecipesListComponent},
   {path:'recipes/creator', component: RecipesCreatorComponent}
 ];
+const routerOptions : ExtraOptions = {
+  scrollPositionRestoration: 'enabled',
+  anchorScrolling: 'enabled'
+};
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,routerOptions)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

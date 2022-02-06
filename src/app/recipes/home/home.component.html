@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <main>
+    <div class="row">
+      <div class="header">
+        <h2>Ostatnie Przepisy</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="col-lg-4 oneRecipe"
+        *ngFor="let recipe of recipes"
+        (click)="goToRecipeDetails(recipe)"
+      >
+        <div class="photo">
+          <div class="overlayT">
+            <img
+              src="{{ recipe?.photo }}"
+              alt="Culinary Recipes - {{ recipe?.name }}"
+            />
+          </div>
+        </div>
+        <p>{{ recipe?.mealId }}</p>
+        <div class="text">
+          <div class="line"></div>
+          <h3>{{ recipe?.name }}</h3>
+        </div>
+      </div>
+      <ng-template #noRecipeInfo>
+        <div class="no-recipe-info">
+          <p>Aktualnie nie posiadasz żadnego przepisu w swojej bazie.</p>
+        </div>
+      </ng-template>
+    </div>
+  </main>
+</div>

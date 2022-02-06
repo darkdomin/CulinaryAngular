@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { RecipesService } from '../recipes.service';
 import { Recipe } from '../models/recipe';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
 
 @Component({
   selector: 'rl-recipes-details',
@@ -12,46 +11,61 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class RecipesDetailsComponent implements OnInit {
 
-   recipe!: Recipe;
-   recipesForm!: FormGroup;
-   isUpdated: boolean = false;
+  recipe!: Recipe;
+  recipesForm!: FormGroup;
+  isUpdated: boolean = false;
 
-  constructor(private recipesService: RecipesService,
-     private formBuilder: FormBuilder,
-
-    private route: ActivatedRoute){}
+  constructor(
+    private recipesService: RecipesService,
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-      this.loadRecipe();
-        this.recipesForm = this.buildRecipeForm();
+    this.loadRecipe();
+    this.recipesForm = this.buildRecipeForm();
+
   }
 
-  buildRecipeForm(): FormGroup{
+  buildRecipeForm(): FormGroup {
     return this.formBuilder.group({
       name: this.recipe.name,
       grammar: this.recipe.grammar,
       execution: this.recipe.execution,
       photo: this.recipe.photo,
-      meal: this.recipe.meal,
-      cuisine: this.recipe.cuisine,
-      difficulty: this.recipe.difficulty,
-      time: this.recipe.time
+      mealId: this.recipe.mealId,
+      cuisineId: this.recipe.cuisineId,
+      difficultId: this.recipe.difficultId,
+      timeId: this.recipe.timeId,
     });
   }
 
   loadRecipe() {
-     this.recipe = this.route.snapshot.data['recipe'];
+    this.recipe = this.route.snapshot.data['recipe'];
   }
 
-  removeRecipe(recipe: Recipe){
-    this.recipesService.deleteRecipe(recipe.id).subscribe(()=>{});
+  removeRecipe(recipe: Recipe) {
+    this.recipesService.deleteRecipe(recipe.id).subscribe(() => {});
   }
 
-  switchUpdate(){
-    if(this.isUpdated){
+  updateRecipe() {
+    this.recipesService
+      .updateRecipe(this.recipe.id, this.recipesForm.value)
+      .subscribe({});
+
+     // console.log("Aktualizacja -   "+JSON.stringify(this.recipesForm.value));
+  }
+
+  switchUpdate() {
+    if (this.isUpdated) {
+      this.updateRecipe();
       this.isUpdated = false;
-    }else{
+    } else {
       this.isUpdated = true;
     }
   }
+
+ // dodać zabezpiecznie przed przypadkowym usunięciem
+
+
 }

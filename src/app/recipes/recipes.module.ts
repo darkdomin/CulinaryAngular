@@ -12,6 +12,7 @@ import { CuisinesModule } from '../cuisines/cuisines.module';
 import { DifficultyLevelModule } from '../difficulty-level/difficulty-level.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -20,7 +21,8 @@ import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
     RecipesListComponent,
     RecipesDetailsComponent,
     RecipesCreatorComponent,
-    UpdateRecipeComponent
+    UpdateRecipeComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,6 @@ import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
     ReactiveFormsModule
   ],
   providers:[RecipeResolve],
-  exports: [RecipesListComponent]
+  exports: [RecipesListComponent, HomeComponent]
 })
 export class RecipesModule { }

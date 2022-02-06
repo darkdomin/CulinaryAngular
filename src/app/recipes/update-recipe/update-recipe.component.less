@@ -1,0 +1,82 @@
+@import '../../../assets/styles/variables.less';
+
+.formularz {
+  display: block;
+  margin: 2rem auto 0 auto;
+  width:90%;
+}
+
+
+  input {
+    width:100%;
+    border: 1px solid @gray;
+    height: 50px;
+    line-height: 1.8;
+    padding: 0 0 0 20px;
+  }
+
+
+label {
+  font-size: large;
+  text-transform: uppercase;
+  letter-spacing:1px;
+  font-weight: 100;
+  margin-top: 1rem;
+  width:100%;
+  text-align: left;
+}
+
+
+
+.selection  {
+  background-color: @gray;
+  width: 100%;
+  padding: 2rem 0;
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+.grammar{
+  display: block;
+  margin: 2rem auto 0 auto;
+  width:100%;
+}
+
+textarea{
+  width:100%;
+  border: 1px solid @gray;
+  min-height: 300px;
+  line-height: 1.8;
+  padding: 20px 10px 10px 20px;
+  margin: 0 auto;
+}
+
+
+.buttons {
+  text-align: end;
+  width: 98%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.but {
+  background-color: @red;
+  border-radius: 2px;
+  border: 0;
+  box-shadow: rgba(117, 2, 2, 0.5) 0 -1px 3px 0 inset,rgba(34, 0, 2, 0.1) 0 3px 6px 0;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  padding: 0.8rem;
+  width: 11rem;
+  margin-left: 3rem;
+  text-align: center;
+  touch-action: manipulation;
+  transition: all .2s cubic-bezier(.22, .61, .36, 1);
+}
+
+.but:hover {
+  background-color: @darkred;
+  transform: translateY(-2px);
+}

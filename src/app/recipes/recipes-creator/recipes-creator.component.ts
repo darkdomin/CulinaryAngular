@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { Recipe } from '../models/recipe';
 import { RecipesService } from '../recipes.service';
 
@@ -14,7 +15,8 @@ export class RecipesCreatorComponent implements OnInit {
   recipe!: Recipe;
 
   constructor(private formBuilder: FormBuilder,
-              private recipeService: RecipesService) {
+              private recipeService: RecipesService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -27,13 +29,21 @@ export class RecipesCreatorComponent implements OnInit {
       grammar: '',
       execution: '',
       photo: '',
-      meal: ['', Validators.required],
-      cuisine: ['', Validators.required],
-      difficulty: ['', Validators.required],
-      time: ['', Validators.required]
+      mealId: ['', Validators.required],
+      cuisineId: ['', Validators.required],
+      difficultId: ['', Validators.required],
+      timeId: ['', Validators.required]
     });
   }
   addRecipe() {
     this.recipeService.createRecipe(this.recipesForm.value).subscribe(() => {})
+  }
+
+  goToFragment(fragment: string){
+    this.router.navigateByUrl('#' + fragment);
+  }
+
+  execute(): void{
+    alert("Dodano przepis");
   }
 }

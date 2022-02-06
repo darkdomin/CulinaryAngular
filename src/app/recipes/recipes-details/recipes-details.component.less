@@ -5,6 +5,7 @@
 2.Grammature
 3.Photo
 4.Text - execution
+5.Buttony
 */
 
  /*
@@ -55,16 +56,40 @@
       border-spacing: 0;
   }
 
-  .container{
-    font-family: Calibri, 'Trebuchet MS', sans-serif;
-    font-size: large;
+.container{
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
+  font-size: large;
+}
 
-  }
+
+ .name{
+    font-size: 2rem;
 
 
-  .name{
-    padding: 8rem 2rem;
-    font-size: 3rem;
+    h3{
+      flex: wrap;
+      font-size: larger;
+      line-height: 1;
+      text-transform: capitalize;
+    }
+}
+
+.line {
+  flex: wrap;
+  width: 0.2rem;
+  max-height: 100%;
+  margin-right: 0.8rem;
+  margin-left: 2rem;
+  border-radius: 5px;
+  padding-right: 0.25rem;
+  background-color: @green;
+}
+
+
+
+.text {
+  display: flex;
+  margin-bottom: 1rem;
 }
 
 
@@ -75,20 +100,12 @@
   */
 
   .gramm {
-      margin-bottom: 2rem;
       line-height: 1.7;
-      padding-top: 2rem;
-      padding-left: 2rem;
+      padding: 2rem 2rem 1rem 2rem;
       background-color: @lightGray;
-      min-height: 80%;
+      min-height: 100%;
+      max-width: 100%;
   }
-
-
-
-  .ingridient{
-      font-weight: 900;
-  }
-
 
   /*
             3. photo
@@ -96,19 +113,28 @@
 
   */
 
+  .photo {
+    max-width: 45rem;
+    max-height: 22rem;
+    margin: 2rem 2rem;
+    overflow: hidden;
+  }
+
   .photo img{
-      max-width: 100%;
-      margin:0;
+    max-width: 100%;
+    padding: 0 0 -20px 2rem;
   }
 
   .underPhotoPanel {
       min-height: 4.5rem;
       padding: 10px;
-      background-color: @green;
+      background-color: @white;
       display: flex;
-      justify-content:space-around;
+      max-width: 45rem;
+      justify-content:space-between;
       text-align: center;
       max-height: 100%;
+      margin-left: 2rem;
   }
 
   /*
@@ -118,22 +144,31 @@
   */
 
   .exec {
+      max-width: 50rem;
       margin-top: 2rem;
       line-height: 1.7;
-      padding: 1rem 3rem;
+      padding: 1rem 2rem;
   }
 
   .great{
       font-size: 1rem;
       font-weight: bold;
+      color: @red;
   }
 
 
+  /*
+           5. Buttony
+  --------------------------------
+
+  */
+
   .buttons {
-    text-align: end;
-    width: 98%;
+    text-align: start;
+    width: 100%;
     margin-top: 1rem;
     margin-bottom: 2rem;
+
   }
 
   .but {
@@ -146,7 +181,8 @@
     display: inline-block;
     padding: 0.8rem;
     width: 11rem;
-    margin-left: 3rem;
+    margin-left: 2rem;
+
     text-align: center;
     touch-action: manipulation;
     transition: all .2s cubic-bezier(.22, .61, .36, 1);
@@ -156,3 +192,6 @@
     background-color: @darkred;
     transform: translateY(-2px);
   }
+
+
+

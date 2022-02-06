@@ -15,9 +15,10 @@ export class RecipesListComponent implements OnInit {
   ngOnInit(): void {
     this.loadRecipes();
   }
+
   recipes!: Recipe[];
 
-  goToRecipeDetails(recipe: Recipe){
+   goToRecipeDetails(recipe: Recipe){
       this.router.navigate(['/recipes', recipe?.id]);
   }
 
