@@ -17,7 +17,7 @@
       <div class="name">
         <div class="text">
           <div class="line"></div>
-          <h3>{{ recipe?.name }}</h3>
+          <h3>{{ recipe.name }}</h3>
         </div>
       </div>
     </div>
@@ -49,24 +49,23 @@
   <div class="row">
     <div class="col-sm-12 gramm">
       <span class="ingridient"> SKŁADNIKI<br /><br /></span>
-      <pre>{{ recipe?.grammar }}</pre>
+      <pre>{{ recipe.grammar }}</pre>
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-12 col-lg-12">
       <div class="exec">
-        {{ recipe?.execution }}
+        {{ recipe.execution }}
       </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" >
     <div class="col-sm-6 buttons">
       <button
         class="but hover-underline-animation"
-        (click)="switchUpdate()"
-        [routerLink]="['/home']"
+        (click)="switchUpdate()" 
       >
         Aktualizuj
       </button>
@@ -80,7 +79,7 @@
       </button>
     </div>
 
-    <div class="updateForm" *ngIf="isUpdated == true">
+    <div class="updateForm" *ngIf="isUpdated == true"   >
       <rl-update-recipe [updateForm]="recipesForm"></rl-update-recipe>
     </div>
 

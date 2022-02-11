@@ -41,7 +41,7 @@ export class RecipesDetailsComponent implements OnInit {
   }
 
   loadRecipe() {
-    this.recipe = this.route.snapshot.data['recipe'];
+    this.recipe = this.route.snapshot.data['recipeResolve'];
   }
 
   removeRecipe(recipe: Recipe) {
@@ -64,8 +64,6 @@ export class RecipesDetailsComponent implements OnInit {
       this.isUpdated = true;
     }
   }
-
  // dodać zabezpiecznie przed przypadkowym usunięciem
-
 
 }

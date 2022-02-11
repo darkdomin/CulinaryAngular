@@ -29,10 +29,10 @@ export class RecipesCreatorComponent implements OnInit {
       grammar: '',
       execution: '',
       photo: '',
-      mealId: ['', Validators.required],
-      cuisineId: ['', Validators.required],
-      difficultId: ['', Validators.required],
-      timeId: ['', Validators.required]
+      mealId: ['1'],
+      cuisineId: ['1'],
+      difficultId: ['1'],
+      timeId: ['3']
     });
   }
   addRecipe() {

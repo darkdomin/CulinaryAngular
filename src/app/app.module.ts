@@ -24,10 +24,10 @@ import { DifficultyLevelModule } from './difficulty-level/difficulty-level.modul
     CoreModule,
     AppRoutingModule,
     RecipesRoutingModule,
-    TimesModule,
-    MealModule,
-    CuisinesModule,
-    DifficultyLevelModule
+    // TimesModule,
+   //  MealModule,
+    // CuisinesModule,
+    // DifficultyLevelModule
   ],
   providers: [RecipesService, HttpClient],
   bootstrap: [AppComponent]

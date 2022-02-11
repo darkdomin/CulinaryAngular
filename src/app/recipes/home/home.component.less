@@ -1,4 +1,6 @@
 @import '../../../assets/styles/variables.less';
+@import '../../../assets/styles/base';
+
 
 /*
 0.General
@@ -50,16 +52,30 @@
   margin: 0.5rem auto 4rem auto;
 }
 
+.no-recipe-info{
+  text-align: center;
+  font-size: @font-size-base;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 100px;
+
+  p {
+    color: black;
+  }
+}
+
+
    /*
           2. Header
 -----------------------------
   */
+
 .header {
   padding-top: 5rem;
   text-align: center;
   text-transform: uppercase;
   color: @green;
-  font-size: x-large;
+  font-size: @font-size-4;
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -99,6 +115,7 @@
           4. Text
 -----------------------------
   */
+
 p {
    color: @red;
    text-transform: uppercase;
@@ -123,7 +140,7 @@ p {
 
 h3{
   flex: wrap;
-  font-size: larger;
+  font-size: @font-size-5;
   line-height: 1;
   text-transform: lowercase;
   padding-right: 0.5rem;
@@ -132,6 +149,5 @@ h3{
 h3::first-letter {
   text-transform: uppercase;
 }
-
 
 

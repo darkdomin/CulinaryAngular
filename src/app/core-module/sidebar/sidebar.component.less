@@ -1,8 +1,9 @@
 @import '../../../assets/styles/variables.less';
+@import '../../../assets/styles/base.less';
 
 .link{
-  padding: 15px 0 5px 0;
-  background-color: rgba(12,12,16,90%);//12,12,16
+  padding: 25px 0 15px 0;
+  background-color: rgba(12,12,16,90%);
   color: @white;
   position: fixed;
   right: 0;
@@ -27,11 +28,9 @@ ul {
     text-decoration-thickness: 0.13rem;
     text-underline-offset: 0.6rem;
     font-weight: 400;
- }
+  }
 
  }
-
-
 
  .hover-underline-animation {
   display: inline-block;
@@ -59,11 +58,13 @@ ul {
 
 .panel {
   background-color: @darkGray;
-  margin-top: 60px;
+  margin-top: 80px;
+  max-height: 99px;
 }
 
 .panel img {
   max-width: 100%;
+
 }
 
 .frame{

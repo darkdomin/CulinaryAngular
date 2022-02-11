@@ -32,7 +32,7 @@ import { HomeComponent } from './home/home.component';
     MealModule,
     CuisinesModule,
     DifficultyLevelModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers:[RecipeResolve],
   exports: [RecipesListComponent, HomeComponent]

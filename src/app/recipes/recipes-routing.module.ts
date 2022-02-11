@@ -8,9 +8,10 @@ const detailsRouts: Routes = [
   {
    path: 'recipes/:id',
    component: RecipesDetailsComponent,
-   resolve: {recipe: RecipeResolve}
+   resolve: {recipeResolve: RecipeResolve}
   }
 ];
+
 
 @NgModule({
   imports: [

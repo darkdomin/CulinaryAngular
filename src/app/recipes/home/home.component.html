@@ -1,10 +1,11 @@
-<div class="container-fluid">
-  <main>
-    <div class="row">
+<main>
+  <div class="container-fluid">
+    <div class="row" *ngIf="recipes && recipes.length > 0 else noRecipeInfo">
       <div class="header">
         <h2>Ostatnie Przepisy</h2>
       </div>
     </div>
+
     <div class="row">
       <div
         class="col-lg-4 oneRecipe"
@@ -31,5 +32,5 @@
         </div>
       </ng-template>
     </div>
-  </main>
-</div>
+  </div>
+</main>

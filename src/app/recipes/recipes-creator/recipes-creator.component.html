@@ -11,7 +11,7 @@
           id="name"
           placeholder="Nazwa przepisu"
         />
-        <p *ngIf="!recipesForm.get('name')?.valid" >Uzupełnij Pole</p>
+        <p *ngIf="!recipesForm.get('name')?.valid" class="error">This field is required</p>
       </div>
     </div>
     <br />
@@ -48,13 +48,11 @@
     <div class="row mt-5 selection">
       <div class="col-6 col-lg-3">
         <rl-meal [mealForm]="recipesForm" ></rl-meal>
-        <p *ngIf="!recipesForm.get('mealId')?.valid">Uzupełnij Pole</p>
       </div>
       <br />
 
       <div class="col-6 col-lg-3">
         <rl-cuisines-list [cuisineForm]="recipesForm"></rl-cuisines-list>
-        <p *ngIf="!recipesForm.get('cuisineId')?.valid">Uzupełnij Pole</p>
       </div>
       <br />
 
@@ -62,20 +60,15 @@
         <rl-difficulty-level-list
           [levelForm]="recipesForm"
         ></rl-difficulty-level-list>
-        <p *ngIf="!recipesForm.get('difficultId')?.valid">Uzupełnij Pole</p>
       </div>
       <br />
 
       <div class="col-6 col-lg-3">
         <rl-execution-time [timeForm]="recipesForm"></rl-execution-time>
-        <p *ngIf="!recipesForm.get('timeId')?.valid">Uzupełnij Pole</p>
       </div>
     </div>
   </form>
   <br />
 
     <button class="button" role="button"  (click)="addRecipe()" (click)="execute()" >Create</button>
-
-
-  <pre>{{ recipesForm.value | json }}</pre>     "
 </div>
