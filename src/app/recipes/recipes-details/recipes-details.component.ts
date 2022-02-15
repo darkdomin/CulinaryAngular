@@ -14,6 +14,7 @@ export class RecipesDetailsComponent implements OnInit {
   recipe!: Recipe;
   recipesForm!: FormGroup;
   isUpdated: boolean = false;
+  remover: boolean = false;
 
   constructor(
     private recipesService: RecipesService,
@@ -64,6 +65,8 @@ export class RecipesDetailsComponent implements OnInit {
       this.isUpdated = true;
     }
   }
- // dodać zabezpiecznie przed przypadkowym usunięciem
 
+  switchRemove(){
+    this.remover = !this.remover;
+  }
 }

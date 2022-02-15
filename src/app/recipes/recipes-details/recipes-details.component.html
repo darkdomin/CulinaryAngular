@@ -61,25 +61,39 @@
     </div>
   </div>
 
+  <div class="container" *ngIf="remover">
+    <div class="row alertMy">
+      <div class="col">
+       <p><span class="great">Uwaga!!!</span><br>Czy jesteś pewny że chcesz usunąć przepis?</p>
+        <div class="row">
+           <div class="col-xs-6 justify-content-between">
+            <button class=" but light" (click)="switchRemove()" >Cofnij</button>
+            <button class="buttons but" (click)="removeRecipe(recipe)" (click)="switchRemove()"  [routerLink]="['/home']">Usuń</button>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row" >
     <div class="col-sm-6 buttons">
       <button
-        class="but hover-underline-animation"
-        (click)="switchUpdate()" 
+        class="but butSizeGeneral hover-underline-animation"
+        (click)="switchUpdate()"
       >
         Aktualizuj
       </button>
 
       <button
-        class="col-sm-6 but"
-        (click)="removeRecipe(recipe)"
-        [routerLink]="['/home']"
-      >
+        class="col-sm-6 but butSizeGeneral" (click)="switchRemove()">
         Usuń
       </button>
     </div>
 
-    <div class="updateForm" *ngIf="isUpdated == true"   >
+
+
+
+    <div class="updateForm" *ngIf="isUpdated == true">
       <rl-update-recipe [updateForm]="recipesForm"></rl-update-recipe>
     </div>
 

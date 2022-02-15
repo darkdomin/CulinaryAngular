@@ -152,7 +152,7 @@
 
   .great{
       font-size: 1rem;
-      font-weight: bold;
+      font-weight: bolder;
       color: @red;
   }
 
@@ -168,7 +168,6 @@
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 2rem;
-
   }
 
   .but {
@@ -179,8 +178,7 @@
     box-sizing: border-box;
     color: #fff;
     display: inline-block;
-    padding: 0.8rem;
-    width: 11rem;
+    // .butSize;
     margin-left: 2rem;
 
     text-align: center;
@@ -188,9 +186,46 @@
     transition: all .2s cubic-bezier(.22, .61, .36, 1);
   }
 
+  .butSizeGeneral {
+    padding: 0.8rem;
+    width: 11rem;
+  }
+
   .but:hover {
     background-color: @darkred;
     transform: translateY(-2px);
+  }
+
+  .alertMy {
+    background-color: @lightGray;
+    width: 27rem;
+    min-height: 18rem;
+    padding: 3.5rem 2.5rem 3.5rem 2.5rem;
+    border: solid 1px black;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 100;
+    margin-top: -9rem;
+    margin-left: -13.5rem;
+
+    p {
+      color: @red;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    button {
+      width: 8rem;
+      padding: 0.4rem;
+    }
+
+    .light {
+      border: 1px solid black;
+      background-color: @gray;
+      color: black;
+    }
+
   }
 
 
