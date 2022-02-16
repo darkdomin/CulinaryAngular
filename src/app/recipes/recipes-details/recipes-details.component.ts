@@ -52,7 +52,7 @@ export class RecipesDetailsComponent implements OnInit {
   updateRecipe() {
     this.recipesService
       .updateRecipe(this.recipe.id, this.recipesForm.value)
-      .subscribe({});
+      .subscribe(()=>{});
 
      // console.log("Aktualizacja -   "+JSON.stringify(this.recipesForm.value));
   }

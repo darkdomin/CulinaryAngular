@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { DifficultyLevelService } from '../difficulty-level.service';
-import { Level } from '../models/level';
+import { Difficulty } from '../models/difficulty';
 
 @Component({
   selector: 'rl-difficulty-level-list',
@@ -11,27 +11,35 @@ import { Level } from '../models/level';
 export class DifficultyLevelListComponent implements OnInit {
 
   @Input('levelForm') recipesForm!: FormGroup;
-  difficultiesLevel!: Level[];
-  levelForm!: FormGroup;
+  difficultiesLevel!: Difficulty[];
 
-  constructor(private serviceLevel: DifficultyLevelService,
-              private formBuilder: FormBuilder) { }
+  constructor(private serviceLevel: DifficultyLevelService) { }
 
   ngOnInit(): void {
     this.loadLevels();
-    this.levelForm = this.buildMealForm();
   }
 
   loadLevels(): void{
     this.serviceLevel.getDifficultyLevels().subscribe((levels)=>{
     this.difficultiesLevel = levels;
+    this.getLevelName();
+    this.getLevelId();
+    this.setForm();
     })
   }
 
-  buildMealForm(): FormGroup{
-    return this.formBuilder.group({
-      id: '',
-      name: ''
-    })
-  }
+    // pobiera wybraną nazwe z formy
+    getLevelName(): string {
+      return this.recipesForm.get('difficultId')?.value;
+    }
+    //pobiera Id z przypisanej nazwy
+    getLevelId(): number {
+      return this.difficultiesLevel.find((e) => e.name == this.getLevelName())!.id;
+    }
+    //Przypisuje Id do formy
+    setForm(){
+      this.recipesForm.patchValue({
+        difficultId: this.getLevelId(),
+      });
+    }
 }

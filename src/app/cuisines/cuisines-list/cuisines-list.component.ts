@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CuisinesService } from '../cuisines.service';
 import { Cuisine } from '../cuisine';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'rl-cuisines-list',
@@ -12,25 +12,35 @@ export class CuisinesListComponent implements OnInit {
 
   @Input('cuisineForm') recipesForm!: FormGroup;
   cuisines!: Cuisine[];
-  cuisineForm!: FormGroup;
-  constructor(private serviceCuisine: CuisinesService,
-              private formBuilder: FormBuilder) { }
+
+  constructor(private serviceCuisine: CuisinesService) { }
 
   ngOnInit(): void {
     this.loadCusines();
-    this.cuisineForm = this.buildCuisineForm();
   }
 
   loadCusines(): void{
     this.serviceCuisine.getCuisines().subscribe((cuisines)=>{
     this.cuisines = cuisines;
+    this.getCuisineName();
+    this.getCuisineId();
+    this.setForm();
     })
   }
 
-  buildCuisineForm(): FormGroup{
-    return this.formBuilder.group({
-      id: '',
-      name: ''
-    })
-  }
+    // pobiera wybraną nazwe z formy
+    getCuisineName(): string {
+      return this.recipesForm.get('cuisineId')?.value;
+
+    }
+    //pobiera Id z przypisanej nazwy
+    getCuisineId(): number {
+      return this.cuisines.find((e) => e.name == this.getCuisineName())!.id;
+    }
+    //Przypisuje Id do formy
+    setForm(){
+      this.recipesForm.patchValue({
+        cuisineId: this.getCuisineId(),
+      });
+    }
 }

@@ -29,5 +29,5 @@ export class HomeComponent implements OnInit {
 
   goToRecipeDetails(recipe: Recipe){
     this.router.navigate(['/recipes', recipe?.id]);
-}
+  }
 }

@@ -1,4 +1,4 @@
-export interface Level{
+export interface Difficulty{
     id: number;
     name: string;
 }

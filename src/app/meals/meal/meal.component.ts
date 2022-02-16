@@ -1,36 +1,46 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Meal } from '../models/meal';
 import { MealService } from '../meals.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'rl-meal',
   templateUrl: './meal.component.html',
-  styleUrls: ['./meal.component.less']
+  styleUrls: ['./meal.component.less'],
 })
 export class MealComponent implements OnInit {
-
   @Input('mealForm') recipesForm!: FormGroup;
   meals!: Meal[];
-  mealForm!: FormGroup;
-  constructor(private mealService: MealService,
-              private formBuilder: FormBuilder) { }
+  constructor(
+    private mealService: MealService
+  ) {}
 
   ngOnInit(): void {
     this.loadMeals();
-    this.mealForm = this.buildMealForm();
   }
 
-  loadMeals(): void{
-    this.mealService.getMeals().subscribe((meals)=>{
+  loadMeals(): void {
+    this.mealService.getMeals().subscribe((meals) => {
       this.meals = meals;
-    })
+      this.getMealName();
+      this.getMealId();
+      this.setForm();
+    });
   }
 
-  buildMealForm(): FormGroup{
-    return this.formBuilder.group({
-      id: '',
-      name: ''
-    })
+  // pobiera wybraną nazwe z formy
+  getMealName(): string {
+    return this.recipesForm.get('mealId')?.value;
+  }
+  //pobiera Id z przypisanej nazwy
+  getMealId(): number {
+      return this.meals.find((e) => e.name == this.getMealName())!.id;
+  }
+  //Przypisuje Id do formy
+  setForm() {
+    this.recipesForm.patchValue({
+      mealId: this.getMealId(),
+    });
   }
 }
