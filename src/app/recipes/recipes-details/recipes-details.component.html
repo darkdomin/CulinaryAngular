@@ -1,4 +1,17 @@
-<div class="container-fluid">
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-12 col-lg-12">
+      <div class="title">
+        <div class="text">
+         <div class="line"></div>
+          <!--<div class="insertLetter">{{getFirstLetter()}}</div> -->
+          <p>{{recipe.name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-xs-12 col-lg-12">
       <div class="photo">
@@ -6,17 +19,6 @@
           src="{{ recipe?.photo }}"
           alt="Culinary Recipes - {{ recipe?.name }}"
         />
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-lg-12">
-      <div class="name">
-        <div class="text">
-          <div class="line"></div>
-          <h3>{{ recipe.name }}</h3>
-        </div>
       </div>
     </div>
   </div>
@@ -46,7 +48,8 @@
 
   <div class="row">
     <div class="col-sm-12 gramm">
-      <span class="ingridient"> SKŁADNIKI<br /><br /></span>
+      <span class="ingridient"> Składniki:</span>
+
       <pre>{{ recipe.grammar }}</pre>
     </div>
   </div>
@@ -54,6 +57,7 @@
   <div class="row">
     <div class="col-xs-12 col-lg-12">
       <div class="exec">
+        <span class="ingridient"> Wykonanie:</span>
         {{ recipe.execution }}
       </div>
     </div>
@@ -88,7 +92,7 @@
       <button
         class="but butSizeGeneral hover-underline-animation"
         (click)="switchUpdate()"
-    
+
       >
         Aktualizuj
       </button>

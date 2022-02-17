@@ -69,4 +69,11 @@ export class RecipesDetailsComponent implements OnInit {
   switchRemove(){
     this.remover = !this.remover;
   }
+
+  getFirstLetter():string{
+    return this.recipe.name.charAt(0);
+  }
+  removeFirstLetter(): string{
+    return this.recipe.name.slice(1, this.recipe.name.length);
+  }
 }
