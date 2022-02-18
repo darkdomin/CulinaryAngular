@@ -76,4 +76,8 @@ export class RecipesDetailsComponent implements OnInit {
   removeFirstLetter(): string{
     return this.recipe.name.slice(1, this.recipe.name.length);
   }
+
+  lowerCase(text: string): string{
+    return text.toLowerCase();
+  }
 }

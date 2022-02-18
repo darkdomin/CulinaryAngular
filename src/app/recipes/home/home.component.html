@@ -1,5 +1,5 @@
 <main>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row" *ngIf="recipes && recipes.length > 0 else noRecipeInfo">
       <div class="header">
         <h2>Ostatnie Przepisy</h2>
@@ -8,22 +8,25 @@
 
     <div class="row">
       <div
-        class="col-lg-4 oneRecipe"
+        class="col-lg-4 oneRecipe container"
         *ngFor="let recipe of recipes"
         (click)="goToRecipeDetails(recipe)"
       >
-        <div class="photo">
+        <div class="photo ">
           <div class="overlayT">
             <img
               src="{{ recipe?.photo }}"
+              class="rounded"
               alt="Culinary Recipes - {{ recipe?.name }}"
             />
           </div>
         </div>
-        <p>{{ recipe?.mealId }}</p>
         <div class="text">
-          <div class="line"></div>
+          <p>{{ recipe?.mealId }}</p>
           <h3>{{ recipe?.name }}</h3>
+        </div>
+        <div class="read">
+          Czytaj <span>&#62; &#62;</span>
         </div>
       </div>
       <ng-template #noRecipeInfo>
@@ -34,3 +37,4 @@
     </div>
   </div>
 </main>
+

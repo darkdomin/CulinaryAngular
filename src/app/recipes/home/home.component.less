@@ -3,53 +3,25 @@
 
 
 /*
-0.General
-1.Reset
+1. general
 2.Header
 3.Photo
 4.Text
 */
 
- /*
-          1. RESET
------------------------------
-  */
-  html, body, div, span, applet, object, iframe,
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, abbr, acronym, address, big, cite, code,
-  del, dfn, em, img, ins, kbd, q, s, samp,
-  small, strike, strong, sub, sup, tt, var,
-  b, u, i, center,
-  dl, dt, dd, ol, ul, li,
-  fieldset, form, label, legend,
-  table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed,
-  figure, figcaption, footer, header, hgroup,
-  menu, nav, output, ruby, section, summary,
-  time, mark, audio, video {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 100%;
-      font: inherit;
-      vertical-align: baseline;
-  }
-  /* HTML5 display-role reset for older browsers */
-  article, aside, details, figcaption, figure,
-  footer, header, hgroup, menu, nav, section {
-      display: block;
-  }
 
 
    /*
-         0.General
+         1.General
 -----------------------------
   */
 
 .oneRecipe {
   width: 23rem;
-  height: 14.2rem;
+  height: 24rem;
   margin: 0.5rem auto 4rem auto;
+  cursor: pointer;
+  background-color: @white;
 }
 
 .no-recipe-info{
@@ -73,10 +45,10 @@
 .header {
   padding-top: 5rem;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: lowercase;
   color: @red;
-  font-size: @font-size-4;
-  font-weight: bold;
+  font-size: @font-size-3;
+  font-weight: 400;
   letter-spacing: 1px;
   margin-bottom: 1rem;
 }
@@ -89,12 +61,9 @@
 .photo {
   overflow: hidden;
   width: 23rem;
-  height: 10rem;
-  border-radius: 2px;
+  height: 12rem;
   background-color: @lightGray;
-  -webkit-box-shadow: 1px -3px 48px -4px rgba(0,0,0,0.20);
-  -moz-box-shadow: 1px -3px 48px -4px rgba(0,0,0,0.20);
-  box-shadow: 1px -3px 48px -4px rgba(0,0,0,0.20);
+
 
   img {
     transition: all 0.2s ease-in-out;
@@ -122,29 +91,21 @@
 
 p {
    color: @red;
-   text-transform: uppercase;
-   letter-spacing: 1px;
+   text-transform: capitalize;
    padding-top: 0.1rem;
    margin-bottom: 0.5rem;
 }
 
 .text {
-  display: flex;
-}
-
-.line {
-  flex: wrap;
-  width: 0.2rem;
-  max-height: 100%;
-  margin-right: 0.8rem;
-  border-radius: 5px;
-  padding-right: 0.25rem;
-  background-color: @red;
+  padding: 1.5rem 1rem 2rem 1rem;
+  height: 10rem;
+  background-color: @white;
 }
 
 h3{
   flex: wrap;
-  font-size: @font-size-5;
+  font-size: @font-size-base;
+  font-weight: 600;
   line-height: 1;
   text-transform: lowercase;
   padding-right: 0.5rem;
@@ -152,6 +113,13 @@ h3{
 
 h3::first-letter {
   text-transform: uppercase;
+}
+
+.read {
+  padding: 0  0  0 1rem;
+  color: @red;
+  text-transform: capitalize;
+  background-color: @white;
 }
 
 

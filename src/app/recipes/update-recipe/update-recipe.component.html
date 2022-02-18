@@ -1,7 +1,6 @@
 <form [formGroup]="recipesForm" class="formularz">
   <div class="row">
     <div class="col name" id="test">
-
       <label for="name">Nazwa</label><br />
       <input
         formControlName="name"
@@ -46,13 +45,11 @@
   <div class="row mt-5 selection">
     <div class="col-6 col-lg-3">
       <rl-meal [mealForm]="recipesForm"></rl-meal>
-      <!-- <p *ngIf="!recipesForm.get('mealId')?.valid" class="errorShort">This field is required</p> -->
     </div>
     <br />
 
     <div class="col-6 col-lg-3">
       <rl-cuisines-list [cuisineForm]="recipesForm"></rl-cuisines-list>
-      <!-- <p *ngIf="!recipesForm.get('cuisineId')?.valid" class="errorShort">This field is required</p> -->
     </div>
     <br />
 
@@ -60,17 +57,12 @@
       <rl-difficulty-level-list
         [levelForm]="recipesForm"
       ></rl-difficulty-level-list>
-      <!-- <p *ngIf="!recipesForm.get('difficultId')?.valid" class="errorShort">This field is required</p> -->
     </div>
     <br />
 
     <div  class="col-6 col-lg-3">
-
       <rl-execution-time [timeForm]="recipesForm"></rl-execution-time>
-      <!-- <p *ngIf="!recipesForm.get('timeId')?.valid" class="errorShort">This field is required</p> -->
     </div>
 
   </div>
-
 </form>
-<pre>{{ recipesForm.value | json}}</pre>

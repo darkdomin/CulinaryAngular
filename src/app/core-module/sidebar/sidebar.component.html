@@ -1,19 +1,41 @@
+<header>
+  <nav>
     <div class="row">
-    <div class="text-center col-lg-12 text-lg-end">
-      <div class="link">
-        <ul>
-          <li class="hover-underline-animation" [routerLink]="['/home']" [routerLinkActive]="'active'"
-          [routerLinkActiveOptions]="{exact: true}">Home</li>
-          <li class="hover-underline-animation" [routerLink]="['/recipes']" [routerLinkActive]="'active'"
-          [routerLinkActiveOptions]="{exact: true}" >Recipes</li>
-          <li class="hover-underline-animation" [routerLink]="['/recipes/creator']" [routerLinkActive]="'active'"
-          [routerLinkActiveOptions]="{exact: true}">Create</li>
-        </ul>
+      <div class="text-center col-xs-12 text-lg-end">
+        <div class="link">
+          <ul>
+            <li
+              class="hover-underline-animation"
+              [routerLink]="['/home']"
+              [routerLinkActive]="'active'"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              Home
+            </li>
+            <li
+              class="hover-underline-animation"
+              [routerLink]="['/recipes']"
+              [routerLinkActive]="'active'"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              Recipes
+            </li>
+            <li
+              class="hover-underline-animation"
+              [routerLink]="['/recipes/creator']"
+              [routerLinkActive]="'active'"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              Create
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="panel">
-    <img src="../../../assets/panel.png" alt="culinary recipes" />
-    <div class="frame"></div>
-  </div>
+    <div class="panel">
+      <img src="../../../assets/panel.png" alt="culinary recipes" />
 
+    </div>
+    <div class="frame"></div>
+  </nav>
+</header>
