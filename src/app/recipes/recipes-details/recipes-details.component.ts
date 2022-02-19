@@ -3,6 +3,7 @@ import { ActivatedRoute} from '@angular/router';
 import { RecipesService } from '../recipes.service';
 import { Recipe } from '../models/recipe';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'rl-recipes-details',
