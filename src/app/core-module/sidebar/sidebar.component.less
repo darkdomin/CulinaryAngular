@@ -15,7 +15,7 @@ ul {
   list-style: none;
 
   li {
-    .header;
+    text-transform: lowercase;
     color: white;
     letter-spacing: 2px;
     cursor: pointer;
@@ -26,9 +26,8 @@ ul {
   }
 
   li.active {
-    text-decoration: underline;
-    text-decoration-thickness: 0.16rem;
-    text-underline-offset: 8px;
+    color: @red;
+    font-weight: 900;
   }
 }
 
@@ -49,6 +48,11 @@ ul {
   background-color: @white;
   transform-origin: bottom right;
   transition: transform 0.30s ease-out;
+
+}
+.first:after {
+  position: absolute;
+  left:  3.5rem;
 }
 
 .hover-underline-animation:hover:after {
@@ -73,7 +77,7 @@ ul {
      max-width: 100%;
    }
  }
- 
+
  .frame{
    background-color: @red;
    height: 4px;

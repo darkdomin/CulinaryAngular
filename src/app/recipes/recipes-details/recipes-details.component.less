@@ -12,21 +12,21 @@
 
 
 .titleHeader {
-  margin-top: @font-size-3;
-  margin-bottom: @font-size-1 * 2;
+  margin-top: @font-size-2;
+  margin-bottom: @font-size-1 ;
   padding-left: 1rem;
 
   p{
     .title;
+    text-align: center;
     font-size: @font-size-3;
     line-height: 1;
-    margin-left: 1rem;
   }
 }
 
 .lineHr {
   width: 95%;
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
 }
 
  .name{
@@ -60,10 +60,7 @@
     display: block;
     margin-left: -2rem;
     font-size: @font-size-4;
-    //text-transform: capitalize;
     .header;
-    //font-weight: bold;
-
   }
 
   /*
@@ -73,29 +70,37 @@
   */
 
   .photo {
-    max-width: 45rem;
-    max-height: 22rem;
-    margin: 1rem 2rem 0 2rem;
+    max-height: 25rem;
+    margin: 0 2rem 0 2rem;
     overflow: hidden;
   }
 
   .photo img{
     max-width: 100%;
     padding: 0 0 -20px 2rem;
+    border-radius: 4px;
   }
 
   .underPhotoPanel {
-      min-height: 4.5rem;
-      padding: 1rem;
-     // background-color: @bez;
-     color: black;
-      display: flex;
-      max-width: 45rem;
-      justify-content:space-between;
+      color: black;
+      width: 100%;
       text-align: center;
-      max-height: 100%;
-      margin-left: 2rem;
+      padding: 1rem 0;
   }
+
+  .great{
+    .header;
+    font-size: @font-size-6;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.labelPanel {
+  font-size: @font-size-6;
+  font-weight: 600;
+  display: inline-block;
+  padding-right: 1rem;
+}
 
   /*
             4.Text - execution
@@ -113,13 +118,6 @@
       font-family: "Georgia";
   }
 
-  .great{
-      font-size: 1rem;
-      font-weight: bolder;
-      color: @red;
-  }
-
-
   /*
            5. Buttony
   --------------------------------
@@ -127,7 +125,7 @@
   */
 
   .buttons {
-    text-align: start;
+    text-align: center;
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -141,9 +139,10 @@
     box-sizing: border-box;
     color: #fff;
     display: inline-block;
-    // .butSize;
     margin-left: 2rem;
-
+    &:first-child{
+      margin-left: 0;
+    }
     text-align: center;
     touch-action: manipulation;
     transition: all .2s cubic-bezier(.22, .61, .36, 1);
@@ -188,10 +187,63 @@
       background-color: @gray;
       color: black;
     }
-
-
-
   }
 
 
+  @media (min-width: 768px){
 
+    .titleHeader {
+      margin-top: @font-size-2;
+      margin-bottom: @font-size-1 * 2;
+      padding-left: 1rem;
+
+      p{
+        .title;
+        text-align: left;
+        font-size: @font-size-3;
+        line-height: 1;
+        margin-left: 1rem;
+      }
+    }
+
+    .photo {
+       margin-right: 0;
+       margin-bottom: 1rem;
+
+     }
+
+     .photo img{
+      max-width: 100%;
+      padding: 0 0 -20px 2rem;
+      border-radius: 4px;
+    }
+
+
+     .underPhotoPanel {
+       .container;
+         padding: 3rem 1rem 3rem 1rem;
+         color: black;
+         width: 12.5rem;
+         text-align: left;
+         line-height: 2;
+         margin-left: 2rem;
+     }
+
+     .labelPanel {
+      display: block;
+      padding-right: 0;
+    }
+
+    .buttons {
+      text-align: start;
+      width: 100%;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .but {
+      &:first-child{
+        margin-left: 2rem;
+      }
+    }
+  }
