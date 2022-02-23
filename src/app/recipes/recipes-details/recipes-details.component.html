@@ -1,16 +1,14 @@
 <div class="container">
-
   <div class="row">
     <div class="col-xs-12 col-lg-12">
       <div class="titleHeader">
-
-          <p>{{lowerCase(recipe.name)}}</p>
+        <p>{{ lowerCase(recipe.name) }}</p>
       </div>
     </div>
   </div>
 
   <div class="lineHr">
-    <hr>
+    <hr />
   </div>
 
   <div class="row">
@@ -22,9 +20,7 @@
         />
       </div>
     </div>
-  <!-- </div>
 
-  <div class="row"> -->
     <div class="col-xs-12 col-md-5 col-lg-5">
       <div class="underPhotoPanel">
         <div class="time labelPanel">
@@ -65,40 +61,25 @@
   </div>
 
   <div class="container" *ngIf="remover">
-    <div class="row alertMy">
-      <div class="col">
-        <p>
-          <span class="great">Uwaga!!!</span><br />Czy jesteś pewny że chcesz
-          usunąć przepis?
-        </p>
-        <div class="row">
-          <div class="col-xs-6 justify-content-between">
-            <button class="but light" (click)="switchRemove()">Cofnij</button>
-            <button
-              class="buttons but"
-              (click)="removeRecipe(recipe)"
-              (click)="switchRemove()"
-              [routerLink]="['/home']"
-            >
-              Usuń
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <rl-alert
+      [recipe]="recipe"
+      [switcher]="remover"
+      (removedRecipe)="onRemoveRecipe(recipe)"
+      (switched)="onSwitchRemove()"
+    >
+    </rl-alert>
   </div>
 
   <div class="row">
     <div class="col-sm-6 buttons">
       <button
-        class="but butSizeGeneral hover-underline-animation"
+        class="c-btnPrimary c-btnSizeLg"
         (click)="switchUpdate()"
-
       >
         Aktualizuj
       </button>
 
-      <button class="col-sm-6 but butSizeGeneral" (click)="switchRemove()">
+      <button class="col-sm-6 c-btnPrimary c-btnSizeLg" (click)="onSwitchRemove()">
         Usuń
       </button>
     </div>

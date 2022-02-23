@@ -1,17 +1,19 @@
 <!-- DO POPRAWY - dodać poszczególne podtematy -->
 
-<div class="container-fluid" >
-  <form [formGroup]="recipesForm" class="formularz" >
-    <div class="row" id='kotwica'>
+<div class="container">
+  <form [formGroup]="recipesForm" class="formularz">
+    <div class="row" id="kotwica">
       <div class="col name">
-        <label  for="name">Nazwa</label><br />
+        <label for="name">Nazwa</label><br />
         <input
           formControlName="name"
           type="text"
           id="name"
           placeholder="Nazwa przepisu"
         />
-        <p *ngIf="!recipesForm.get('name')?.valid" class="error">This field is required</p>
+        <p *ngIf="!recipesForm.get('name')?.valid" class="error">
+          This field is required
+        </p>
       </div>
     </div>
     <br />
@@ -46,29 +48,44 @@
     </div>
 
     <div class="row mt-5 selection">
-      <div class="col-6 col-lg-3">
-        <rl-meal [mealForm]="recipesForm" ></rl-meal>
+      <div class="col-6 col-lg-3 text-center">
+        <rl-meal [mealForm]="recipesForm" class="innerSelection"></rl-meal>
       </div>
       <br />
 
       <div class="col-6 col-lg-3">
-        <rl-cuisines-list [cuisineForm]="recipesForm"></rl-cuisines-list>
+        <rl-cuisines-list
+          [cuisineForm]="recipesForm"
+          class="innerSelection"
+        ></rl-cuisines-list>
       </div>
       <br />
 
       <div class="col-6 col-lg-3">
         <rl-difficulty-level-list
           [levelForm]="recipesForm"
-        ></rl-difficulty-level-list>
+          class="innerSelection"
+        >
+        </rl-difficulty-level-list>
       </div>
       <br />
 
       <div class="col-6 col-lg-3">
-        <rl-execution-time [timeForm]="recipesForm"></rl-execution-time>
+        <rl-execution-time
+          [timeForm]="recipesForm"
+          class="innerSelection"
+        ></rl-execution-time>
       </div>
     </div>
   </form>
   <br />
 
-    <button class="button" role="button"  (click)="addRecipe()" (click)="execute()" >Create</button>
+  <button
+    class="button"
+    role="button"
+    (click)="addRecipe()"
+    (click)="execute()"
+  >
+    Create
+  </button>
 </div>

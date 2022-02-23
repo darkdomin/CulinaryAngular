@@ -7,10 +7,6 @@ import { CoreModule } from './core-module/core.module';
 import { RecipesModule } from './recipes/recipes.module';
 import { RecipesService } from './recipes/recipes.service';
 import { RecipesRoutingModule } from './recipes/recipes-routing.module';
-import { TimesModule } from './times/times.module';
-import { MealModule } from './meals/meal.module';
-import { CuisinesModule } from './cuisines/cuisines.module';
-import { DifficultyLevelModule } from './difficulty-level/difficulty-level.module';
 
 
 @NgModule({
@@ -24,10 +20,6 @@ import { DifficultyLevelModule } from './difficulty-level/difficulty-level.modul
     CoreModule,
     AppRoutingModule,
     RecipesRoutingModule,
-    // TimesModule,
-   //  MealModule,
-    // CuisinesModule,
-    // DifficultyLevelModule
   ],
   providers: [RecipesService, HttpClient],
   bootstrap: [AppComponent]

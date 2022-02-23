@@ -20,24 +20,23 @@ export class ExecutionTimeComponent implements OnInit {
   loadTimes(): void {
     this.timeService.getTimes().subscribe((times) => {
       this.times = times;
-      this.getTimeName();
-      this.getTimeId();
-      this.setForm();
+      let result = this.getName(this.recipesForm,'timeId');
+      this.getTimeId(result);
+      this.setForm(result);
     });
   }
-
-  // pobiera wybraną nazwe z formy
-  getTimeName(): string {
-    return this.recipesForm.get('timeId')?.value;
+  getName(form: FormGroup, name: string): string {
+      return form.get(name)?.value;
   }
+
   //pobiera Id z przypisanej nazwy
-  getTimeId(): number {
-    return this.times.find((e) => e.name == this.getTimeName())!.id;
+  getTimeId(name: string): number {
+    return this.times.find((e) => e.name == name)!.id;
   }
   //Przypisuje Id do formy
-  setForm() {
+  setForm(name: string) {
     this.recipesForm.patchValue({
-      timeId: this.getTimeId(),
+      timeId: this.getTimeId(name),
     });
   }
 }

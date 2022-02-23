@@ -13,6 +13,7 @@ import { DifficultyLevelModule } from '../difficulty-level/difficulty-level.modu
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
 import { HomeComponent } from './home/home.component';
+import { AlertComponent } from './recipes-details/alert/alert.component';
 
 
 
@@ -22,7 +23,8 @@ import { HomeComponent } from './home/home.component';
     RecipesDetailsComponent,
     RecipesCreatorComponent,
     UpdateRecipeComponent,
-    HomeComponent
+    HomeComponent,
+    AlertComponent
   ],
   imports: [
     CommonModule,

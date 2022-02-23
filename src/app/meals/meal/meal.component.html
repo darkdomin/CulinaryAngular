@@ -1,7 +1,7 @@
 <div class="row">
   <form [formGroup]="recipesForm" class="col meal" >
     <label for="meal2">Posiłek:</label><br />
-    <select id="meal2" formControlName="mealId">
+    <select id="meal2" formControlName= "mealId">
       <option value="{{ meal.id }}" *ngFor="let meal of meals">
         {{ meal.name }}
       </option>

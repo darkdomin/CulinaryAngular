@@ -1,0 +1,42 @@
+@import 'variables.less';
+
+/*
+      BUTTONS
+*/
+
+.c-btnPrimary{
+    background-color: @red;
+    border-radius: 2px;
+    border: 0;
+    box-shadow: rgba(117, 2, 2, 0.5) 0 -1px 3px 0 inset,rgba(34, 0, 2, 0.1) 0 3px 6px 0;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    touch-action: manipulation;
+    transition: all .2s cubic-bezier(.22, .61, .36, 1);
+    &:hover {
+      background-color: @red;
+      transform: translateY(-2px);
+    }
+}
+
+.c-btnLight {
+  border: 1px solid black;
+  background-color: @bez;
+  color: black;
+}
+
+.c-btnSizeLg {
+  padding: 0.8rem;
+  width: 11rem;
+}
+
+.c-btnSizeMd {
+  padding: 0.5rem;
+  width: 8rem;
+}
+
+/*
+      SELECT
+*/
+

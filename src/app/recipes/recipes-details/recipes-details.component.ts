@@ -46,7 +46,7 @@ export class RecipesDetailsComponent implements OnInit {
     this.recipe = this.route.snapshot.data['recipeResolve'];
   }
 
-  removeRecipe(recipe: Recipe) {
+   onRemoveRecipe(recipe: Recipe) {
     this.recipesService.deleteRecipe(recipe.id).subscribe(() => {});
   }
 
@@ -67,7 +67,7 @@ export class RecipesDetailsComponent implements OnInit {
     }
   }
 
-  switchRemove(){
+  onSwitchRemove(){
     this.remover = !this.remover;
   }
 

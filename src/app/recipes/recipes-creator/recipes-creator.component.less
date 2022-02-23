@@ -1,4 +1,5 @@
 @import '../../../assets/styles/variables.less';
+@import '../../../assets/styles/base.less';
 
 .formularz {
   display: block;
@@ -8,7 +9,7 @@
 
   input {
     width:100%;
-    border: 1px solid @gray;
+    border: 1px solid @bez;
     height: 50px;
     line-height: 1.8;
     padding: 0 0 0 20px;
@@ -23,11 +24,10 @@ label {
 }
 
 .selection  {
-  background-color: @gray;
+  background-color: @bez;
   width: 100%;
   padding: 2rem 0;
-  margin: 0 auto;
-
+  text-align: center;
 }
 
 .grammar{
@@ -38,7 +38,7 @@ label {
 
 textarea{
   width:100%;
-  border: 1px solid @gray;
+  border: 1px solid @bez;
   min-height: 300px;
   line-height: 1.8;
   padding: 20px 10px 10px 20px;
@@ -49,7 +49,7 @@ textarea{
   background-color: @red;
   border-radius: 2px;
   border: 0;
- box-shadow: rgba(117, 2, 2, 0.5) 0 -1px 3px 0 inset,rgba(34, 0, 2, 0.1) 0 3px 6px 0;
+  box-shadow: rgba(117, 2, 2, 0.5) 0 -1px 3px 0 inset,rgba(34, 0, 2, 0.1) 0 3px 6px 0;
   box-sizing: border-box;
   color: #fff;
   display: block;
@@ -62,14 +62,14 @@ textarea{
 }
 
 .button:hover {
-  background-color: @darkred;
+  background-color: @red;
   transform: translateY(-2px);
 }
 
 .error {
   background-color: @red;
   color: @white;
-  padding: 0.2rem 0 0.2rem 0.5rem;
+  padding: 0.3rem 0 0.2rem 0.5rem;
 }
 
 
