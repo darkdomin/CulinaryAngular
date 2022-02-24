@@ -1,7 +1,7 @@
 <div class="row">
   <form [formGroup]="recipesForm" class="col level">
-    <label for="diff">Poziom wykonania:</label><br />
-    <select id="diff" formControlName="difficultId">
+    <label class="c-label" for="diff">Poziom wykonania:</label><br />
+    <select id="diff" formControlName="difficultId" class="c-select">
       <option value="{{ level.id }}" *ngFor="let level of difficultiesLevel">
         {{ level.name }}
       </option>

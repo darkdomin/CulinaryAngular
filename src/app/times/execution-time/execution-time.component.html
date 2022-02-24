@@ -1,7 +1,7 @@
 <div class="row">
 <form [formGroup]="recipesForm" class="time">
-  <label for="time2">Czas wykonania:</label><br>
-    <select id="time2" formControlName="timeId" >
+  <label class="c-label" for="time2">Czas wykonania:</label><br>
+    <select id="time2" formControlName="timeId" class="c-select" >
       <option value="{{ time.id }}" *ngFor="let time of times" >{{ time.name }}</option>
     </select>
   </form>

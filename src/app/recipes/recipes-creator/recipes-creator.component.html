@@ -1,15 +1,16 @@
 <!-- DO POPRAWY - dodać poszczególne podtematy -->
 
 <div class="container">
-  <form [formGroup]="recipesForm" class="formularz">
+  <form [formGroup]="recipesForm" class="formArea">
     <div class="row" id="kotwica">
       <div class="col name">
-        <label for="name">Nazwa</label><br />
+        <label for="name" class="c-label">Nazwa</label><br />
         <input
           formControlName="name"
           type="text"
           id="name"
           placeholder="Nazwa przepisu"
+          class="c-input"
         />
         <p *ngIf="!recipesForm.get('name')?.valid" class="error">
           This field is required
@@ -19,22 +20,24 @@
     <br />
     <div class="row">
       <div class="col">
-        <label for="grammar">Gramatura</label><br />
+        <label for="grammar" class="c-label">Gramatura</label><br />
         <textarea
           formControlName="grammar"
           id="grammar"
           placeholder="Gramatura"
+          class="c-textarea"
         ></textarea>
       </div>
     </div>
     <br />
     <div class="row">
       <div class="col">
-        <label for="execution">Wykonanie</label><br />
+        <label for="execution" class="c-label">Wykonanie</label><br />
         <textarea
           formControlName="execution"
           id="execution"
           placeholder="Wykonanie"
+          class="c-textarea"
         ></textarea>
       </div>
     </div>
@@ -42,8 +45,13 @@
 
     <div class="row">
       <div class="col">
-        <label for="link">Link do zdjęcia</label><br />
-        <input formControlName="photo" id="link" placeholder="zdjęcie" /><br />
+        <label for="link" class="c-label">Link do zdjęcia</label><br />
+        <input
+          formControlName="photo"
+          id="link"
+          placeholder="zdjęcie"
+          class="c-input"
+        /><br />
       </div>
     </div>
 
@@ -80,12 +88,14 @@
   </form>
   <br />
 
-  <button
-    class="button"
-    role="button"
-    (click)="addRecipe()"
-    (click)="execute()"
-  >
-    Create
-  </button>
+  <div class="button">
+    <button
+      class="c-btnPrimary c-btnSizeLg"
+      role="button"
+      (click)="addRecipe()"
+      (click)="execute()"
+    >
+      Create
+    </button>
+  </div>
 </div>

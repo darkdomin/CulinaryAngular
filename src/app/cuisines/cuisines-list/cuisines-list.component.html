@@ -1,9 +1,7 @@
-<!-- DO Zrobienia -->
-
 <div class="row">
   <form [formGroup]="recipesForm" class="cuisine">
-    <label for="type">Rodzaj kuchnii:</label><br />
-    <select id="type" formControlName="cuisineId">
+    <label class="c-label" for="type">Rodzaj kuchnii:</label><br />
+    <select id="type" formControlName="cuisineId" class="c-select">
       <option value="{{ cuisine.id }}" *ngFor="let cuisine of cuisines">
         {{ cuisine.name }}
       </option>
