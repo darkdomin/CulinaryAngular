@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { DataSeeker } from 'src/app/dataSeeker';
 import { DifficultyLevelService } from '../difficulty-level.service';
 import { Difficulty } from '../models/difficulty';
 
@@ -8,12 +9,14 @@ import { Difficulty } from '../models/difficulty';
   templateUrl: './difficulty-level-list.component.html',
   styleUrls: ['./difficulty-level-list.component.less']
 })
-export class DifficultyLevelListComponent implements OnInit {
+export class DifficultyLevelListComponent extends DataSeeker implements OnInit {
 
   @Input('levelForm') recipesForm!: FormGroup;
   difficultiesLevel!: Difficulty[];
 
-  constructor(private serviceLevel: DifficultyLevelService) { }
+  constructor(private serviceLevel: DifficultyLevelService) {
+    super();
+  }
 
   ngOnInit(): void {
     this.loadLevels();
@@ -22,24 +25,19 @@ export class DifficultyLevelListComponent implements OnInit {
   loadLevels(): void{
     this.serviceLevel.getDifficultyLevels().subscribe((levels)=>{
     this.difficultiesLevel = levels;
-    this.getLevelName();
-    this.getLevelId();
-    this.setForm();
+    let result = this.getFieldValue('difficultId', this.recipesForm);
+    let id = this.getId(result);
+    this.setForm(id);
     })
   }
 
-    // pobiera wybraną nazwe z formy
-    getLevelName(): string {
-      return this.recipesForm.get('difficultId')?.value;
+    getId(fieldValueResult: string): number {
+      return this.difficultiesLevel.find((e) => e.name == fieldValueResult)!.id;
     }
-    //pobiera Id z przypisanej nazwy
-    getLevelId(): number {
-      return this.difficultiesLevel.find((e) => e.name == this.getLevelName())!.id;
-    }
-    //Przypisuje Id do formy
-    setForm(){
+
+    setForm(id: number){
       this.recipesForm.patchValue({
-        difficultId: this.getLevelId(),
+        difficultId: id,
       });
     }
 }

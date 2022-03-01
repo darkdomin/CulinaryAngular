@@ -1,8 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 import { Recipe } from '../models/recipe';
 import { RecipesService } from '../recipes.service';
+import { Meal } from '../../filter/difficulty-level/meals/meal/model/Meal';
 
 @Component({
   selector: 'rl-home',
@@ -16,18 +17,23 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private recipeService: RecipesService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.loadRecipes(9);
+    this.adjustAmountRecipes();
   }
 
   @HostListener("window:resize") onResize() {
-    if(this.detectScreenSize() < 1200){
+    this.adjustAmountRecipes();
+  }
+
+  private adjustAmountRecipes() {
+    if (this.detectScreenSize() < 1200) {
       this.loadRecipes(8);
     }
-    else{
+    else {
       this.loadRecipes(9);
     }
   }
@@ -45,6 +51,7 @@ export class HomeComponent implements OnInit {
 
   getLastest(amount: number): void {
     this.recipes = _.takeRight(this.recipes, amount);
+    console.log("ILOSC ", this.recipes);
   }
 
   private detectScreenSize():number {
@@ -52,4 +59,5 @@ export class HomeComponent implements OnInit {
     console.log(width);
     return width;
   }
+
 }

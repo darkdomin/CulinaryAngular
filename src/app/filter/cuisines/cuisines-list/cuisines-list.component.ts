@@ -2,18 +2,21 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CuisinesService } from '../cuisines.service';
 import { Cuisine } from '../cuisine';
 import { FormGroup } from '@angular/forms';
+import { DataSeeker } from 'src/app/dataSeeker';
 
 @Component({
   selector: 'rl-cuisines-list',
   templateUrl: './cuisines-list.component.html',
   styleUrls: ['./cuisines-list.component.less']
 })
-export class CuisinesListComponent implements OnInit {
+export class CuisinesListComponent extends DataSeeker implements OnInit {
 
   @Input('cuisineForm') recipesForm!: FormGroup;
   cuisines!: Cuisine[];
 
-  constructor(private serviceCuisine: CuisinesService) { }
+  constructor(private serviceCuisine: CuisinesService) {
+    super();
+  }
 
   ngOnInit(): void {
     this.loadCusines();
@@ -22,25 +25,18 @@ export class CuisinesListComponent implements OnInit {
   loadCusines(): void{
     this.serviceCuisine.getCuisines().subscribe((cuisines)=>{
     this.cuisines = cuisines;
-    this.getCuisineName();
-    this.getCuisineId();
-    this.setForm();
+    let result = this.getFieldValue('cuisineId', this.recipesForm);
+    let id = this.getId(result);
+    this.setForm(id);
     })
   }
-
-    // pobiera wybraną nazwe z formy
-    getCuisineName(): string {
-      return this.recipesForm.get('cuisineId')?.value;
-
+    getId(fieldValueResult: string): number {
+      return this.cuisines.find((e) => e.name == fieldValueResult)!.id;
     }
-    //pobiera Id z przypisanej nazwy
-    getCuisineId(): number {
-      return this.cuisines.find((e) => e.name == this.getCuisineName())!.id;
-    }
-    //Przypisuje Id do formy
-    setForm(){
+
+    setForm(id: number){
       this.recipesForm.patchValue({
-        cuisineId: this.getCuisineId(),
+        cuisineId: id,
       });
     }
 }

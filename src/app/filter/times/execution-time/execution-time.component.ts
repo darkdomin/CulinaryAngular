@@ -2,17 +2,21 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Time } from '../model/time';
 import { ExecutionTimeService } from '../execution-time.service';
 import { FormGroup } from '@angular/forms';
+import { DataSeeker } from 'src/app/dataSeeker';
 
 @Component({
   selector: 'rl-execution-time',
   templateUrl: './execution-time.component.html',
   styleUrls: ['./execution-time.component.less'],
 })
-export class ExecutionTimeComponent implements OnInit {
+export class ExecutionTimeComponent extends DataSeeker implements OnInit {
+
   @Input('timeForm') recipesForm!: FormGroup;
   times!: Time[];
 
-  constructor(private timeService: ExecutionTimeService) {}
+  constructor(private timeService: ExecutionTimeService) {
+    super();
+  }
 
   ngOnInit(): void {
     this.loadTimes();
@@ -20,23 +24,20 @@ export class ExecutionTimeComponent implements OnInit {
   loadTimes(): void {
     this.timeService.getTimes().subscribe((times) => {
       this.times = times;
-      let result = this.getName(this.recipesForm,'timeId');
-      this.getTimeId(result);
-      this.setForm(result);
+      let result = this.getFieldValue('timeId', this.recipesForm);
+      let id = this.getId(result);
+      this.setForm(id);
     });
   }
-  getName(form: FormGroup, name: string): string {
-      return form.get(name)?.value;
+
+  getId(fieldValueResult: string): number {
+    return this.times.find((e) => e.name == fieldValueResult)!.id;
   }
 
-  //pobiera Id z przypisanej nazwy
-  getTimeId(name: string): number {
-    return this.times.find((e) => e.name == name)!.id;
-  }
-  //Przypisuje Id do formy
-  setForm(name: string) {
+  setForm(id: number) {
     this.recipesForm.patchValue({
-      timeId: this.getTimeId(name),
+      timeId: id,
     });
   }
 }
+
