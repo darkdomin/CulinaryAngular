@@ -21,5 +21,4 @@ export class AlertComponent  {
   removeRecipe(recipe: Recipe){
     this.removedRecipe.emit(recipe);
   }
-
 }

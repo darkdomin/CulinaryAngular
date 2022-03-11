@@ -9,6 +9,7 @@ import { RecipesService } from './recipes/recipes.service';
 import { RecipesRoutingModule } from './recipes/recipes-routing.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +20,7 @@ import { RecipesRoutingModule } from './recipes/recipes-routing.module';
     HttpClientModule,
     CoreModule,
     AppRoutingModule,
-    RecipesRoutingModule,
+    RecipesRoutingModule
   ],
   providers: [RecipesService, HttpClient],
   bootstrap: [AppComponent]

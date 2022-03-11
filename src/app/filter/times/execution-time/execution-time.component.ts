@@ -24,7 +24,7 @@ export class ExecutionTimeComponent extends DataSeeker implements OnInit {
   loadTimes(): void {
     this.timeService.getTimes().subscribe((times) => {
       this.times = times;
-      let result = this.getFieldValue('timeId', this.recipesForm);
+      let result = this.getControlValue('timeId', this.recipesForm);
       let id = this.getId(result);
       this.setForm(id);
     });

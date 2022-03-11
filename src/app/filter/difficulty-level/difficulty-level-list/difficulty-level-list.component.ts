@@ -25,7 +25,7 @@ export class DifficultyLevelListComponent extends DataSeeker implements OnInit {
   loadLevels(): void{
     this.serviceLevel.getDifficultyLevels().subscribe((levels)=>{
     this.difficultiesLevel = levels;
-    let result = this.getFieldValue('difficultId', this.recipesForm);
+    let result = this.getControlValue('difficultId', this.recipesForm);
     let id = this.getId(result);
     this.setForm(id);
     })

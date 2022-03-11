@@ -39,10 +39,6 @@ export class RecipesCreatorComponent implements OnInit {
     this.recipeService.createRecipe(this.recipesForm.value).subscribe(() => {})
   }
 
-  goToFragment(fragment: string){
-    this.router.navigateByUrl('#' + fragment);
-  }
-
   execute(): void{
     alert("Dodano przepis");
   }

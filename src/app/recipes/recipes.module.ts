@@ -7,12 +7,12 @@ import { RouterModule } from '@angular/router';
 import { RecipeResolve } from './recipe-resolve.service';
 import { RecipesCreatorComponent } from './recipes-creator/recipes-creator.component';
 import { TimesModule } from '../filter/times/times.module';
-import { MealModule } from '../filter/difficulty-level/meals/meal.module';
+import { MealModule } from '../filter/meals/meal.module';
 import { CuisinesModule } from '../filter/cuisines/cuisines.module';
 import { DifficultyLevelModule } from '../filter/difficulty-level/difficulty-level.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
-import { HomeComponent } from './home/home.component';
+import { HomeMyComponent } from './home/home.component';
 import { AlertComponent } from './recipes-details/alert/alert.component';
 
 
@@ -23,7 +23,7 @@ import { AlertComponent } from './recipes-details/alert/alert.component';
     RecipesDetailsComponent,
     RecipesCreatorComponent,
     UpdateRecipeComponent,
-    HomeComponent,
+    HomeMyComponent,
     AlertComponent
   ],
   imports: [
@@ -37,6 +37,6 @@ import { AlertComponent } from './recipes-details/alert/alert.component';
     ReactiveFormsModule,
   ],
   providers:[RecipeResolve],
-  exports: [RecipesListComponent, HomeComponent]
+  exports: [RecipesListComponent, HomeMyComponent]
 })
 export class RecipesModule { }

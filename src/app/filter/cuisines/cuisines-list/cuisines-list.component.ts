@@ -25,7 +25,7 @@ export class CuisinesListComponent extends DataSeeker implements OnInit {
   loadCusines(): void{
     this.serviceCuisine.getCuisines().subscribe((cuisines)=>{
     this.cuisines = cuisines;
-    let result = this.getFieldValue('cuisineId', this.recipesForm);
+    let result = this.getControlValue('cuisineId', this.recipesForm);
     let id = this.getId(result);
     this.setForm(id);
     })

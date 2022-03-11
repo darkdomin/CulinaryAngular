@@ -3,14 +3,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 import { Recipe } from '../models/recipe';
 import { RecipesService } from '../recipes.service';
-import { Meal } from '../../filter/difficulty-level/meals/meal/model/Meal';
+import { Meal } from '../../filter/meals/meal/model/Meal';
 
 @Component({
   selector: 'rl-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.less'],
 })
-export class HomeComponent implements OnInit {
+export class HomeMyComponent implements OnInit {
 
   recipes!: Recipe[];
   shortRecipes!: Recipe[];

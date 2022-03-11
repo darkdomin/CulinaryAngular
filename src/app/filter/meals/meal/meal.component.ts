@@ -25,7 +25,7 @@ export class MealComponent extends DataSeeker implements OnInit   {
   loadMeals(): void {
     this.mealService.getMeals().subscribe((meals) => {
       this.meals = meals;
-      let result = this.getFieldValue('mealId', this.recipesForm);
+      let result = this.getControlValue('mealId', this.recipesForm);
       let id = this.getId(result);
       this.setForm(id);
     });

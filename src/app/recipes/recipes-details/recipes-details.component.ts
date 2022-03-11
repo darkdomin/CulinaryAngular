@@ -71,14 +71,19 @@ export class RecipesDetailsComponent implements OnInit {
     this.remover = !this.remover;
   }
 
-  getFirstLetter():string{
-    return this.recipe.name.charAt(0);
-  }
-  removeFirstLetter(): string{
-    return this.recipe.name.slice(1, this.recipe.name.length);
+  scrollToUp(move: number) : void{
+    let height = document.documentElement.getBoundingClientRect().height;
+    window.scrollTo(0,height - move);
   }
 
-  lowerCase(text: string): string{
-    return text.toLowerCase();
-  }
+  // getFirstLetter():string{
+  //   return this.recipe.name.charAt(0);
+  // }
+  // removeFirstLetter(): string{
+  //   return this.recipe.name.slice(1, this.recipe.name.length);
+  // }
+
+  // lowerCase(text: string): string{
+  //   return text.toLowerCase();
+  // }
 }
