@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { RecipesService } from '../recipes.service';
 import { Recipe } from '../models/recipe';
@@ -26,7 +26,14 @@ export class RecipesDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.loadRecipe();
     this.recipesForm = this.buildRecipeForm();
+  }
 
+  @HostListener('click') onClick(){
+    if(this.isUpdated){
+      this.scrollToUp(1260);
+    }else{
+      this.scrollUp() ;
+    }
   }
 
   buildRecipeForm(): FormGroup {
@@ -63,7 +70,9 @@ export class RecipesDetailsComponent implements OnInit {
       this.updateRecipe();
       this.isUpdated = false;
     } else {
+
       this.isUpdated = true;
+
     }
   }
 
@@ -75,6 +84,12 @@ export class RecipesDetailsComponent implements OnInit {
     let height = document.documentElement.getBoundingClientRect().height;
     window.scrollTo(0,height - move);
   }
+
+  scrollUp() : void{
+    window.scrollTo(0,0);
+  }
+
+
 
   // getFirstLetter():string{
   //   return this.recipe.name.charAt(0);

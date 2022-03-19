@@ -4,6 +4,11 @@ import * as _ from 'lodash';
 import { Recipe } from '../models/recipe';
 import { RecipesService } from '../recipes.service';
 import { Meal } from '../../filter/meals/meal/model/Meal';
+import { User } from '../../_models/user';
+import { AccountService } from '../../_services/account.service';
+import { JwtInterceptor } from 'src/app/_helpers';
+import { HttpEvent } from '@angular/common/http';
+
 
 @Component({
   selector: 'rl-home',
@@ -15,14 +20,18 @@ export class HomeMyComponent implements OnInit {
   recipes!: Recipe[];
   shortRecipes!: Recipe[];
 
+  orderby!: string;
+
   constructor(
     private recipeService: RecipesService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private accountService: AccountService,
   ) {}
 
-  ngOnInit(): void {
-    this.adjustAmountRecipes();
+   tok: any;
+     ngOnInit(): void {
+      this.adjustAmountRecipes();
   }
 
   @HostListener("window:resize") onResize() {
@@ -56,8 +65,6 @@ export class HomeMyComponent implements OnInit {
 
   private detectScreenSize():number {
     const width =  window.innerWidth;
-    console.log(width);
     return width;
   }
-
 }

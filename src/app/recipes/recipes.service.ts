@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Recipe } from './models/recipe';
 import { HttpClient } from "@angular/common/http";
 import 'rxjs';
+import { AccountService } from '../_services/account.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +11,15 @@ import 'rxjs';
 export class RecipesService {
 
   private apiUrl = "https://localhost:5001/api/recipes";
+
   constructor( private http: HttpClient) { }
 
   getRecipes(): Observable<Recipe[]> {
-    return this.http.get<Recipe[]>(this.apiUrl)
+    return this.http.get<Recipe[]>(this.apiUrl);
   }
 
   getRecipe(id: number): Observable<Recipe> {
-    return this.http.get<Recipe>(`${this.apiUrl}/${id}`)
+    return this.http.get<Recipe>(`${this.apiUrl}/${id}`);
   }
 
   createRecipe(data: Recipe): Observable<Recipe> {

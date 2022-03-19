@@ -8,7 +8,9 @@ import { RecipesService } from './recipes.service';
 @Injectable()
 export class RecipeResolve implements Resolve<Recipe>{
 
+  num!: number;
   constructor(private recipeService: RecipesService){}
+
 
   resolve(route: ActivatedRouteSnapshot) {
     return this.recipeService.getRecipe(route.params['id']);

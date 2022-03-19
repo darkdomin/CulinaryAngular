@@ -1,5 +1,12 @@
-<rl-sidebar></rl-sidebar>
-  <router-outlet></router-outlet>
+<nav  *ngIf="user" >
+  <rl-sidebar></rl-sidebar>
+</nav>
+
+  <!-- main app container -->
+  <div class="app-container" [ngClass]="{ 'bg-light': user }">
+      <alert></alert>
+      <router-outlet></router-outlet>
+  </div>
 
 
 

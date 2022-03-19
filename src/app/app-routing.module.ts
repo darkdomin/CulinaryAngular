@@ -1,27 +1,58 @@
 import { NgModule } from '@angular/core';
-import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
-import { RecipesCreatorComponent } from './recipes/recipes-creator/recipes-creator.component';
+import {
+  ExtraOptions,
+  RouterModule,
+  Routes,
+} from '@angular/router';
 import { HomeMyComponent } from './recipes/home/home.component';
+import { RecipesCreatorComponent } from './recipes/recipes-creator/recipes-creator.component';
+import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
+import { AuthGuard } from './_helpers';
 
+
+const accountModule = () => import('./account/account.module').then((x) => x.AccountModule);
+const usersModule = () => import('./users/users.module').then((x) => x.UsersModule);
 
 const routes: Routes = [
-  {path:'',pathMatch: 'full',redirectTo: 'home'},
-  {path:'home', component: HomeMyComponent},
-  {path:'recipes', component: RecipesListComponent},
-  {path:'recipes/creator', component: RecipesCreatorComponent}
 
+  { path: '',
+    component:
+    HomeMyComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: 'users',
+    loadChildren: usersModule,
+    canActivate: [AuthGuard]
+  },
+  { path: 'account',
+    loadChildren: accountModule
+  },
+
+    { path: 'home',
+    component: HomeMyComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'recipes',
+    component: RecipesListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'recipes/creator',
+    component: RecipesCreatorComponent,
+    canActivate: [AuthGuard],
+  },
+
+  // otherwise redirect to home
+  // { path: '**', redirectTo: '' }
 ];
-const routerOptions : ExtraOptions = {
+const routerOptions: ExtraOptions = {
   scrollPositionRestoration: 'enabled',
-  anchorScrolling: 'enabled'
+  anchorScrolling: 'enabled',
 };
 
-
-
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes,routerOptions)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, routerOptions)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
