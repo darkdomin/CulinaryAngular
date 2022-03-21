@@ -1,15 +1,15 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Recipe } from '../models/recipe';
 
 @Component({
-  selector: 'rl-recipe',
-  templateUrl: './recipe.component.html',
-  styleUrls: ['./recipe.component.less'],
+  selector: 'rl-photo',
+  templateUrl: './photo.component.html',
+  styleUrls: ['./photo.component.less']
 })
-export class RecipeComponent  {
+export class PhotoComponent {
 
   @Input() recipe!: Recipe;
-
+  @Output() shownPhoto = new EventEmitter<Recipe>();
   showPhoto(): string{
     if(!this.isPhotoEmpty()){
       return this.recipe.photo;
@@ -18,11 +18,12 @@ export class RecipeComponent  {
     }
   }
 
-
   private isPhotoEmpty() {
     return this.recipe.photo.length <= 0;
   }
-  onShowPhoto(recipe: Recipe): string{
-    return recipe.photo;
+
+  show(){
+    this.shownPhoto.emit(this.recipe);
   }
+
 }

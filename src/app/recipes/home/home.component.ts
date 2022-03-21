@@ -26,7 +26,7 @@ export class HomeMyComponent implements OnInit {
     private accountService: AccountService,
   ) {}
 
-   tok: any;
+
      ngOnInit(): void {
       this.adjustAmountRecipes();
   }

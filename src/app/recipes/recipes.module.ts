@@ -17,6 +17,7 @@ import { AlertComponent } from './recipes-details/alert/alert.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { HeaderBodyComponent } from './header-body/header-body.component';
 import { NoRecipeComponent } from '../no-recipe/no-recipe.component';
+import { PhotoComponent } from './photo/photo.component';
 
 
 
@@ -32,7 +33,8 @@ import { NoRecipeComponent } from '../no-recipe/no-recipe.component';
     AlertComponent,
     RecipeComponent,
     HeaderBodyComponent,
-    NoRecipeComponent
+    NoRecipeComponent,
+    PhotoComponent
   ],
   imports: [
     CommonModule,

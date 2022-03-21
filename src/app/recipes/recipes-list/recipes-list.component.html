@@ -9,7 +9,6 @@
           </tr>
         </thead>
         <tbody>
-          <!--  -->
           <tr *ngFor="let recipe of recipes; let i=index" class="row-recipe" (click)="goToRecipeDetails(recipe)">
             <td>{{ i+1 }}</td>
             <td>{{ recipe?.name?.toLowerCase() }}</td>
@@ -17,9 +16,7 @@
         </tbody>
       </table>
       <ng-template #noRecipeInfo>
-        <div class="no-recipe-info">
-          <p>Aktualnie nie posiadasz żadnego przepisu w swojej bazie.</p>
-        </div>
+        <rl-no-recipe></rl-no-recipe>
       </ng-template>
     </div>
   </div>

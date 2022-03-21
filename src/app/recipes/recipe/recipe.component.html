@@ -2,14 +2,19 @@
   <div class="photo">
     <div class="overlayT">
       <img
-        src="{{ recipe?.photo }}"
+        src="{{ showPhoto() }}"
         class="rounded"
         alt="Culinary Recipes - {{ recipe?.name }}"
       />
+      <!-- <rl-photo [recipe]="recipe"
+        (shownPhoto)='onShowPhoto($event)'>
+      </rl-photo> -->
     </div>
   </div>
   <div class="text">
-    <p>{{ recipe?.mealId }}</p>
+    <p>
+      <rl-header-body headerText="{{ recipe?.mealId }}"></rl-header-body>
+    </p>
     <h3>{{ recipe?.name }}</h3>
   </div>
   <div class="read">Czytaj <span>&#62; &#62;</span></div>

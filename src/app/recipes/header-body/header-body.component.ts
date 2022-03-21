@@ -7,6 +7,6 @@ import { Component, Input} from '@angular/core';
 })
 export class HeaderBodyComponent  {
 
-  @Input() staticText!: string;
+  @Input() headerText!: string;
 
 }

@@ -16,6 +16,7 @@ export class RecipesDetailsComponent implements OnInit {
   recipesForm!: FormGroup;
   isUpdated: boolean = false;
   remover: boolean = false;
+  slide: boolean = false;
 
   constructor(
     private recipesService: RecipesService,
@@ -29,11 +30,14 @@ export class RecipesDetailsComponent implements OnInit {
   }
 
   @HostListener('click') onClick(){
-    if(this.isUpdated){
+    if(this.isUpdated && this.slide == false){
       this.scrollToUp(1260);
-    }else{
-      this.scrollUp() ;
+      this.sliderSwitch();
     }
+  }
+
+  sliderSwitch(): void{
+    this.slide = !this.slide;
   }
 
   buildRecipeForm(): FormGroup {
@@ -69,27 +73,27 @@ export class RecipesDetailsComponent implements OnInit {
     if (this.isUpdated) {
       this.updateRecipe();
       this.isUpdated = false;
+      this.scrollUp();
     } else {
-
       this.isUpdated = true;
-
     }
   }
-
-  onSwitchRemove(){
+  switchRemove(){
     this.remover = !this.remover;
   }
 
   scrollToUp(move: number) : void{
-    let height = document.documentElement.getBoundingClientRect().height;
+    let height = this.documentHeight();
     window.scrollTo(0,height - move);
+  }
+
+  private documentHeight(): number {
+    return document.documentElement.getBoundingClientRect().height;
   }
 
   scrollUp() : void{
     window.scrollTo(0,0);
   }
-
-
 
   // getFirstLetter():string{
   //   return this.recipe.name.charAt(0);

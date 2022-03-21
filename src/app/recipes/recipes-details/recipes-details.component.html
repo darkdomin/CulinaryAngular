@@ -14,10 +14,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-7 col-lg-7">
       <div class="photo">
-        <img
-          src="{{ recipe?.photo }}"
-          alt="Culinary Recipes - {{ recipe?.name }}"
-        />
+        <rl-photo [recipe]="recipe"></rl-photo>
       </div>
     </div>
 
@@ -45,8 +42,7 @@
 
   <div class="row">
     <div class="col-sm-12 gramm">
-      <span class="ingridient"> Składniki:</span>
-
+      <rl-header-body class="ingredient" headerText="Składniki:"></rl-header-body>
       <pre>{{ recipe.grammar }}</pre>
     </div>
   </div>
@@ -54,7 +50,7 @@
   <div class="row">
     <div class="col-xs-12 col-lg-12">
       <div class="exec">
-        <span class="ingridient"> Wykonanie:</span>
+        <rl-header-body class="ingredient" headerText="Wykonanie:"></rl-header-body>
         {{ recipe.execution }}
       </div>
     </div>
@@ -65,7 +61,7 @@
       [recipe]="recipe"
       [switcher]="remover"
       (removedRecipe)="onRemoveRecipe(recipe)"
-      (switched)="onSwitchRemove()"
+      (switched)="switchRemove()"
     >
     </rl-alert>
   </div>
@@ -80,12 +76,12 @@
         Aktualizuj
       </button>
 
-      <button class="col-sm-6 c-btnPrimary c-btnSizeLg" (click)="onSwitchRemove()">
+      <button class="col-sm-6 c-btnPrimary c-btnSizeLg" (click)="switchRemove()">
         Usuń
       </button>
     </div>
 
-    <div class="updateForm" *ngIf="isUpdated == true">
+    <div class="updateForm"  *ngIf="isUpdated == true">
       <rl-update-recipe [updateForm]="recipesForm" ></rl-update-recipe>
     </div>
   </div>
