@@ -3,11 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 import { Recipe } from '../models/recipe';
 import { RecipesService } from '../recipes.service';
-import { Meal } from '../../filter/meals/meal/model/Meal';
-import { User } from '../../_models/user';
 import { AccountService } from '../../_services/account.service';
-import { JwtInterceptor } from 'src/app/_helpers';
-import { HttpEvent } from '@angular/common/http';
+
 
 
 @Component({

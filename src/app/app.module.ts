@@ -7,16 +7,18 @@ import { CoreModule } from './core-module/core.module';
 import { RecipesModule } from './recipes/recipes.module';
 import { RecipesService } from './recipes/recipes.service';
 import { RecipesRoutingModule } from './recipes/recipes-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AlertComponent } from './_components/alert.component';
+import { NoRecipeComponent } from './no-recipe/no-recipe.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AlertComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { AlertComponent } from './_components/alert.component';
     HttpClientModule,
     CoreModule,
     AppRoutingModule,
-    RecipesRoutingModule
+    RecipesRoutingModule,
+    FormsModule
   ],
   providers: [RecipesService,
      HttpClient,

@@ -14,6 +14,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
 import { HomeMyComponent } from './home/home.component';
 import { AlertComponent } from './recipes-details/alert/alert.component';
+import { RecipeComponent } from './recipe/recipe.component';
+import { HeaderBodyComponent } from './header-body/header-body.component';
+import { NoRecipeComponent } from '../no-recipe/no-recipe.component';
+
+
 
 
 
@@ -24,7 +29,10 @@ import { AlertComponent } from './recipes-details/alert/alert.component';
     RecipesCreatorComponent,
     UpdateRecipeComponent,
     HomeMyComponent,
-    AlertComponent
+    AlertComponent,
+    RecipeComponent,
+    HeaderBodyComponent,
+    NoRecipeComponent
   ],
   imports: [
     CommonModule,
@@ -37,6 +45,6 @@ import { AlertComponent } from './recipes-details/alert/alert.component';
     ReactiveFormsModule,
   ],
   providers:[RecipeResolve],
-  exports: [RecipesListComponent, HomeMyComponent]
+  exports: [RecipesListComponent, HomeMyComponent, HeaderBodyComponent, NoRecipeComponent]
 })
 export class RecipesModule { }
