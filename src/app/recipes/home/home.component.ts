@@ -1,67 +1,40 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
-import { Recipe } from '../models/recipe';
-import { RecipesService } from '../recipes.service';
-import { AccountService } from '../../_services/account.service';
-
-
+import { RecipesListComponent } from '../recipes-list/recipes-list.component';
 
 @Component({
   selector: 'rl-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.less'],
 })
-export class HomeMyComponent implements OnInit {
 
-  recipes!: Recipe[];
-  shortRecipes!: Recipe[];
-
-  orderby!: string;
-
-  constructor(
-    private recipeService: RecipesService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private accountService: AccountService,
-  ) {}
-
-
-     ngOnInit(): void {
-      this.adjustAmountRecipes();
+export class HomeMyComponent extends RecipesListComponent implements OnInit {
+  override async ngOnInit(): Promise<void> {
+    await this.loadRecipes();
+    await this.adjustAmountRecipes();
   }
 
-  @HostListener("window:resize") onResize() {
-    this.adjustAmountRecipes();
+  @HostListener('window:resize') async onResize() {
+    await this.adjustAmountRecipes();
   }
 
-  private adjustAmountRecipes() {
-    if (this.detectScreenSize() < 1200) {
-      this.loadRecipes(8);
-    }
-    else {
-      this.loadRecipes(9);
-    }
-  }
-
-  loadRecipes(amount: number): void {
-    this.recipeService.getRecipes().subscribe((recipes) => {
-    this.recipes = recipes;
-    this.getLastest(amount);
+  private async adjustAmountRecipes() {
+    return new Promise(async (resolve) => {
+      if (await this.detectScreenSize() < 1200) {
+        resolve(await this.getLastest(8));
+      }else if(this.getRecipesLength() >= 9){
+        resolve(await this.getLastest(9));
+      }
+       else {
+        await this.loadRecipes();
+        resolve(await this.getLastest(9));
+      }
     });
   }
 
-  goToRecipeDetails(recipe: Recipe){
-    this.router.navigate(['/recipes', recipe?.id]);
-  }
-
-  getLastest(amount: number): void {
-    this.recipes = _.takeRight(this.recipes, amount);
-    console.log("ILOSC ", this.recipes);
-  }
-
-  private detectScreenSize():number {
-    const width =  window.innerWidth;
-    return width;
+  private async detectScreenSize(): Promise<number> {
+    return new Promise((resolve) => {
+     resolve(window.innerWidth);
+    });
   }
 }

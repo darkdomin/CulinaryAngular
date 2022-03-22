@@ -1,23 +1,19 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-12">
-      <table *ngIf="recipes && recipes.length > 0 else noRecipeInfo" class="rl-table table table-striped">
-        <thead>
-          <tr>
-            <th>Lp:</th>
-            <th>Nazwa:</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let recipe of recipes; let i=index" class="row-recipe" (click)="goToRecipeDetails(recipe)">
-            <td>{{ i+1 }}</td>
-            <td>{{ recipe?.name?.toLowerCase() }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <ng-template #noRecipeInfo>
-        <rl-no-recipe></rl-no-recipe>
-      </ng-template>
+<main>
+  <div class="container">
+    <div class="row" *ngIf="recipes && recipes.length > 0; else noRecipeInfo">
+      <rl-header-body class="recently" headerText="Ostatnie Przepisy"></rl-header-body>
+      <div class="row">
+        <div
+          class="col-xs-12 col-md-6 col-xl-4"
+          *ngFor="let recipe of recipes"
+          (click)="goToRecipeDetails(recipe)"
+        >
+          <rl-recipe [recipe]="recipe"></rl-recipe>
+        </div>
+      </div>
     </div>
+    <ng-template #noRecipeInfo>
+      <rl-no-recipe></rl-no-recipe>
+    </ng-template>
   </div>
-</div>
+</main>
