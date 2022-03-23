@@ -10,6 +10,7 @@ export class PhotoComponent {
 
   @Input() recipe!: Recipe;
   @Output() shownPhoto = new EventEmitter<Recipe>();
+
   showPhoto(): string{
     if(!this.isPhotoEmpty()){
       return this.recipe.photo;
@@ -25,5 +26,4 @@ export class PhotoComponent {
   show(){
     this.shownPhoto.emit(this.recipe);
   }
-
 }

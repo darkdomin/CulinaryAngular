@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import * as _ from 'lodash';
-import { RecipesListComponent } from '../recipes-list/recipes-list.component';
+import { MainRecipesComponent } from '../main-recipes/main-recipes.component';
+import { Recipe } from '../models/recipe';
 
 @Component({
   selector: 'rl-home',
@@ -8,9 +9,9 @@ import { RecipesListComponent } from '../recipes-list/recipes-list.component';
   styleUrls: ['./home.component.less'],
 })
 
-export class HomeMyComponent extends RecipesListComponent implements OnInit {
+export class HomeMyComponent extends MainRecipesComponent implements OnInit {
+  override recipes!: Recipe[];
   override async ngOnInit(): Promise<void> {
-    await this.loadRecipes();
     await this.adjustAmountRecipes();
   }
 
@@ -19,13 +20,12 @@ export class HomeMyComponent extends RecipesListComponent implements OnInit {
   }
 
   private async adjustAmountRecipes() {
+
     return new Promise(async (resolve) => {
       if (await this.detectScreenSize() < 1200) {
+        await this.loadRecipes();
         resolve(await this.getLastest(8));
-      }else if(this.getRecipesLength() >= 9){
-        resolve(await this.getLastest(9));
-      }
-       else {
+      }else {
         await this.loadRecipes();
         resolve(await this.getLastest(9));
       }

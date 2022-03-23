@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Recipe } from '../models/recipe';
+
 
 @Component({
   selector: 'rl-recipe',
@@ -10,18 +11,6 @@ export class RecipeComponent  {
 
   @Input() recipe!: Recipe;
 
-  showPhoto(): string{
-    if(!this.isPhotoEmpty()){
-      return this.recipe.photo;
-    }else{
-      return '../../../assets/dinner.jpg';
-    }
-  }
-
-
-  private isPhotoEmpty() {
-    return this.recipe.photo.length <= 0;
-  }
   onShowPhoto(recipe: Recipe): string{
     return recipe.photo;
   }

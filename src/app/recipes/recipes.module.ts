@@ -18,6 +18,7 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { HeaderBodyComponent } from './header-body/header-body.component';
 import { NoRecipeComponent } from '../no-recipe/no-recipe.component';
 import { PhotoComponent } from './photo/photo.component';
+import { MainRecipesComponent } from './main-recipes/main-recipes.component';
 
 
 
@@ -34,7 +35,8 @@ import { PhotoComponent } from './photo/photo.component';
     RecipeComponent,
     HeaderBodyComponent,
     NoRecipeComponent,
-    PhotoComponent
+    PhotoComponent,
+    MainRecipesComponent
   ],
   imports: [
     CommonModule,

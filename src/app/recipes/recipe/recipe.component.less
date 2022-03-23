@@ -4,7 +4,6 @@
 
 /*
 1.General
-2.Header
 3.Photo
 4.Text
 */
@@ -26,19 +25,8 @@
 
   .photo {
     overflow: hidden;
-
-    img {
-      height: 7rem;
-      object-fit:cover;
-      transition: all 0.2s ease-in-out;
-      width: 10rem;
-
-      flex-wrap: wrap;
-      padding: 0.5rem 0 0.5rem 2rem;
-      &:hover img {
-        cursor: pointer;
-    }
-  }
+    width: 10rem;
+    height: 7rem;
 }
 
 .text {
@@ -73,8 +61,7 @@
     */
 
   .oneRecipe {
-    width: 20rem !important;
-    cursor: pointer;
+    width: 20rem ;
     display: block;
     margin-bottom: 2rem;
   }
@@ -86,14 +73,9 @@
 
   .photo {
     overflow: hidden;
+    width: auto;
+    height: 16rem;
     background-color: @white;
-    img {
-      height: 16rem;
-      object-fit:cover;
-      transition: all 0.2s ease-in-out;
-      width: 100%;
-      padding: 0;
-    }
   }
 
   .overlayT:hover{
@@ -112,7 +94,7 @@
     height: 10rem;
 
     p {
-     font-weight: 500;
+      font-weight: 500;
       text-transform: capitalize;
       margin-bottom: 0.5rem;
     }

@@ -1,14 +1,9 @@
 <div class="oneRecipe container">
   <div class="photo">
     <div class="overlayT">
-      <img
-        src="{{ showPhoto() }}"
-        class="rounded"
-        alt="Culinary Recipes - {{ recipe?.name }}"
-      />
-      <!-- <rl-photo [recipe]="recipe"
-        (shownPhoto)='onShowPhoto($event)'>
-      </rl-photo> -->
+       <rl-photo [recipe]="recipe"
+       (shownPhoto)='onShowPhoto($event)'>
+      </rl-photo>
     </div>
   </div>
   <div class="text">
