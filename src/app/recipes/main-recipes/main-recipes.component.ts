@@ -9,7 +9,7 @@ import { RecipesService } from '../recipes.service';
   templateUrl: './main-recipes.component.html',
   styleUrls: ['./main-recipes.component.less']
 })
-export  class MainRecipesComponent implements OnInit {
+export class MainRecipesComponent implements OnInit {
 
   @Input() recipes!: Recipe[];
   shortRecipes!: Recipe[];

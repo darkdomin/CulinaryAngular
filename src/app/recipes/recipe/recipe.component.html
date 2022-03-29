@@ -1,7 +1,7 @@
 <div class="oneRecipe container">
   <div class="photo">
     <div class="overlayT">
-       <rl-photo [recipe]="recipe"
+       <rl-photo #recipeRef [recipe]="recipe"
        (shownPhoto)='onShowPhoto($event)'>
       </rl-photo>
     </div>

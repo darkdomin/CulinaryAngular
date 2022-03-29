@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 import { Recipe } from '../models/recipe';
 import { MainRecipesComponent } from '../main-recipes/main-recipes.component';
