@@ -19,9 +19,7 @@ import { HeaderBodyComponent } from './header-body/header-body.component';
 import { NoRecipeComponent } from '../no-recipe/no-recipe.component';
 import { PhotoComponent } from './photo/photo.component';
 import { MainRecipesComponent } from './main-recipes/main-recipes.component';
-
-
-
+import { SearchEngineComponent } from './search-engine/search-engine.component';
 
 
 @NgModule({
@@ -36,7 +34,8 @@ import { MainRecipesComponent } from './main-recipes/main-recipes.component';
     HeaderBodyComponent,
     NoRecipeComponent,
     PhotoComponent,
-    MainRecipesComponent
+    MainRecipesComponent,
+    SearchEngineComponent
   ],
   imports: [
     CommonModule,

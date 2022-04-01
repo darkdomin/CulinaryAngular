@@ -8,12 +8,17 @@ import { RecipesService } from './recipes.service';
 @Injectable()
 export class RecipeResolve implements Resolve<Recipe>{
 
-  num!: number;
   constructor(private recipeService: RecipesService){}
 
 
   resolve(route: ActivatedRouteSnapshot) {
-    return this.recipeService.getRecipe(route.params['id']);
+    const id: number = this.getRouteId(route);
+    return this.recipeService.getRecipe(id);
   }
+
+  private getRouteId(route: ActivatedRouteSnapshot): number {
+    return +route.paramMap.get('id')!;
+  }
+
 }
 

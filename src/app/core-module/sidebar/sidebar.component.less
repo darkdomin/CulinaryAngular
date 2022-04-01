@@ -1,8 +1,9 @@
 @import '../../../assets/styles/variables.less';
 @import '../../../assets/styles/base.less';
 
+
 .link{
-  padding: 30px 0 30px 0;
+  min-height: 76px;
   background-color: rgba(0,1,13,90%);
   position: fixed;
   right: 0;
@@ -15,13 +16,14 @@ ul {
   list-style: none;
 
   li {
+    padding: 30px 0 0 0;
     text-transform: lowercase;
     color: white;
     letter-spacing: 2px;
     cursor: pointer;
-    padding-right: 3.5rem;
+    margin-right: 1rem;
     &:first-child {
-      padding-left:  3.5rem;
+      margin: 1 rem;
     }
   }
 
@@ -40,7 +42,7 @@ ul {
 .hover-underline-animation:after {
   content: '';
   position: absolute;
-  width: 15%;
+  width: 17px;
   transform: scaleX(0);
   height: 2px;
   bottom: -0.5rem;
@@ -49,10 +51,6 @@ ul {
   transform-origin: bottom right;
   transition: transform 0.30s ease-out;
 
-}
-.first:after {
-  position: absolute;
-  left:  3.5rem;
 }
 
 .hover-underline-animation:hover:after {
@@ -91,5 +89,21 @@ ul {
  .whiteFrame {
    background-color: @white;
    height: 2rem;
+ }
+
+ ul {
+  li {
+    padding: 30px 0 0 0;
+    margin-right: 3.5rem;
+  }
+}
+
+ .loop{
+    display: inline-block;
+    margin-right: 3.5rem;
+    cursor: pointer;
+    img {
+      padding: 10px 0 10px 10px;
+    }
  }
 }

@@ -22,8 +22,4 @@ export class PhotoComponent {
   private isPhotoEmpty() {
     return this.recipe.photo.length <= 0;
   }
-
-  show(){
-    this.shownPhoto.emit(this.recipe);
-  }
 }

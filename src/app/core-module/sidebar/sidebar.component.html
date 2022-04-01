@@ -1,43 +1,39 @@
 <header>
   <nav>
     <div class="row">
-      <div class="text-center col-xs-12 text-lg-end">
-        <div class="link">
-          <ul>
-            <li
-              class="hover-underline-animation first"
-              [routerLink]="['/home']"
-              [routerLinkActive]="'active'"
-            >
-              Home
-            </li>
-            <li
-              class="hover-underline-animation"
-              [routerLink]="['/recipes']"
-              [routerLinkActive]="'active'"
-            >
-              Recipes
-            </li>
-            <li
-              class="hover-underline-animation"
-              [routerLink]="['/recipes/creator']"
-              [routerLinkActive]="'active'"
-            >
-              Create
-            </li>
-            <li
-             class="hover-underline-animation"  (click)="logout()" >Logout
+      <div class="link text-center col-xs-12 text-lg-end">
+        <ul>
+          <li
+            class="hover-underline-animation first"
+            [routerLink]="['/home']"
+            [routerLinkActive]="'active'"
+          >
+            Home
           </li>
-          </ul>
-        </div>
+          <li
+            class="hover-underline-animation"
+            [routerLink]="['/recipes']"
+            [routerLinkActive]="'active'"
+          >
+            Recipes
+          </li>
+          <li
+            class="hover-underline-animation"
+            [routerLink]="['recipes/creator']"
+            [routerLinkActive]="'active'"
+          >
+            Create
+          </li>
+          <li class="hover-underline-animation" (click)="logout()">Logout</li>
+        </ul>
       </div>
     </div>
     <div class="panel">
       <img src="../../../assets/panel.png" alt="culinary recipes" />
-
     </div>
     <div class="frame"></div>
     <div class="underFrame"></div>
     <div class="whiteFrame"></div>
   </nav>
 </header>
+

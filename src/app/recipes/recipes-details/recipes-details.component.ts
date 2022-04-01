@@ -4,6 +4,7 @@ import { RecipesService } from '../recipes.service';
 import { Recipe } from '../models/recipe';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import * as _ from 'lodash';
+import { ScreenMy } from 'src/app/screen';
 
 @Component({
   selector: 'rl-recipes-details',
@@ -73,7 +74,7 @@ export class RecipesDetailsComponent implements OnInit {
     if (this.isUpdated) {
       this.updateRecipe();
       this.isUpdated = false;
-      this.scrollUp();
+      this.scrollTop();
     } else {
       this.isUpdated = true;
     }
@@ -83,26 +84,11 @@ export class RecipesDetailsComponent implements OnInit {
   }
 
   scrollToUp(move: number) : void{
-    let height = this.documentHeight();
+    let height = ScreenMy.documentHeight();
     window.scrollTo(0,height - move);
   }
 
-  private documentHeight(): number {
-    return document.documentElement.getBoundingClientRect().height;
-  }
-
-  scrollUp() : void{
+  scrollTop() : void{
     window.scrollTo(0,0);
   }
-
-  // getFirstLetter():string{
-  //   return this.recipe.name.charAt(0);
-  // }
-  // removeFirstLetter(): string{
-  //   return this.recipe.name.slice(1, this.recipe.name.length);
-  // }
-
-  // lowerCase(text: string): string{
-  //   return text.toLowerCase();
-  // }
 }

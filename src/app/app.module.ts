@@ -11,8 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AlertComponent } from './_components/alert.component';
-import { NoRecipeComponent } from './no-recipe/no-recipe.component';
-
 
 
 @NgModule({

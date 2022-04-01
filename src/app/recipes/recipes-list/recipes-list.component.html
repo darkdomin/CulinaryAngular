@@ -1,1 +1,3 @@
-<rl-main-recipes [recipes]="recipes"></rl-main-recipes>
+<rl-search-engine (inputText)="onNewText($event)"></rl-search-engine>
+<rl-main-recipes [mainRecipe]="recipes" [mainHeader]="headerText"></rl-main-recipes>
+

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Recipe } from './models/recipe';
 import { HttpClient } from "@angular/common/http";
 import 'rxjs';
-import { AccountService } from '../_services/account.service';
+import { PagedResult } from './models/pagedResult';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,10 @@ export class RecipesService {
 
   getRecipes(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(this.apiUrl);
+  }
+
+   browse(pageSize:number, page: number, text: string): Observable<PagedResult<Recipe>> {
+     return this.http.get<PagedResult<Recipe>>(this.apiUrl+'?pageSize='+pageSize+'&pageNumber='+page+'&searchPhrase='+text);//Recipe[]
   }
 
   getRecipe(id: number): Observable<Recipe> {

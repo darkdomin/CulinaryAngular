@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash';
+import { PagedResult } from '../models/pagedResult';
 import { Recipe } from '../models/recipe';
 import { RecipesService } from '../recipes.service';
 
@@ -9,19 +10,17 @@ import { RecipesService } from '../recipes.service';
   templateUrl: './main-recipes.component.html',
   styleUrls: ['./main-recipes.component.less']
 })
-export  class MainRecipesComponent implements OnInit {
+export class MainRecipesComponent implements OnInit {
 
-  @Input() recipes!: Recipe[];
+  @Input("mainRecipe") recipes!: Recipe[];
   shortRecipes!: Recipe[];
-
+  @Input("mainHeader") headerText!: string;
   orderby!: string;
 
-  constructor(private recipeService: RecipesService, private router: Router) {}
+  constructor(protected recipeService: RecipesService, protected router: Router) {}
 
   async ngOnInit(): Promise<void> {
-    await this.loadRecipes();
-    let number = await this.getRecipesLength();
-    this.recipes = await this.getLastest(number);
+   // await this.loadRecipes2(15,1,'');
   }
 
   async loadRecipes(): Promise<Recipe[]> {
@@ -32,20 +31,17 @@ export  class MainRecipesComponent implements OnInit {
     });
   }
 
-  async getRecipesLength(): Promise<number> {
+  async loadRecipes2(pageSize: number, page: number, searchText: string): Promise<Recipe[]> {
     return new Promise((resolve) => {
-      resolve(this.recipes?.length);
+      this.recipeService.browse(pageSize,page,searchText).subscribe((recipes) => { //'kebab'
+        resolve((this.recipes = recipes.items));
+      });
     });
   }
 
-  async getLastest(amount: number): Promise<Recipe[]> {
-    return new Promise((resolve) => {
-      this.recipes = _.takeRight(this.recipes, amount);
-      resolve(this.recipes);
-    });
-  }
+
 
   goToRecipeDetails(recipe: Recipe) {
-    this.router.navigate(['/recipes', recipe?.id]);
+   this.router.navigate(['/recipes', recipe?.id]);
   }
 }

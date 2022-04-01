@@ -1,0 +1,20 @@
+<form [formGroup]="searchForm">
+  <div class="rowMy">
+    <div class="header">
+      <label for="name" class="c-label">Search</label>
+    </div>
+    <div class="inputText">
+      <input
+        formControlName="name"
+        type="text"
+        id="name"
+        placeholder="Search..."
+        class="c-search"
+      />
+      <div class="loop" (click)="getSearchEngineText()">
+        <img src="../../../assets/loopBlack.gif" alt="search engine" />
+      </div>
+    </div>
+  </div>
+  <div class="separator"></div>
+</form>
