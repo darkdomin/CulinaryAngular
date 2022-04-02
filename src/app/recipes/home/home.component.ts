@@ -38,10 +38,10 @@ export class HomeMyComponent extends MainRecipesComponent implements OnInit {
   private async adjustAmountRecipes() {
     return new Promise(async (resolve) => {
       if (await ScreenMy.detectScreenSize() < 1200) {
-        await this.loadRecipes2(15,1,'');
+      //  await this.loadRecipes2(); //15,1,''
         resolve(await this.getLastest(8));
       }else {
-        await this.loadRecipes2(15,1,'');
+     //   await this.loadRecipes2(); //15,1,''
         resolve(await this.getLastest(9));
       }
     });

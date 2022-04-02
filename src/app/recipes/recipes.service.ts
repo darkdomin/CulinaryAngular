@@ -18,9 +18,14 @@ export class RecipesService {
     return this.http.get<Recipe[]>(this.apiUrl);
   }
 
-   browse(pageSize:number, page: number, text: string): Observable<PagedResult<Recipe>> {
-     return this.http.get<PagedResult<Recipe>>(this.apiUrl+'?pageSize='+pageSize+'&pageNumber='+page+'&searchPhrase='+text);//Recipe[]
+  //  browse(pageSize:number, page: number, text: string): Observable<PagedResult<Recipe>> {
+  //    return this.http.get<PagedResult<Recipe>>(this.apiUrl+'?pageSize='+pageSize+'&pageNumber='+page+'&searchPhrase='+text);//Recipe[]
+  // }
+
+  browse(params: any): Observable<PagedResult<Recipe>> {
+    return this.http.get<PagedResult<Recipe>>(this.apiUrl, { params });
   }
+
 
   getRecipe(id: number): Observable<Recipe> {
     return this.http.get<Recipe>(`${this.apiUrl}/${id}`);

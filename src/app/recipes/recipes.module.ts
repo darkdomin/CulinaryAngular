@@ -20,7 +20,8 @@ import { NoRecipeComponent } from '../no-recipe/no-recipe.component';
 import { PhotoComponent } from './photo/photo.component';
 import { MainRecipesComponent } from './main-recipes/main-recipes.component';
 import { SearchEngineComponent } from './search-engine/search-engine.component';
-
+import { FormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,8 @@ import { SearchEngineComponent } from './search-engine/search-engine.component';
     CuisinesModule,
     DifficultyLevelModule,
     ReactiveFormsModule,
+    FormsModule,
+    NgxPaginationModule
   ],
   providers:[RecipeResolve],
   exports: [RecipesListComponent, HomeMyComponent, HeaderBodyComponent, NoRecipeComponent]

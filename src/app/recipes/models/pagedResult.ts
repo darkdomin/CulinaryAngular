@@ -1,7 +1,5 @@
-import { Recipe } from './recipe';
-
-export interface PagedResult<T>{
-  items: T[],
+export interface PagedResult<Recipe>{
+  items: Recipe[],
   totalPages: number,
   itemFrom:number,
   itemTo:number,

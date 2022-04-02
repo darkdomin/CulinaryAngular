@@ -1,3 +1,51 @@
 <rl-search-engine (inputText)="onNewText($event)"></rl-search-engine>
-<rl-main-recipes [mainRecipe]="recipes" [mainHeader]="headerText"></rl-main-recipes>
+
+<rl-main-recipes
+  [mainRecipe]="recipes"
+  [mainHeader]="headerText"
+></rl-main-recipes>
+
+<div class="container-sm  ">
+  <div class="list row">
+    <div class="col-md-12">
+      <ul>
+        <li *ngFor=" let recip of recipes | paginate
+                : {
+                    itemsPerPage: pageSize,
+                    currentPage: page,
+                    totalItems: totalItem
+                  };
+            let i = index"
+
+        ></li>
+      </ul>
+  <div class="link">
+      <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="handlePageChange($event)"
+    ></pagination-controls>
+  </div>
+
+      <div class="d-flex bd-highlight mb-2">
+        <div class="p-2 bd-highlight ">
+          <label for="page">Items per Page:</label>
+          <select id="page" (change)="handlePageSizeChange($event)">
+            <option
+              value="{{ size }}"
+              *ngFor="let size of tableSizes"
+              [ngValue]="pageSize"
+            >
+              {{ size }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
 
