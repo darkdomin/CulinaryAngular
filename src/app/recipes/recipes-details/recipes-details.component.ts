@@ -47,6 +47,7 @@ export class RecipesDetailsComponent implements OnInit {
       grammar: this.recipe.grammar,
       execution: this.recipe.execution,
       photo: this.recipe.photo,
+      shortDescription: this.recipe.shortDescription,
       mealId: this.recipe.mealId,
       cuisineId: this.recipe.cuisineId,
       difficultId: this.recipe.difficultId,

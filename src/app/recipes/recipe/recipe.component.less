@@ -4,7 +4,6 @@
 
 /*
 1.General
-3.Photo
 4.Text
 */
 
@@ -23,12 +22,6 @@
   display: flex;
 }
 
-  .photo {
-    overflow: hidden;
-    width: 10rem;
-    height: 7rem;
-}
-
 .text {
   flex-wrap: wrap;
   padding: 0.7rem 0 2rem 1rem;
@@ -45,7 +38,19 @@
   h3 {
     flex-wrap: wrap;
     .title;
+    font-size: @font-size-6;
   }
+  h6{
+    display: none;
+    line-height: 1.6;
+  }
+}
+
+.photo {
+  overflow: hidden;
+  object-fit:cover;
+  width: 10rem;
+  height: 7rem;
 }
 
 .read {
@@ -61,28 +66,11 @@
     */
 
   .oneRecipe {
-    width: 20rem ;
+    width: 21rem;
+    height: 25rem;
     display: block;
     margin-bottom: 2rem;
   }
-
-     /*
-            3.Photo
-  -----------------------------
-    */
-
-  .photo {
-    overflow: hidden;
-    width: auto;
-    height: 16rem;
-    background-color: @white;
-  }
-
-  .overlayT:hover{
-      opacity: 0.5;
-      transition: opacity 0.2s ease-in-out;
-  }
-
 
      /*
             4. Text
@@ -90,8 +78,8 @@
     */
   .text {
     width: 100%;
-    padding: 1rem 1rem 2rem 1rem;
-    height: 10rem;
+    padding: 1.2rem 1rem 2rem 1.2rem;
+    height: 11rem;
 
     p {
       font-weight: 500;
@@ -100,21 +88,43 @@
     }
 
     h3{
-      font-size: @font-size-base;
-      line-height: 1;
-      text-align: left;
-      height: 4rem;
-      overflow: hidden;
+      visibility:hidden;
+      height: 2rem;
+    }
+
+    h6{
+      display: block;
+      font-size: @font-size-base * 0.7;
     }
   }
+
+  h3::first-line{
+    font-size: @font-size-6;
+    line-height: 1;
+    text-align: left;
+    overflow: hidden;
+    visibility: visible;
+  }
+
 
   .read {
     font-family:"Spartan";
     font-size: @font-size-6;
     font-weight: 600;
-    padding: 0  0  1rem 1rem;
+    padding: 0  0  0 1rem;
     color: @red;
     text-transform: capitalize;
     visibility: inherit;
+  }
+
+  .photo {
+    width: 100%;
+    min-height: 12rem;
+    background-color: @white;
+  }
+
+  .overlayT:hover{
+      opacity: 0.5;
+      transition: opacity 0.2s ease-in-out;
   }
 }

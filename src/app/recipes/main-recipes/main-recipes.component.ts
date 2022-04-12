@@ -15,7 +15,7 @@ export class MainRecipesComponent implements OnInit {
   shortRecipes!: Recipe[];
   @Input('mainHeader') headerText!: string;
   orderby!: string;
-
+  totalItem: number = 0;
   constructor(
     protected recipeService: RecipesService,
     protected router: Router
@@ -25,10 +25,34 @@ export class MainRecipesComponent implements OnInit {
 
   }
 
+  async loadRecipes(params: Params): Promise<Recipe[]> {
+    return new Promise((resolve) => {
+      this.recipeService.browse(params)
+      .subscribe((recipes) => {
+        this.totalItem = recipes.totalItemsCount;
+        console.log(this.recipes)
+      resolve((this.recipes = recipes.items));
+      });
+    });
+  }
 
+  getRequestParams( page: number, pageSize: number, searchTitle: string,): Params {
+    let params: any = {};
 
+    if (searchTitle) {
+      params[`searchPhrase`] = searchTitle;
+    }
 
+    if (page) {
+      params[`pageNumber`] = page ;
+    }
 
+    if (pageSize) {
+      params[`pageSize`] = pageSize;
+    }
+
+    return params;
+  }
 
   goToRecipeDetails(recipe: Recipe) {
     this.router.navigate(['/recipes', recipe?.id]);

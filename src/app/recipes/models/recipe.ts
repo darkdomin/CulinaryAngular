@@ -4,6 +4,7 @@ export interface Recipe {
   grammar: string;
   execution: string;
   photo: string;
+  shortDescription: string;
   mealId: number;
   cuisineId: number;
   difficultId: number;

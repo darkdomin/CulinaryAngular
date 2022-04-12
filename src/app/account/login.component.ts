@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
                     const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
                     this.router.navigateByUrl(returnUrl);
                     this.user = this.accountService.userValue;
-                    console.log("TOKEN Error" , this.user.token);
+                    console.log("TOKEN podczas logowania" , this.user.token);
                 },
                 error: error => {
                     this.alertService.error(error);

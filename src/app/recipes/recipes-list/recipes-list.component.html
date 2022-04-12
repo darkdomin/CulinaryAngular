@@ -5,7 +5,7 @@
   [mainHeader]="headerText"
 ></rl-main-recipes>
 
-<div class="container-sm  ">
+<div class="container-sm  mt-4">
   <div class="list row">
     <div class="col-md-12">
       <ul>
@@ -16,21 +16,21 @@
                     totalItems: totalItem
                   };
             let i = index"
-
         ></li>
       </ul>
-  <div class="link">
+  <div class="link p-2">
       <pagination-controls
+      class="paginator"
       previousLabel="Prev"
       nextLabel="Next"
       (pageChange)="handlePageChange($event)"
     ></pagination-controls>
   </div>
 
-      <div class="d-flex bd-highlight mb-2">
-        <div class="p-2 bd-highlight ">
-          <label for="page">Items per Page:</label>
-          <select id="page" (change)="handlePageSizeChange($event)">
+      <div class="d-flex justify-content-center">
+        <div class="p-2 mb-2">
+          <!-- <label for="page"></label> -->
+          <select class="p-2" id="page" (change)="handlePageSizeChange($event)">
             <option
               value="{{ size }}"
               *ngFor="let size of tableSizes"

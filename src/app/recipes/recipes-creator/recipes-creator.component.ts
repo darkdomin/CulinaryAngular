@@ -29,6 +29,7 @@ export class RecipesCreatorComponent implements OnInit {
       grammar: '',
       execution: '',
       photo: '',
+      shortDescription: '',
       mealId: ['1'],
       cuisineId: ['1'],
       difficultId: ['1'],
