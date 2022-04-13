@@ -21,8 +21,8 @@ export class RecipesService {
     return this.http.get<Recipe[]>(this.apiUrl);
   }
 
-  browse(params: Params): Observable<PagedResult<Recipe>> {
-    return this.http.get<PagedResult<Recipe>>(this.apiUrl, { params })
+  browse(params: Params ): Observable<PagedResult<Recipe>>  {
+    return this.http.get<PagedResult<Recipe>>(this.apiUrl, { params } )
   }
 
 

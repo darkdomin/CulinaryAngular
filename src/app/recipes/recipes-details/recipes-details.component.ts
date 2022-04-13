@@ -30,9 +30,14 @@ export class RecipesDetailsComponent implements OnInit {
     this.recipesForm = this.buildRecipeForm();
   }
 
-  @HostListener('click') onClick(){
+  @HostListener('click') async onClick(){
     if(this.isUpdated && this.slide == false){
-      this.scrollToUp(1260);
+      if(await ScreenMy.detectScreenSize() < 768){
+        this.scrollToUp(580); 
+      }else{
+        this.scrollToUp(740); 
+      }
+      
       this.sliderSwitch();
     }
   }
@@ -67,8 +72,6 @@ export class RecipesDetailsComponent implements OnInit {
     this.recipesService
       .updateRecipe(this.recipe.id, this.recipesForm.value)
       .subscribe(()=>{});
-
-     // console.log("Aktualizacja -   "+JSON.stringify(this.recipesForm.value));
   }
 
   switchUpdate() {
@@ -84,9 +87,10 @@ export class RecipesDetailsComponent implements OnInit {
     this.remover = !this.remover;
   }
 
-  scrollToUp(move: number) : void{
-    let height = ScreenMy.documentHeight();
-    window.scrollTo(0,height - move);
+  scrollToUp(move: number = 0 ) : void{
+    let height = ScreenMy.heightBetweenElements("top");
+    console.log('wypisz',height);
+    window.scrollTo(0, height + move);
   }
 
   scrollTop() : void{

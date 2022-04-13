@@ -10,20 +10,17 @@ import { RecipesService } from '../recipes.service';
   styleUrls: ['./main-recipes.component.less'],
 })
 export class MainRecipesComponent implements OnInit {
+  
   @Input('mainRecipe') recipes!: Recipe[];
-  recipe!: Recipe;
-  shortRecipes!: Recipe[];
   @Input('mainHeader') headerText!: string;
-  orderby!: string;
   totalItem: number = 0;
+
   constructor(
     protected recipeService: RecipesService,
     protected router: Router
   ) {}
 
-  async ngOnInit(): Promise<void> {
-
-  }
+  async ngOnInit(): Promise<void> {}
 
   async loadRecipes(params: Params): Promise<Recipe[]> {
     return new Promise((resolve) => {
@@ -36,15 +33,15 @@ export class MainRecipesComponent implements OnInit {
     });
   }
 
-  getRequestParams( page: number, pageSize: number, searchTitle: string,): Params {
-    let params: any = {};
+  getRequestParams( page: number, pageSize: number, searchTitle: string): Params {
+    let params: Params = {};
 
     if (searchTitle) {
       params[`searchPhrase`] = searchTitle;
     }
 
     if (page) {
-      params[`pageNumber`] = page ;
+      params[`pageNumber`] = page;
     }
 
     if (pageSize) {
