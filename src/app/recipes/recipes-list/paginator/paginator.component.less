@@ -1,0 +1,22 @@
+@import '../../../../assets/styles/variables.less';
+
+.container-sm{
+  text-align: center;
+}
+
+.paginator /deep/ .ngx-pagination .current {
+  background: @red;
+  color: @white;
+  outline: 1px solid black;
+  padding: 0.5rem 1rem;
+}
+
+.paginator /deep/ .ngx-pagination a {
+  padding: 0.5rem 1rem;
+}
+
+.paginator /deep/ .ngx-pagination a:hover, .ngx-pagination button:hover {
+  background: @bez;
+  color: black;
+  outline: 1px solid black;
+}

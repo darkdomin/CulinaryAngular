@@ -33,11 +33,11 @@ export class RecipesDetailsComponent implements OnInit {
   @HostListener('click') async onClick(){
     if(this.isUpdated && this.slide == false){
       if(await ScreenMy.detectScreenSize() < 768){
-        this.scrollToUp(580); 
+        this.scrollToUp(590);
       }else{
-        this.scrollToUp(740); 
+        this.scrollToUp(770);
       }
-      
+
       this.sliderSwitch();
     }
   }

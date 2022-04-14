@@ -22,6 +22,7 @@ import { MainRecipesComponent } from './main-recipes/main-recipes.component';
 import { SearchEngineComponent } from './search-engine/search-engine.component';
 import { FormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { PaginatorComponent } from './recipes-list/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     NoRecipeComponent,
     PhotoComponent,
     MainRecipesComponent,
-    SearchEngineComponent
+    SearchEngineComponent,
+    PaginatorComponent
   ],
   imports: [
     CommonModule,
