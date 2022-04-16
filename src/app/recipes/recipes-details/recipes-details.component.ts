@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from '../recipes.service';
 import { Recipe } from '../models/recipe';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -12,12 +12,13 @@ import { ScreenMy } from 'src/app/screen';
   styleUrls: ['./recipes-details.component.less'],
 })
 export class RecipesDetailsComponent implements OnInit {
-
   recipe!: Recipe;
   recipesForm!: FormGroup;
   isUpdated: boolean = false;
   remover: boolean = false;
   slide: boolean = false;
+
+  theChar: string = '+ ';
 
   constructor(
     private recipesService: RecipesService,
@@ -27,14 +28,15 @@ export class RecipesDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadRecipe();
+    this.recipe.grammar = this.addBulletPoint();
     this.recipesForm = this.buildRecipeForm();
   }
 
-  @HostListener('click') async onClick(){
-    if(this.isUpdated && this.slide == false){
-      if(await ScreenMy.detectScreenSize() < 768){
+  @HostListener('click') async onClick() {
+    if (this.isUpdated && this.slide == false) {
+      if ((await ScreenMy.detectScreenSize()) < 768) {
         this.scrollToUp(590);
-      }else{
+      } else {
         this.scrollToUp(770);
       }
 
@@ -42,7 +44,7 @@ export class RecipesDetailsComponent implements OnInit {
     }
   }
 
-  sliderSwitch(): void{
+  sliderSwitch(): void {
     this.slide = !this.slide;
   }
 
@@ -64,14 +66,14 @@ export class RecipesDetailsComponent implements OnInit {
     this.recipe = this.route.snapshot.data['recipeResolve'];
   }
 
-   onRemoveRecipe(recipe: Recipe) {
+  onRemoveRecipe(recipe: Recipe) {
     this.recipesService.deleteRecipe(recipe.id).subscribe(() => {});
   }
 
   updateRecipe() {
     this.recipesService
       .updateRecipe(this.recipe.id, this.recipesForm.value)
-      .subscribe(()=>{});
+      .subscribe(() => {});
   }
 
   switchUpdate() {
@@ -83,17 +85,58 @@ export class RecipesDetailsComponent implements OnInit {
       this.isUpdated = true;
     }
   }
-  switchRemove(){
+  switchRemove() {
     this.remover = !this.remover;
   }
 
-  scrollToUp(move: number = 0 ) : void{
-    let height = ScreenMy.heightBetweenElements("top");
-    console.log('wypisz',height);
+  scrollToUp(move: number = 0): void {
+    let height = ScreenMy.heightBetweenElements('top');
+    console.log('wypisz', height);
     window.scrollTo(0, height + move);
   }
 
-  scrollTop() : void{
-    window.scrollTo(0,0);
+  scrollTop(): void {
+    window.scrollTo(0, 0);
+  }
+
+  addBulletPoint(): string {
+    let str = this.recipe.grammar;
+    const iterator = str[Symbol.iterator]();
+    let theChar = iterator.next();
+    let line: string ="";
+    let newStr: string = "";
+
+    while (!theChar.done) {
+      line = this.newLine(line, theChar);
+
+      if (theChar.value === '\n') {
+        if(!this.isUpperCase(line)){
+          newStr += this.theChar + line;
+         }else{
+          newStr += line;
+        }
+        line = this.clear(line);
+      }
+
+      theChar = iterator.next();
+    }
+    newStr += line;
+    return newStr;
+  }
+
+  private clear(line: string) {
+    line = "";
+    return line;
+  }
+
+  private newLine(line: string, theChar: IteratorYieldResult<string>) {
+    line += theChar.value;
+    return line;
+  }
+
+  private isUpperCase(str: string): boolean {
+    return str === str.toUpperCase();//(/^[^a-z]*$/).test(str);
   }
 }
+
+
