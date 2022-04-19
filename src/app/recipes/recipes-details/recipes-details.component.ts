@@ -120,7 +120,7 @@ export class RecipesDetailsComponent implements OnInit {
 
       theChar = iterator.next();
     }
-    newStr += line;
+    newStr += this.theChar + line;
     return newStr;
   }
 

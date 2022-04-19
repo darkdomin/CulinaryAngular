@@ -9,8 +9,8 @@ import { RecipesService } from './recipes/recipes.service';
 import { RecipesRoutingModule } from './recipes/recipes-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-import { AlertComponent } from './_components/alert.component';
+import { JwtInterceptor, ErrorInterceptor } from './client/_helpers';
+import { AlertComponent } from './client/_components/alert.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 
 

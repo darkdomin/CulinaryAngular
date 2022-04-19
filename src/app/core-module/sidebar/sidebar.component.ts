@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AccountService } from '../../_services/account.service';
+import { AccountService } from '../../client/_services/account.service';
 
 @Component({
   selector: 'rl-sidebar',

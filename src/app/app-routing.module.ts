@@ -7,11 +7,11 @@ import {
 import { HomeMyComponent } from './recipes/home/home.component';
 import { RecipesCreatorComponent } from './recipes/recipes-creator/recipes-creator.component';
 import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
-import { AuthGuard } from './_helpers';
+import { AuthGuard } from './client/_helpers';
 
 
-const accountModule = () => import('./account/account.module').then((x) => x.AccountModule);
-const usersModule = () => import('./users/users.module').then((x) => x.UsersModule);
+const accountModule = () => import('./client/account/account.module').then((x) => x.AccountModule);
+const usersModule = () => import('./client/users/users.module').then((x) => x.UsersModule);
 
 const routes: Routes = [
 
