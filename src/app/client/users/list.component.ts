@@ -1,13 +1,22 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
+import { User } from '../_models/user';
 
 import { AccountService } from '../_services';
 
-@Component({ templateUrl: 'list.component.html' })
+@Component(
+{
+  templateUrl: 'list.component.html',
+  styleUrls: ['./list.component.less']
+})
 export class ListComponent implements OnInit {
-    users = null;
+    user!: User;
+    users!: User[];
+    isDeleting: boolean = true;
 
-    constructor(private accountService: AccountService) {}
+    constructor(private accountService: AccountService) {
+      this.user = this.accountService.userValue;
+    }
 
     ngOnInit() {
         // this.accountService.getAll()
@@ -15,11 +24,19 @@ export class ListComponent implements OnInit {
         //     .subscribe(users => this.users = users);
     }
 
-    deleteUser(id: string) {
-        // const user = this.users.find((x: { id: string; }) => x.id === id);
-        // user.isDeleting = true;
-        // this.accountService.delete(id)
-        //     .pipe(first())
-        //     .subscribe(() => this.users = this.users.filter((x: { id: string; }) => x.id !== id));
+    deleteUser() {
+       // this.getAll();
+      //  console.log('users', this.users)
+       // const user = this.users.find(x => x.id === id);
+       const user = this.user;
+        user!.isDeleting = true;
+        this.accountService.delete(user.id!)
+            .pipe(first())
+            .subscribe(() => this.users = this.users.filter(x=> x.id !== user.id))
     }
+    // private getAll(){
+    //  this.accountService.getAll().subscribe(u=>{
+    //   this.users = u;
+    // });
+  //}
 }

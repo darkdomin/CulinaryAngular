@@ -49,7 +49,7 @@ export class AccountService {
 
      //Reszta do zmiany
     getAll() {
-        return this.http.get<User[]>(`${environment.apiUrl}/users`);
+        return this.http.get<User[]>(`${environment.apiUrl}`);//
     }
 
      getById(id: string) {
@@ -73,7 +73,8 @@ export class AccountService {
     }
 
      delete(id: string) {
-        return this.http.delete(`${environment.apiUrl}/users/${id}`)
+       let idN: number = +id;
+        return this.http.delete<User>(`${environment.apiUrl}/${idN}`)
             .pipe(map(x => {
                 // auto logout if the logged in user deleted their own record
                 if (id == this.userValue.id) {
@@ -82,4 +83,6 @@ export class AccountService {
                 return x;
             }));
      }
+
+
 }

@@ -5,8 +5,8 @@ import { first } from 'rxjs/operators';
 
 import { AccountService, AlertService } from '../_services';
 
-@Component({ templateUrl: 'add-edit.component.html' })
-export class AddEditComponent implements OnInit {
+@Component({ templateUrl: 'edit.component.html' })
+export class EditComponent implements OnInit {
     form!: FormGroup;
     id!: string;
     isAddMode!: boolean;
@@ -32,10 +32,9 @@ export class AddEditComponent implements OnInit {
         }
 
         this.form = this.formBuilder.group({
-           // firstName: ['', Validators.required],
-           // lastName: ['', Validators.required],
             email: ['', Validators.required],
-            password: ['', passwordValidators]
+            password: ['', passwordValidators],
+            confirm: ['', passwordValidators]
         });
 
         if (!this.isAddMode) {
@@ -61,26 +60,26 @@ export class AddEditComponent implements OnInit {
 
         this.loading = true;
         if (this.isAddMode) {
-            this.createUser();
+          //  this.createUser();
         } else {
             this.updateUser();
         }
     }
 
-    private createUser() {
-        this.accountService.register(this.form.value)
-            .pipe(first())
-            .subscribe({
-                next: () => {
-                    this.alertService.success('User added successfully', { keepAfterRouteChange: true });
-                    this.router.navigate(['../'], { relativeTo: this.route });
-                },
-                error: error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                }
-            });
-    }
+    // private createUser() {
+    //     this.accountService.register(this.form.value)
+    //         .pipe(first())
+    //         .subscribe({
+    //             next: () => {
+    //                 this.alertService.success('User added successfully', { keepAfterRouteChange: true });
+    //                 this.router.navigate(['../'], { relativeTo: this.route });
+    //             },
+    //             error: error => {
+    //                 this.alertService.error(error);
+    //                 this.loading = false;
+    //             }
+    //         });
+    //}
 
     private updateUser() {
         this.accountService.update(this.id, this.form.value)

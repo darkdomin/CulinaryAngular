@@ -2,8 +2,9 @@
   <nav>
     <div class="row">
       <div class="link col-xs-12 ">
-        <div class="person">
-          <img src="../../../assets/person.png" alt="konto" />
+        <div class="person" [routerLink]="['users']"
+        [routerLinkActive]="'active'">
+          <img src="../../../assets/person.png" alt="user account" />
         </div>
         <div class="linkList">
         <ul>
