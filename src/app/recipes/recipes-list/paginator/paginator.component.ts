@@ -8,18 +8,18 @@ import { Recipe } from '../../models/recipe';
 })
 export class PaginatorComponent {
 
-  pageSize: number = 3;
-  tableSizes: number[] = [3, 5, 10, 15];
+  pageSize: number = 12;// 3;
+  tableSizes: number[] = [12];//[3, 5, 10, 15];
   page: number = 1;
   @Input("total") totalItem: number = 0;
   @Input('paginatorRecipes') recipes!: Recipe[];
-  @Output() changedPageSize = new EventEmitter<number>();
+  //@Output() changedPageSize = new EventEmitter<number>();
   @Output() changedPage = new EventEmitter<number>();
 
-  handlePageSizeChange(event: any){
-    this.pageSize = event.target!.value
-    this.changedPageSize.emit(this.pageSize);
-  }
+  // handlePageSizeChange(event: any){
+  //   this.pageSize = event.target!.value
+  //   this.changedPageSize.emit(this.pageSize);
+  // }
 
   handlePageChange(event: number){
     this.page = event;

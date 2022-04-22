@@ -19,7 +19,7 @@ export class RecipesListComponent
   header: string = 'Wszystkie przepisy';
   searchPhrase: string = '';
   page: number = 1;
-  pageSize: number = 3;
+  pageSize: number = 12;//3;
 
   params: Params = this.getRequestParams(
     this.page,
@@ -45,16 +45,16 @@ export class RecipesListComponent
     this.loadRecipes(params);
   }
 
-  onhandlePageSizeChange(event: any): void {
-    this.pageSize = event;
-    this.page = 1;
-    const params = this.getRequestParams(
-      this.page,
-      this.pageSize,
-      this.searchPhrase
-    );
-    this.loadRecipes(params);
-  }
+  // onhandlePageSizeChange(event: any): void {
+  //   this.pageSize = event;
+  //   this.page = 1;
+  //   const params = this.getRequestParams(
+  //     this.page,
+  //     this.pageSize,
+  //     this.searchPhrase
+  //   );
+  //   this.loadRecipes(params);
+  // }
 
   onHandlePageChange(event: number): void {
     this.page = event;
