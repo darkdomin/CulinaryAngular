@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
@@ -11,8 +11,9 @@ import { User } from '../_models';
      templateUrl: 'login.component.html',
      styleUrls: ['./login.component.less']
   })
-export class LoginComponent implements OnInit {
-    form!: FormGroup;
+export class LoginComponent implements OnInit, AfterViewInit {
+  @ViewChild('autoFocus') autofocus!: ElementRef<HTMLInputElement>;
+  form!: FormGroup;
     loading = false;
     submitted = false;
     user: User | undefined;
@@ -62,5 +63,9 @@ export class LoginComponent implements OnInit {
                 }
 
             });
+    }
+
+    ngAfterViewInit(): void {
+      this.autofocus.nativeElement.focus();
     }
 }

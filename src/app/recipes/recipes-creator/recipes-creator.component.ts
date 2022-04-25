@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Recipe } from '../models/recipe';
@@ -9,8 +9,9 @@ import { RecipesService } from '../recipes.service';
   templateUrl: './recipes-creator.component.html',
   styleUrls: ['./recipes-creator.component.less']
 })
-export class RecipesCreatorComponent implements OnInit {
+export class RecipesCreatorComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('autoFocus') autofocus!: ElementRef<HTMLInputElement>;
   recipesForm!: FormGroup;
   recipe!: Recipe;
 
@@ -42,5 +43,9 @@ export class RecipesCreatorComponent implements OnInit {
 
   execute(): void{
     alert("Dodano przepis");
+  }
+
+  ngAfterViewInit(): void {
+    this.autofocus.nativeElement.focus();
   }
 }

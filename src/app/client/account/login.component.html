@@ -5,7 +5,7 @@
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="form-group card-body">
                 <label class="pb-2" for="email">Email</label>
-                <input  id="email" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                <input  id="email" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" #autoFocus/>
                 <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
                     <div *ngIf="f['email'].errors['required']">Email is required</div>
                 </div>
