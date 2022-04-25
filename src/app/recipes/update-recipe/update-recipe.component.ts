@@ -10,6 +10,7 @@ import { Recipe } from '../models/recipe';
 })
 export class UpdateRecipeComponent implements OnInit, AfterViewInit {
 
+  @Input('temp') grammarTemp!: string;
   @Input('updateForm') recipesForm!: FormGroup;
   recipe!: Recipe;
   @ViewChild('autoFocus') autofocus!: ElementRef<HTMLInputElement>;
@@ -22,7 +23,14 @@ export class UpdateRecipeComponent implements OnInit, AfterViewInit {
   }
 
   loadRecipe() {
+    this.setGrammar(this.grammarTemp);
     this.recipe = this.recipesForm.value;
+  }
+
+  private setGrammar(temp: string) {
+    this.recipesForm.patchValue({
+      grammar: temp
+    });
   }
 
   ngAfterViewInit(): void {

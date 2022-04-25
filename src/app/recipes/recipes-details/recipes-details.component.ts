@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from '../recipes.service';
 import { Recipe } from '../models/recipe';
@@ -18,6 +18,7 @@ export class RecipesDetailsComponent implements OnInit {
   remover: boolean = false;
   slide: boolean = false;
 
+  grammarTemp: string="";
   theChar: string = '+ ';
 
   constructor(
@@ -26,11 +27,15 @@ export class RecipesDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
+
   ngOnInit(): void {
     this.loadRecipe();
-    this.recipe.grammar = this.addBulletPoint();
+    this.grammarTemp = this.recipe.grammar;
+    this.recipe.grammar = this.addBulletPoint('\n');
     this.recipesForm = this.buildRecipeForm();
   }
+
+
 
   @HostListener('click') async onClick() {
     if (this.isUpdated && this.slide == false) {
@@ -99,7 +104,7 @@ export class RecipesDetailsComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
-  addBulletPoint(): string {
+  addBulletPoint(getChar: string): string {
     let str = this.recipe.grammar;
     const iterator = str[Symbol.iterator]();
     let theChar = iterator.next();
@@ -109,7 +114,7 @@ export class RecipesDetailsComponent implements OnInit {
     while (!theChar.done) {
       line = this.newLine(line, theChar);
 
-      if (theChar.value === '\n') {
+      if (theChar.value === getChar) {
         if(!this.isUpperCase(line)){
           newStr += this.theChar + line;
          }else{
