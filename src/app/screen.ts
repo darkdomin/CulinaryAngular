@@ -18,9 +18,11 @@ export class ScreenMy {
     return 0;
   }
 
-  public static heightBetweenElements(elementId: string): number{
-    const element = document.getElementById(elementId)!;
-    const rect = element.getBoundingClientRect();
-    return +rect.top.toFixed() * -1 + rect.height;
+  public static heightBetweenElements(elementIdTop: string, elementIdBottom: string, move: number = 200): number{
+    const element = document.getElementById(elementIdTop)!.getBoundingClientRect();
+    const element2 = document.getElementById(elementIdBottom)!.getBoundingClientRect();
+    const h1 = +element.top.toFixed() + element.height;
+    const h2 = +element2.top.toFixed() + element2.height;
+    return (h2 - h1) + move ;
   }
 }

@@ -8,10 +8,14 @@ import 'rxjs';
   providedIn: 'root',
 })
 export class MealService {
-  private apiUrl = 'https://localhost:5001/api/meals';
+  private apiUrl = 'https://localhost:5001/api/recipes/meals';
   constructor(private http: HttpClient) {}
 
   getMeals(): Observable<Meal[]> {
     return this.http.get<Meal[]>(this.apiUrl);
+  }
+
+  getMeal(id: number): Observable<Meal> {
+    return this.http.get<Meal>(`${this.apiUrl}/${id}`)
   }
 }

@@ -1,42 +1,48 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CuisinesService } from '../cuisines.service';
 import { Cuisine } from '../cuisine';
 import { FormGroup } from '@angular/forms';
-import { DataSeeker } from 'src/app/dataSeeker';
+import { FilterData } from 'src/app/filter/collection';
+import { Recipe } from 'src/app/recipes/models/recipe';
+import { FormMy } from 'src/app/form';
+
 
 @Component({
   selector: 'rl-cuisines-list',
   templateUrl: './cuisines-list.component.html',
-  styleUrls: ['./cuisines-list.component.less']
+  styleUrls: ['./cuisines-list.component.less'],
 })
-export class CuisinesListComponent extends DataSeeker implements OnInit {
-
+export class CuisinesListComponent  implements OnInit { //extends DataSeeker<Cuisine>
   @Input('cuisineForm') recipesForm!: FormGroup;
   cuisines!: Cuisine[];
+  @Output() exportedForm = new EventEmitter<Recipe>();
 
   constructor(private serviceCuisine: CuisinesService) {
-    super();
+   // super();
   }
 
   ngOnInit(): void {
     this.loadCusines();
   }
 
-  loadCusines(): void{
-    this.serviceCuisine.getCuisines().subscribe((cuisines)=>{
-    this.cuisines = cuisines;
-    let result = this.getControlValue('cuisineId', this.recipesForm);
-    let id = this.getId(result);
-    this.setForm(id);
-    })
-  }
-    getId(fieldValueResult: string): number {
-      return this.cuisines.find((e) => e.name == fieldValueResult)!.id;
-    }
-
-    setForm(id: number){
+  loadCusines(): void {
+    this.serviceCuisine.getCuisines().subscribe((cuisines) => {
+      const cuisine = new FilterData<Cuisine>(cuisines);
+      this.cuisines = cuisines;
+      const form = new FormMy(this.recipesForm);
+      let resultName = form.getFieldValue('cuisineId');
+      let id = cuisine.getId(resultName);
+      //do przeniesienia
       this.recipesForm.patchValue({
         cuisineId: id,
       });
-    }
+    });
+  }
+  outFormGroup() {
+    const cuisine = new FilterData<Cuisine>(this.cuisines);
+    const form = new FormMy(this.recipesForm);
+    let recipe: Recipe = form.getValue();
+    recipe.cuisineId = cuisine.getName(+recipe.cuisineId);
+    this.exportedForm.emit(recipe);
+  }
 }

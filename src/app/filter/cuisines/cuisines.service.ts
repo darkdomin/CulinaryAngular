@@ -8,7 +8,7 @@ import { Cuisine } from './cuisine';
 })
 export class CuisinesService {
 
-  private apiUrl = "https://localhost:5001/api/cuisines";
+  private apiUrl = "https://localhost:5001/api/recipes/cuisines";
   constructor( private http: HttpClient) { }
 
   getCuisines(): Observable<Cuisine[]> {

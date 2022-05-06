@@ -8,7 +8,7 @@ import { Difficulty } from './models/difficulty';
 })
 export class DifficultyLevelService {
 
-  private apiUrl = "https://localhost:5001/api/difficultyLevel";
+  private apiUrl = "https://localhost:5001/api/recipes/difficultyLevel";
   constructor( private http: HttpClient) { }
 
   getDifficultyLevels(): Observable<Difficulty[]> {

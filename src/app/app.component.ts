@@ -16,7 +16,6 @@ export class AppComponent {
 
   ngOnInit(){
     this.accountService.user.subscribe(x => this.user = x!);
-    console.log('User jest ', this. user);
   }
   logout() {
       this.accountService.logout();

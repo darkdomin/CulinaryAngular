@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.form = this.formBuilder.group({
-            email: ['confirm3@test.pl', Validators.required],
+            email: ['CulinaryTest', Validators.required],
             password: ['123456', Validators.required]
         });
     }
@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
                 }
 
             });
+
     }
 
     ngAfterViewInit(): void {

@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './client/_helpers';
 import { AlertComponent } from './client/_components/alert.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { SharedMealService } from './filter/meals/shared-meal.service';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
      HttpClient,
      { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
      { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+     SharedMealService
     ],
   bootstrap: [AppComponent]
 })

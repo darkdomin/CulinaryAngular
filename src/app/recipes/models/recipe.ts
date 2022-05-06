@@ -5,8 +5,8 @@ export interface Recipe {
   execution: string;
   photo: string;
   shortDescription: string;
-  mealId: number;
-  cuisineId: number;
-  difficultId: number;
-  timeId: number;
+  mealId: number | string;
+  cuisineId: number | string;
+  difficultId: number | string;
+  timeId: number | string;
 }

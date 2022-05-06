@@ -9,7 +9,7 @@ import 'rxjs';
 })
 export class ExecutionTimeService {
 
-  private apiUrl = "https://localhost:5001/api/times";
+  private apiUrl = "https://localhost:5001/api/recipes/times";
   constructor( private http: HttpClient) { }
 
   getTimes(): Observable<Time[]> {

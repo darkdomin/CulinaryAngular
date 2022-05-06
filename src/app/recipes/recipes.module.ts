@@ -23,6 +23,7 @@ import { SearchEngineComponent } from './search-engine/search-engine.component';
 import { FormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PaginatorComponent } from './recipes-list/paginator/paginator.component';
+import { SharedMealService } from '../filter/meals/shared-meal.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { PaginatorComponent } from './recipes-list/paginator/paginator.component
     FormsModule,
     NgxPaginationModule
   ],
-  providers:[RecipeResolve],
+  providers:[RecipeResolve, SharedMealService],
   exports: [RecipesListComponent, HomeMyComponent, HeaderBodyComponent, NoRecipeComponent]
 })
 export class RecipesModule { }

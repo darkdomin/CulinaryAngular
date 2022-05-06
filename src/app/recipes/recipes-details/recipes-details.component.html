@@ -42,7 +42,10 @@
 
   <div class="row">
     <div class="col-sm-12 gramm">
-      <rl-header-body class="ingredient" headerText="Składniki:"></rl-header-body>
+      <rl-header-body
+        class="ingredient"
+        headerText="Składniki:"
+      ></rl-header-body>
       <pre>{{ recipe.grammar }}</pre>
     </div>
   </div>
@@ -50,7 +53,10 @@
   <div class="row">
     <div class="col-xs-12 col-lg-12">
       <div class="exec">
-        <rl-header-body class="ingredient" headerText="Wykonanie:"></rl-header-body>
+        <rl-header-body
+          class="ingredient"
+          headerText="Wykonanie:"
+        ></rl-header-body>
         <pre>{{ recipe.execution }}</pre>
       </div>
     </div>
@@ -67,21 +73,29 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-6 buttons">
-      <button
-        class="c-btnPrimary c-btnSizeLg"
-        (click)="switchUpdate()"
-      >
+    <div class="col-sm-6 buttons" *ngIf="!isUpdated">
+      <button (click)="switchUpdate()" class="c-btnPrimary c-btnSizeLg" id="buttonUpdate">
         Aktualizuj
       </button>
 
-      <button class="col-sm-6 c-btnPrimary c-btnSizeLg" (click)="switchRemove()">
+      <button
+        class="col-sm-6 c-btnPrimary c-btnSizeLg"
+        (click)="switchRemove()"
+      >
         Usuń
       </button>
     </div>
 
-    <div class="updateForm"  *ngIf="isUpdated == true">
-      <rl-update-recipe [updateForm]="recipesForm" id="upId" [temp]="grammarTemp"></rl-update-recipe>
+    <div class="updateForm" *ngIf="isUpdated">
+      <rl-update-recipe
+        [recipeId]="recipe.id"
+        [updateForm]="recipesForm"
+        id="upId"
+        [temp]="grammarTemp"
+        (recipesFormOut)="onRecipesForm($event)"
+        [isUpdated]="isUpdated"
+        (dataUpdated)="onIsUpdated($event)"
+      ></rl-update-recipe>
     </div>
   </div>
 </div>

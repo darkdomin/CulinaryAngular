@@ -1,10 +1,11 @@
-import { Component, HostListener, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, HostListener, OnInit, SimpleChange, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from '../recipes.service';
 import { Recipe } from '../models/recipe';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import * as _ from 'lodash';
 import { ScreenMy } from 'src/app/screen';
+import { UpdateRecipeComponent } from '../update-recipe/update-recipe.component';
 
 @Component({
   selector: 'rl-recipes-details',
@@ -17,7 +18,6 @@ export class RecipesDetailsComponent implements OnInit {
   isUpdated: boolean = false;
   remover: boolean = false;
   slide: boolean = false;
-
   grammarTemp: string="";
   theChar: string = '+ ';
 
@@ -27,22 +27,20 @@ export class RecipesDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-
   ngOnInit(): void {
+
     this.loadRecipe();
     this.grammarTemp = this.recipe.grammar;
     this.recipe.grammar = this.addBulletPoint('\n');
     this.recipesForm = this.buildRecipeForm();
   }
 
-
-
   @HostListener('click') async onClick() {
     if (this.isUpdated && this.slide == false) {
       if ((await ScreenMy.detectScreenSize()) < 768) {
-        this.scrollToUp(590);
+        this.scrollToUp(0);
       } else {
-        this.scrollToUp(770);
+        this.scrollToUp();
       }
 
       this.sliderSwitch();
@@ -75,29 +73,24 @@ export class RecipesDetailsComponent implements OnInit {
     this.recipesService.deleteRecipe(recipe.id).subscribe(() => {});
   }
 
-  updateRecipe() {
-    this.recipesService
-      .updateRecipe(this.recipe.id, this.recipesForm.value)
-      .subscribe(() => {});
-  }
-
   switchUpdate() {
     if (this.isUpdated) {
-      this.updateRecipe();
       this.isUpdated = false;
       this.scrollTop();
     } else {
       this.isUpdated = true;
     }
   }
+
   switchRemove() {
     this.remover = !this.remover;
   }
 
-  scrollToUp(move: number = 0): void {
-    let height = ScreenMy.heightBetweenElements('top');
-    console.log('wypisz', height);
-    window.scrollTo(0, height + move);
+  scrollToUp(move: number = 200): void {
+
+    let height = ScreenMy.heightBetweenElements('top',"test",move);
+    console.log(height)
+    window.scrollTo(0, height );
   }
 
   scrollTop(): void {
@@ -141,6 +134,14 @@ export class RecipesDetailsComponent implements OnInit {
 
   private isUpperCase(str: string): boolean {
     return str === str.toUpperCase();//(/^[^a-z]*$/).test(str);
+  }
+
+  onIsUpdated(updated: boolean){
+    this.isUpdated = updated;
+  }
+
+  onRecipesForm(recipe: Recipe){
+     this.recipe = recipe;
   }
 }
 

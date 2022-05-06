@@ -10,7 +10,9 @@
         class="c-input"
         #autoFocus
       />
-      <p *ngIf="!recipesForm.get('name')?.valid" class="error">This field is required</p>
+      <p *ngIf="!recipesForm.get('name')?.valid" class="error">
+        This field is required
+      </p>
     </div>
   </div>
   <br />
@@ -54,31 +56,68 @@
   <div class="row">
     <div class="col">
       <label for="link" class="c-label">Link do zdjęcia</label><br />
-      <input formControlName="photo" id="link" placeholder="zdjęcie" class="c-input" /><br />
+      <input
+        formControlName="photo"
+        id="link"
+        placeholder="zdjęcie"
+        class="c-input"
+      /><br />
     </div>
   </div>
 
   <div class="row mt-5 selection">
     <div class="col-6 col-lg-3">
-      <rl-meal [mealForm]="recipesForm"></rl-meal>
+      <rl-meal
+       #exportUpdatedNameRef
+       [mealForm]="recipesForm"
+       (exportedForm)="onExportMealForm($event)"
+      >
+      </rl-meal>
     </div>
     <br />
 
+    <!--  -->
+
     <div class="col-6 col-lg-3">
-      <rl-cuisines-list [cuisineForm]="recipesForm"></rl-cuisines-list>
+      <rl-cuisines-list
+      #exportUpdatedCuisineRef
+      [cuisineForm]="recipesForm"
+      (exportedForm)="onExportCuisineForm($event)"
+       >
+      </rl-cuisines-list>
     </div>
     <br />
 
     <div class="col-6 col-lg-3">
       <rl-difficulty-level-list
+        #exportUpdatedLevelRef
         [levelForm]="recipesForm"
+        (exportedForm)="onExportLevelForm($event)"
       ></rl-difficulty-level-list>
     </div>
     <br />
 
-    <div  class="col-6 col-lg-3">
-      <rl-execution-time [timeForm]="recipesForm"></rl-execution-time>
+    <div class="col-6 col-lg-3">
+      <rl-execution-time
+      #exportUpdatedTimeRef
+      [timeForm]="recipesForm"
+      (exportedTimeForm)="onExportTimeForm($event)"
+      >
+    </rl-execution-time>
     </div>
+  </div>
 
+  <div class="row">
+    <div class="col-sm-6 buttons">
+      <button class="c-btnPrimary c-btnSizeLg"
+      (click)="updateRecipe()"
+      (click)="exportFilter()"
+      (click)="exportForm()"
+      (click)="sendUpdated()"
+      >
+        Aktualizuj
+      </button>
+    </div>
   </div>
 </form>
+
