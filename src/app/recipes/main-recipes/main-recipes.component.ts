@@ -10,10 +10,13 @@ import { RecipesService } from '../recipes.service';
   styleUrls: ['./main-recipes.component.less'],
 })
 export class MainRecipesComponent implements OnInit {
-  
   @Input('mainRecipe') recipes!: Recipe[];
   @Input('mainHeader') headerText!: string;
   totalItem: number = 0;
+  searchPhrase: string = '';
+  page: number = 1;
+  pageSize: number = 12;
+  isHome = false;
 
   constructor(
     protected recipeService: RecipesService,
@@ -25,15 +28,19 @@ export class MainRecipesComponent implements OnInit {
   async loadRecipes(params: Params): Promise<Recipe[]> {
     return new Promise((resolve) => {
       this.recipeService.browse(params)
-      .subscribe((recipes) => {
+      .subscribe(recipes => {
         this.totalItem = recipes.totalItemsCount;
-        console.log(this.recipes)
-      resolve((this.recipes = recipes.items));
+        resolve((this.recipes = recipes.items));
       });
     });
   }
 
-  getRequestParams( page: number, pageSize: number, searchTitle: string): Params {
+  getRequestParams(
+    page: number,
+    pageSize: number,
+    searchTitle: string,
+    isHome: boolean
+  ): Params {
     let params: Params = {};
 
     if (searchTitle) {
@@ -48,10 +55,16 @@ export class MainRecipesComponent implements OnInit {
       params[`pageSize`] = pageSize;
     }
 
+    if (isHome) {
+      params['isHome'] = isHome;
+    }
+
     return params;
   }
 
-  goToRecipeDetails(recipe: Recipe) {
-    this.router.navigate(['/recipes', recipe?.id]);
+  async goToRecipeDetails(recipe: Recipe): Promise<boolean> {
+    return new Promise(resolve => {
+      resolve(this.router.navigate(['/recipes', recipe?.id]));
+    });
   }
 }

@@ -17,14 +17,15 @@ export class RecipesListComponent
   override recipes!: Recipe[];
   override headerText: string = 'Wszystkie przepisy';
   header: string = 'Wszystkie przepisy';
-  searchPhrase: string = '';
-  page: number = 1;
-  pageSize: number = 12;//3;
+  // searchPhrase: string = '';
+  // page: number = 1;
+  // pageSize: number = 12;
 
   params: Params = this.getRequestParams(
     this.page,
     this.pageSize,
-    this.searchPhrase
+    this.searchPhrase,
+    this.isHome
   );
 
   constructor(override recipeService: RecipesService, override router: Router) {
@@ -40,7 +41,8 @@ export class RecipesListComponent
     const params = this.getRequestParams(
       this.page,
       this.pageSize,
-      this.searchPhrase
+      this.searchPhrase,
+      this.isHome
     );
     this.loadRecipes(params);
   }
@@ -61,7 +63,8 @@ export class RecipesListComponent
     const params = this.getRequestParams(
       this.page,
       this.pageSize,
-      this.searchPhrase
+      this.searchPhrase,
+      this.isHome
     );
     this.loadRecipes(params);
   }

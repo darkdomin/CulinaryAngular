@@ -63,13 +63,15 @@
   </div>
 
   <div class="container" *ngIf="remover">
-    <rl-alert
-      [recipe]="recipe"
-      [switcher]="remover"
-      (removedRecipe)="onRemoveRecipe(recipe)"
-      (switched)="switchRemove()"
+    
+    <rl-alertDelete
+    [data]="recipe"
+    [switcher]="remover"
+    (removedData)="onRemoveRecipe(recipe)"
+    (switched)="switchRemove()"
+    [dataText] = "recipe.name"
     >
-    </rl-alert>
+    </rl-alertDelete>
   </div>
 
   <div class="row">

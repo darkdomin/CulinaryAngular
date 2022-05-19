@@ -8,6 +8,8 @@
 @import '../styles/spartan/css/spartan.css';
 
 
+
+
  /*
           1. RESET
 -----------------------------
@@ -62,15 +64,19 @@ body{
 }
 
 .container{
-  border-radius: 2px;
+  background-color: @beige;
   margin: 0 auto 0 auto;
+  &:extend(.borderMy);
+}
+
+.borderMy{
+  border-radius: 2px;
   box-shadow: 4px 4px 4px -2px rgba(121,83,38,0.30);
-  background-color: @bez;
 }
 
 .title {
   font-family: 'Spartan';
   text-transform: lowercase;
   font-weight: 600;
-  color: @szary;
+  color: @gray;
 }

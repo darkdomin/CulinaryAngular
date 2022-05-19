@@ -2,10 +2,6 @@
   <nav>
     <div class="row">
       <div class="link col-xs-12 ">
-        <div class="person" [routerLink]="['users']"
-        [routerLinkActive]="'active'">
-          <img src="../../../assets/person.png" alt="user account" />
-        </div>
         <div class="linkList">
         <ul>
           <li
@@ -20,16 +16,21 @@
             [routerLink]="['/recipes']"
             [routerLinkActive]="'active'"
           >
-            Recipes
+            Przepisy
           </li>
           <li
             class="hover-underline-animation"
             [routerLink]="['recipes/creator']"
             [routerLinkActive]="'active'"
           >
-            Create
+            Stwórz
           </li>
-          <li class="hover-underline-animation" (click)="logout()">Logout</li>
+          <li class="hover-underline-animation" (click)="logout()">
+            Logout
+          </li>
+          <li class="person"  [routerLink]="['users']">
+            <img src="../../../assets/user.svg" width="35" height="35" alt="user account" />
+          </li>
         </ul>
       </div>
       </div>

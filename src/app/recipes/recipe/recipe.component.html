@@ -1,17 +1,21 @@
-<div class="oneRecipe container">
+<div class="oneRecipe borderMy">
   <div class="photo">
     <div class="overlayT">
-       <rl-photo #recipeRef [recipe]="recipe"
-       (shownPhoto)='onShowPhoto($event)'>
+        <rl-photo #recipeRef [recipe]="recipe"
+        (shownPhoto)='onShowPhoto($event)'>
       </rl-photo>
     </div>
   </div>
   <div class="text">
     <p>
-      <rl-header-body headerText="{{ recipe?.mealId }}"></rl-header-body>
+      <rl-header-body
+        headerText="{{ recipe?.mealId }}">
+      </rl-header-body>
     </p>
     <h3>{{ recipe?.name }}</h3>
-    <h6>{{ recipe?.shortDescription }} {{ recipe?.shortDescription?.length }}</h6>
+    <h6>{{ recipe?.shortDescription }}</h6>
   </div>
-  <div class="read">Czytaj <span>&#62; &#62;</span></div>
+  <div class="read">
+    Czytaj <span>&#62; &#62;</span>
+  </div>
 </div>

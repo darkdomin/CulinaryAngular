@@ -1,31 +1,52 @@
+@import '../../../assets/styles/variables.less';
+@import '../../../assets/styles/base.less';
+@import '../../../assets/styles/components.less';
 
-table{
+.loginName{
   margin-top: 2rem;
-  min-height: 8rem;
-  width: 100%;
+  margin-bottom: 3rem;
 }
 
-th{
+h1{
+  margin: 1rem 0 0 1rem;
+  font-weight: bold;
+  font-size: @font-size-5;
+}
+
+h2 {
+  margin: 0 0 1.5rem 1rem;
+  font-size: @font-size-6;
+}
+
+p{
+  font-size: @font-size-6;
   font-weight: bold;
 }
-
-td{
-  padding: 1rem;
+hr{
+  margin-bottom: 1rem;
 }
 
-.thFirst{
-  padding-top: 1rem;
-  width: 3rem;
+.buttons{
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  :first-child{
+    margin: 0 1rem;
+  }
 }
 
-.trBtn{
-  padding-left: 0;
-  padding-top: 2rem;
-  padding-bottom: 0;
+.buttonEdit{
+  .c-btn(@blue);
+  .c-btnSizeMd;
 }
 
 @media (min-width: 768px){
-  table{
-    margin-top: 0;
+  .loginName{
+    margin-top: 1rem;
+  }
+
+  .buttons{
+    text-align: right;
   }
 }
+

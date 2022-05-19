@@ -3,7 +3,8 @@ import * as _ from 'lodash';
 import { MainRecipesComponent } from '../main-recipes/main-recipes.component';
 import { Recipe } from '../models/recipe';
 import { ScreenMy } from '../../screen';
-import { Params} from '@angular/router';
+import { Params, Router} from '@angular/router';
+import { RecipesService } from '../recipes.service';
 
 
 @Component({
@@ -13,10 +14,18 @@ import { Params} from '@angular/router';
 })
 
 export class HomeMyComponent extends MainRecipesComponent implements OnInit {
-  params: Params = this.getRequestParams( 1, 0, '');
+
+  params: Params = this.getRequestParams( this.page, this.pageSize, this.searchPhrase, this.isHome = true
+  );
+
+  //params: Params = this.getRequestParams( 1, 0, '');
   override recipes!: Recipe[];
   override headerText: string = "Ostatnie Przepisy";
-  
+
+  constructor(override recipeService: RecipesService, override router: Router) {
+    super(recipeService, router);
+  }
+
   override async ngOnInit(): Promise<void> {
     await this.adjustAmountRecipes();
   }
@@ -28,10 +37,10 @@ export class HomeMyComponent extends MainRecipesComponent implements OnInit {
   private async adjustAmountRecipes(): Promise<Recipe[]> {
     return new Promise(async (resolve) => {
       if (await ScreenMy.detectScreenSize() < 1200) {
-        (await this.loadRecipes(this.params)).reverse();
+        (await this.loadRecipes(this.params));
         resolve(await this.getLastest(8));
       }else {
-        (await this.loadRecipes(this.params)).reverse();
+        (await this.loadRecipes(this.params));
         resolve(await this.getLastest(9));
       }
     });

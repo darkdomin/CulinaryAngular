@@ -16,8 +16,7 @@ export class RecipesCreatorComponent implements OnInit, AfterViewInit {
   recipe!: Recipe;
 
   constructor(private formBuilder: FormBuilder,
-              private recipeService: RecipesService,
-              private router: Router) {
+              private recipeService: RecipesService) {
   }
 
   ngOnInit(): void {

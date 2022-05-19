@@ -24,9 +24,10 @@ export class MealComponent implements OnInit {
   }
 
   loadMeals(): void {
-    this.mealService.getMeals().subscribe((meals) => {
-      const meal = new FilterData<Meal>(meals);
-      this.meals = meals;
+    this.mealService.getMeals().subscribe(m => {
+      const meal = new FilterData<Meal>(m);
+      this.meals = m;
+      console.log("Posiłek", m)
       const form = new FormMy(this.recipesForm);
       let resultName = form.getFieldValue('mealId');
       let id = meal.getId(resultName);
@@ -36,7 +37,7 @@ export class MealComponent implements OnInit {
       });
     });
   }
-  
+
   outFormGroup() {
     const meal = new FilterData<Meal>(this.meals);
     const form = new FormMy(this.recipesForm);

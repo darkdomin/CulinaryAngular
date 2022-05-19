@@ -1,9 +1,9 @@
 ﻿export class User {
   id: string | undefined;
   email!: string;
- // password!: string;
- isDeleting: boolean = false;
-  // firstName: string;
-  /// lastName: string;
+  password!: string;
+  newPassword: string="";
+  confirmPassword: string = "";
+  isDeleting: boolean = false;
   token!: string;
 }

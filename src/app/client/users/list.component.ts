@@ -13,6 +13,7 @@ export class ListComponent implements OnInit {
     user!: User;
     users!: User[];
     isDeleting: boolean = true;
+    remover:boolean = false;
 
     constructor(private accountService: AccountService) {
       this.user = this.accountService.userValue;
@@ -39,4 +40,15 @@ export class ListComponent implements OnInit {
     //   this.users = u;
     // });
   //}
+
+  switchRemove() {
+    this.remover = !this.remover;
+  }
+
+  onRemoveUser() {
+    this.deleteUser();
+  }
 }
+
+
+// Zrobić Alert Przy usuwaniu użytkownika !!!!!!!!!!!!!!!

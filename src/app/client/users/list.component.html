@@ -1,32 +1,50 @@
-﻿<div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col" class="thFirst">Lp.</th>
-        <th scope="col">Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td scope="row">1</td>
-        <td>{{ user.email }}</td>
-      </tr>
-      <!-- <a routerLink="edit/{{user.id}}" class="btn btn-sm btn-primary mr-1" >Edit</a> -->
-      <tr >
-        <td class="trBtn">
-          <button
-            (click)="deleteUser()"
-            class="btn btn-sm btn-danger btn-delete-user btn float-end"
-            [disabled]="user.isDeleting"
-          >
-            <span
-              class="spinner-border spinner-border-sm"
-              *ngIf="user.isDeleting"
-            ></span>
-            <span *ngIf="!user.isDeleting">Delete</span>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+﻿<div class="row">
+  <div class="loginName col-xs-12">
+    <h1>Dane Użytkownika</h1>
+  </div>
+  <hr />
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <h2>Login:</h2>
+  </div>
+  <div class="col-6">
+    <p>{{ user.email }}</p>
+  </div>
+  <div class="col-6">
+    <h2>Hasło:</h2>
+  </div>
+  <div class="col-6">
+    <p>**********</p>
+  </div>
+</div>
+
+<div class="container" *ngIf="remover">
+  <rl-alertDelete
+    [data]="user"
+    [switcher]="remover"
+    (removedData)="onRemoveUser()"
+    (switched)="switchRemove()"
+    [dataText]="user.email"
+  >
+  </rl-alertDelete>
+</div>
+
+<div class="buttons">
+  <button
+    class="c-btnPrimary c-btnSizeMd"
+    (click)="switchRemove()"
+    [disabled]="user.isDeleting"
+  >
+    <span
+      class="spinner-border spinner-border-sm"
+      *ngIf="user.isDeleting"
+    ></span>
+    <span *ngIf="!user.isDeleting">Usuń</span>
+  </button>
+
+  <button routerLink="edit/{{ user.id }}" class="buttonEdit">
+    Edycja
+  </button>
 </div>

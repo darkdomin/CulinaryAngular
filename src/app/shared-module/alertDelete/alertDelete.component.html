@@ -1,17 +1,17 @@
 <div class="row alertMy">
   <div class="col">
     <p>
-      <span class="great">Uwaga!!!</span><br />Czy jesteś pewny że chcesz
-      usunąć przepis?
+      <span class="great">Uwaga!!!</span>Czy jesteś pewny że chcesz
+      usunąć: <span class="dataName">{{dataText}}? </span>
     </p>
     <div class="row">
       <div class="col-xs-6 justify-content-between">
         <button class="c-btnLight c-btnSizeMd" (click)="switchRemove()">Cofnij</button>
         <button
           class="c-btnPrimary c-btnSizeMd"
-          (click)="removeRecipe(recipe)"
+          (click)="removeData(data)"
           (click)="switchRemove()"
-          [routerLink]="['/home']"
+
         >
           Usuń
         </button>
@@ -19,3 +19,4 @@
     </div>
   </div>
 </div>
+<!--  -->

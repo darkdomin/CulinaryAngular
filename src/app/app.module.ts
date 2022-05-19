@@ -14,7 +14,6 @@ import { AlertComponent } from './client/_components/alert.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { SharedMealService } from './filter/meals/shared-meal.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +28,7 @@ import { SharedMealService } from './filter/meals/shared-meal.service';
     AppRoutingModule,
     RecipesRoutingModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [RecipesService,
      HttpClient,
@@ -39,7 +38,9 @@ import { SharedMealService } from './filter/meals/shared-meal.service';
     ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
 
 
 

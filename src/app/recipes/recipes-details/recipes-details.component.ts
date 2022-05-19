@@ -1,11 +1,10 @@
 import { Component, HostListener, OnInit, SimpleChange, ViewChild} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RecipesService } from '../recipes.service';
 import { Recipe } from '../models/recipe';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import * as _ from 'lodash';
 import { ScreenMy } from 'src/app/screen';
-import { UpdateRecipeComponent } from '../update-recipe/update-recipe.component';
 
 @Component({
   selector: 'rl-recipes-details',
@@ -24,7 +23,8 @@ export class RecipesDetailsComponent implements OnInit {
   constructor(
     private recipesService: RecipesService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -146,3 +146,4 @@ export class RecipesDetailsComponent implements OnInit {
 }
 
 
+// [routerLink]="['/home']"

@@ -47,17 +47,16 @@ export class AccountService {
         return this.http.post(`${environment.apiUrl}/register`, user);
      }
 
-     //Reszta do zmiany
     getAll() {
-        return this.http.get<User[]>(`${environment.apiUrl}`);//
+        return this.http.get<User[]>(`${environment.apiUrl}`);
     }
 
      getById(id: string) {
-        return this.http.get<User>(`${environment.apiUrl}/account/${id}`);
+        return this.http.get<User>(`${environment.apiUrl}/${id}`);
      }
 
      update(id: string, params: any) {
-        return this.http.put(`${environment.apiUrl}/account/${id}`, params)
+        return this.http.put(`${environment.apiUrl}/${id}`, params)
             .pipe(map(x => {
                 // update stored user if the logged in user updated their own record
                 if (id == this.userValue.id) {

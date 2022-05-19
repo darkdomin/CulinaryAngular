@@ -10,14 +10,13 @@
   left: 0;
   z-index: 100;
 }
+
 .linkList{
-  width: 75%;
-  display: inline-block;
-  text-align: right;
-  margin-left: 10%;
- }
+  text-align: center;
+}
 
 ul {
+
   li {
     padding: 30px 0 0 0;
     text-transform: lowercase;
@@ -25,7 +24,7 @@ ul {
     letter-spacing: 2px;
     cursor: pointer;
     margin-right: 1rem;
-    font-size: @font-size-base * 1.6;
+    font-size: @font-size-6;
   }
 
   li.active {
@@ -35,15 +34,15 @@ ul {
 }
 
 .person{
-  margin-left: 3%;
-  display: inline;
+  display: inline-block;
   cursor: pointer;
- }
+  position: relative;
+  bottom: 5px;
+}
 
 .hover-underline-animation {
   display: inline-block;
   position: relative;
-  color: @white ;
 }
 
 .hover-underline-animation:after {
@@ -72,23 +71,24 @@ ul {
 }
 
 @media (min-width: 768px){
+
  .panel {
-   background-color: @darkGray;
-   margin-top: 4.75rem;
+    background-color: @darkGray;
+    margin-top: 4.75rem;
 
    img {
-     visibility: inherit;
-     max-width: 100%;
-   }
- }
+      visibility: inherit;
+      max-width: 100%;
+    }
+  }
 
  .frame{
-   background-color: @red;
-   height: 4px;
- }
+    background-color: @red;
+    height: 4px;
+  }
 
  .underFrame{
-   background-color: @szary;
+   background-color: @gray;
    height: 10px;
  }
 
@@ -98,7 +98,7 @@ ul {
  }
 
  .linkList{
-  width: 80%;
+          text-align: right;
  }
 
  ul {
@@ -108,7 +108,6 @@ ul {
   }
 }
 
-
  .loop{
     display: inline-block;
     margin-right: 3.5rem;
@@ -117,5 +116,4 @@ ul {
       padding: 10px 0 10px 10px;
     }
  }
-
 }

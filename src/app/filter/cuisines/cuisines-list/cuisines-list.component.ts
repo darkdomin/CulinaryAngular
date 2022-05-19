@@ -12,14 +12,12 @@ import { FormMy } from 'src/app/form';
   templateUrl: './cuisines-list.component.html',
   styleUrls: ['./cuisines-list.component.less'],
 })
-export class CuisinesListComponent  implements OnInit { //extends DataSeeker<Cuisine>
+export class CuisinesListComponent  implements OnInit {
   @Input('cuisineForm') recipesForm!: FormGroup;
   cuisines!: Cuisine[];
   @Output() exportedForm = new EventEmitter<Recipe>();
 
-  constructor(private serviceCuisine: CuisinesService) {
-   // super();
-  }
+  constructor(private serviceCuisine: CuisinesService) {}
 
   ngOnInit(): void {
     this.loadCusines();
@@ -38,6 +36,7 @@ export class CuisinesListComponent  implements OnInit { //extends DataSeeker<Cui
       });
     });
   }
+
   outFormGroup() {
     const cuisine = new FilterData<Cuisine>(this.cuisines);
     const form = new FormMy(this.recipesForm);

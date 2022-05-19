@@ -2,26 +2,16 @@
 @import '../../../assets/styles/base.less';
 @import '../../../assets/styles/components.less';
 
-/*
-1.Reset
-2.Grammature
-3.Photo
-4.Text - execution
-5.Buttony
-*/
-
-
 
 .titleHeader {
   margin-top: @font-size-2;
   margin-bottom: @font-size-1 ;
   padding-left: 1rem;
 
-  p{
+  p {
     .title;
     text-align: center;
     font-size: @font-size-3;
-    line-height: 1;
   }
 }
 
@@ -30,69 +20,55 @@
   margin: 0 auto 1rem auto;
 }
 
- .name{
-    font-size: 2rem;
+.name{
+  font-size: 2rem;
 
-    h3{
-      flex: wrap;
-      font-size: larger;
-      line-height: 1;
-      text-transform: capitalize;
-    }
+  h3 {
+    flex: wrap;
+    font-size: @font-size-6;
+    text-transform: capitalize;
+  }
 }
 
-  /*
-           2. Grammature
-  --------------------------------
+.gramm {
+  line-height: 1.7;
+  padding: 2rem 2rem 2rem 3.5rem;
+  background-color: @white;
+  min-height: 100%;
+  max-width: 100%;
+  font-size: @font-size-5;
+  font-family: "Georgia";
+}
 
-  */
+.ingredient {
+  margin-left: -2rem;
+  font-size: @font-size-4;
+}
 
-  .gramm {
-      line-height: 1.7;
-      padding: 2rem 2rem 2rem 3.5rem;
-      background-color: @white;
-      min-height: 100%;
-      max-width: 100%;
-      font-size: @font-size-5;
-      font-family: "Georgia";
-  }
+.photo {
+  max-height: 24rem;
+  margin: 0 2rem 0 2rem;
+  overflow: hidden;
+}
 
-  .ingredient {
-    display: block;
-    margin-left: -2rem;
-    font-size: @font-size-4;
-  }
+.photo img{
+  max-width: 100%;
+  padding: 0 0 -20px 2rem;
+  border-radius: 4px;
+}
 
-  /*
-            3. photo
-  --------------------------------
+.underPhotoPanel {
+  color: black;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  background-color: @beige;
+}
 
-  */
-
-  .photo {
-    max-height: 24rem;
-    margin: 0 2rem 0 2rem;
-    overflow: hidden;
-  }
-
-  .photo img{
-    max-width: 100%;
-    padding: 0 0 -20px 2rem;
-    border-radius: 4px;
-  }
-
-  .underPhotoPanel {
-      color: black;
-      width: 100%;
-      text-align: center;
-      padding: 1rem 0;
-  }
-
-  .great{
-    //.header;
-    font-size: @font-size-7;
-    font-weight: 600;
-    text-transform: capitalize;
+.great{
+  font-size: @font-size-7;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
 .labelPanel {
@@ -102,46 +78,35 @@
   padding-right: 1rem;
 }
 
-  /*
-            4.Text - execution
-  --------------------------------
+.exec {
+  max-width: 50rem;
+  margin-top: 1rem;
+  line-height: 1.7;
+  padding: 1rem 3.5rem;
+  color: black;
+  font-size: @font-size-5;
+  font-family: "Georgia";
+  text-align: justify;
+}
 
-  */
+pre{
+  white-space: pre-wrap;
+}
 
-  .exec {
-      max-width: 50rem;
-      margin-top: 1rem;
-      line-height: 1.7;
-      padding: 1rem 3.5rem;
-      color: black;
-      font-size: @font-size-5;
-      font-family: "Georgia";
-      text-align: justify;
+.buttons {
+  text-align: center;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.c-btnPrimary {
+  margin-left: 2rem;
+
+  &:first-child {
+    margin-left: 0;
   }
-
-  pre{
-    white-space: pre-wrap;
-  }
-
-  /*
-           5. Buttony
-  --------------------------------
-
-  */
-
-  .buttons {
-    text-align: center;
-    width: 100%;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .c-btnPrimary {
-    margin-left: 2rem;
-    &:first-child{
-      margin-left: 0;
-    }
-  }
+}
 
 
   @media (min-width: 768px){
@@ -151,11 +116,10 @@
       margin-bottom: @font-size-1 * 2;
       padding-left: 1rem;
 
-      p{
+      p {
         .title;
         text-align: left;
         font-size: @font-size-3;
-        line-height: 1;
         margin-left: 1rem;
       }
     }
@@ -163,25 +127,23 @@
     .photo {
        margin-right: 0;
        margin-bottom: 1rem;
-
      }
 
-     .exec{
+    .exec{
       text-align: left;
-     }
-
+    }
 
      .underPhotoPanel {
-       .container;
-         padding: 3rem 1rem 3rem 1rem;
-         color: black;
-         width: 12.5rem;
-         text-align: left;
-         line-height: 2;
-         margin-left: 2rem;
+       .borderMy;
+        padding: 3rem 1rem 3rem 1rem;
+        color: black;
+        width: 12.5rem;
+        text-align: left;
+        line-height: 2;
+        margin-left: 2rem;
      }
 
-     .labelPanel {
+    .labelPanel {
       display: block;
       padding-right: 0;
     }

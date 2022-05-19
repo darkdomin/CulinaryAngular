@@ -1,0 +1,51 @@
+@import '../../../assets/styles/variables.less';
+@import '../../../assets/styles/base.less';
+@import '../../../assets/styles/components.less';
+
+.form-row{
+  margin-top: 2rem;
+  padding: 1rem 0 1rem 0;
+}
+
+.topCenter{
+  margin-top: 4rem;
+}
+
+.center{
+  margin-top: 1rem;
+}
+
+label{
+  font-size: @font-size-7;
+  font-weight: 600;
+  padding-left: 0.2rem
+}
+
+.buttonMy{
+  .c-btn(@blue);
+  .c-btnSizeMd;
+  margin: 0 1rem 1rem 0;
+}
+
+.cancelLink{
+  font-size: @font-size-5;
+}
+
+.buttons{
+  text-align: center;
+}
+
+input{
+  font-size: @font-size-6;
+}
+
+@media (min-width: 768px){
+
+  .form-row{
+    margin-top: 0;
+  }
+
+  .buttons{
+    text-align: left;
+  }
+}

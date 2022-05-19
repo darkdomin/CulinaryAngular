@@ -27,8 +27,7 @@ const routes: Routes = [
   { path: 'account',
     loadChildren: accountModule
   },
-
-    { path: 'home',
+  { path: 'home',
     component: HomeMyComponent,
     canActivate: [AuthGuard]
   },

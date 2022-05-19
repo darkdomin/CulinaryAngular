@@ -4,8 +4,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AccountService, AlertService } from '../_services';
+import { User } from '../_models';
 
-@Component({ templateUrl: 'edit.component.html' })
+
+
+@Component({
+   templateUrl: 'edit.component.html',
+   styleUrls: ['./edit.component.less']
+   })
 export class EditComponent implements OnInit {
     form!: FormGroup;
     id!: string;
@@ -23,18 +29,20 @@ export class EditComponent implements OnInit {
 
     ngOnInit() {
         this.id = this.route.snapshot.params['id'];
+
         this.isAddMode = !this.id;
 
-        // password not required in edit mode
         const passwordValidators = [Validators.minLength(6)];
+        // const
         if (this.isAddMode) {
             passwordValidators.push(Validators.required);
         }
 
         this.form = this.formBuilder.group({
-            email: ['', Validators.required],
-            password: ['', passwordValidators],
-            confirm: ['', passwordValidators]
+          //  email: ['', Validators.required],
+            password: ['', Validators.required],
+            newPassword: ['', passwordValidators],
+            confirmPassword: ['']
         });
 
         if (!this.isAddMode) {
@@ -60,26 +68,10 @@ export class EditComponent implements OnInit {
 
         this.loading = true;
         if (this.isAddMode) {
-          //  this.createUser();
         } else {
-            this.updateUser();
+            this.checkPasswords();
         }
     }
-
-    // private createUser() {
-    //     this.accountService.register(this.form.value)
-    //         .pipe(first())
-    //         .subscribe({
-    //             next: () => {
-    //                 this.alertService.success('User added successfully', { keepAfterRouteChange: true });
-    //                 this.router.navigate(['../'], { relativeTo: this.route });
-    //             },
-    //             error: error => {
-    //                 this.alertService.error(error);
-    //                 this.loading = false;
-    //             }
-    //         });
-    //}
 
     private updateUser() {
         this.accountService.update(this.id, this.form.value)
@@ -94,5 +86,25 @@ export class EditComponent implements OnInit {
                     this.loading = false;
                 }
             });
+            console.log("ID", this.id)
      }
+
+     checkPasswords(){
+       if(this.getLogin() == "CulinaryTest"){
+        this.alertService.error(`This user has forbiden access!`)
+        this.loading = false;
+       }
+       else if(this.f['newPassword'].value != this.f['confirmPassword'].value ){
+          this.alertService.error("New password and Confirm password they disagree.")
+          this.loading = false;
+       }else{
+        this.updateUser();
+       }
+     }
+
+     getLogin(): string{
+       return this.accountService.userValue.email;
+     }
+
+
 }

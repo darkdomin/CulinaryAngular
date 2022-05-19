@@ -1,19 +1,6 @@
 @import '../../../assets/styles/variables.less';
 @import '../../../assets/styles/base';
 
-
-/*
-1.General
-2.Text
-*/
-
-
-
-   /*
-         1.General
------------------------------
-  */
-
 .oneRecipe {
   width: 90% ;
   cursor: pointer;
@@ -28,17 +15,18 @@
   height: 6rem;
   width: 16rem;
   overflow: hidden;
+
   p {
-    font-weight: 400;
-    font-size: @font-size-base *1.2;
-    letter-spacing: 0;
+    font-size: @font-size-6;
     padding-bottom: 0.2rem;
   }
+
   h3 {
     flex-wrap: wrap;
     .title;
     font-size: @font-size-6;
   }
+
   h6{
     display: none;
     line-height: 1.6;
@@ -56,13 +44,7 @@
   visibility: hidden;
 }
 
-
 @media (min-width: 768px){
-
-  /*
-            1. General
-  -----------------------------
-    */
 
   .oneRecipe {
     width: 21rem;
@@ -71,10 +53,6 @@
     margin-bottom: 2rem;
   }
 
-     /*
-            2. Text
-  -----------------------------
-    */
   .text {
     width: 100%;
     padding: 1.2rem 1rem 2rem 1.2rem;

@@ -12,14 +12,12 @@ import { Recipe } from 'src/app/recipes/models/recipe';
   templateUrl: './execution-time.component.html',
   styleUrls: ['./execution-time.component.less'],
 })
-export class ExecutionTimeComponent implements OnInit { // extends DataSeeker<Time>
+export class ExecutionTimeComponent implements OnInit {
   @Input('timeForm') recipesForm!: FormGroup;
   times!: Time[];
   @Output() exportedTimeForm = new EventEmitter<Recipe>();
 
-  constructor(private timeService: ExecutionTimeService) {
-  //  super();
-  }
+  constructor(private timeService: ExecutionTimeService) {}
 
   ngOnInit(): void {
     this.loadTimes();
