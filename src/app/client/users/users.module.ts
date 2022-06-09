@@ -6,7 +6,7 @@ import { UsersRoutingModule } from './users-routing.module';
 import { LayoutComponent } from './layout.component';
 import { ListComponent } from './list.component';
 import { EditComponent } from './edit.component';
-import { SharedModule } from 'src/app/shared-module/shared.module';
+import { SharedModule } from 'src/app/shared-module/index';
 
 
 

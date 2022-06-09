@@ -1,24 +1,24 @@
-@import '../../../assets/styles/variables.less';
 @import '../../../assets/styles/base.less';
 @import '../../../assets/styles/components.less';
+@import '../../../assets/styles/helpers.less';
 
 .formArea {
-  padding-top: 1rem;
+  padding-top: 2rem;
   display: block;
   margin: 2rem auto 0 auto;
-  width:90%;
+  .size(90%);
 }
 
 .selection  {
   background-color: @beige;
-  width: 100%;
+  .size(100%);
   padding: 2rem 0;
-  text-align: center;
+  .inline-center;
 }
 
 .button {
-  width: 100%;
-  text-align: center;
+  .size(100%);
+  .inline-center;
   padding: 1rem;
  }
 
@@ -31,6 +31,18 @@
 
 .less-height{
   min-height: 10rem;
+}
+
+.blady{
+  .c-btnSizeLg;
+}
+
+.innerSelection{
+  margin: 0.7rem 0;
+
+  @media (min-width: @md){
+    margin: 0;
+  }
 }
 
 

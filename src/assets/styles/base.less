@@ -1,14 +1,7 @@
-@import 'variables';
-
-/*
-     Fonts
-*/
-
 //Spartan
 @import '../styles/spartan/css/spartan.css';
-
-
-
+@import '../styles/typography.less';
+@import '../styles/colors.less';
 
  /*
           1. RESET
@@ -58,25 +51,15 @@
       border-spacing: 0;
   }
 
-body{
-  font-family: 'Spartan', sans-serif;
-  font-size: 10px;
-}
+  //body style
+  body {
+    font-family: @font-primary;
+    font-size: 10px;
+    color: @gray;
+  }
 
-.container{
-  background-color: @beige;
-  margin: 0 auto 0 auto;
-  &:extend(.borderMy);
-}
-
-.borderMy{
-  border-radius: 2px;
-  box-shadow: 4px 4px 4px -2px rgba(121,83,38,0.30);
-}
-
-.title {
-  font-family: 'Spartan';
-  text-transform: lowercase;
-  font-weight: 600;
-  color: @gray;
-}
+  // scrren size
+  @sm: 480px;
+  @md: 768px;
+  @lg: 962px;
+  @xl: 1200px;

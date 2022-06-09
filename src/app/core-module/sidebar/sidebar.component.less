@@ -1,18 +1,19 @@
-@import '../../../assets/styles/variables.less';
 @import '../../../assets/styles/base.less';
+@import '../../../assets/styles/sizes.less';
+@import '../../../assets/styles/colors.less';
+@import '../../../assets/styles/helpers.less';
 
 
 .link{
+  padding: 20px 0 20px  0px;
   min-height: 76px;
-  background-color: rgba(0,1,13,90%);
-  position: fixed;
-  right: 0;
-  left: 0;
-  z-index: 100;
-}
+  background-color: rgba(0,1,13,95%);
+  .size(100%);
+  box-sizing: border-box;
 
-.linkList{
-  text-align: center;
+  @media (min-width: @md){
+    padding: 0 0 0 2rem;
+  }
 }
 
 ul {
@@ -29,58 +30,27 @@ ul {
 
   li.active {
     color: @red;
-    font-weight: 900;
+    font-weight: 700;
   }
 }
 
-.person{
-  display: inline-block;
-  cursor: pointer;
-  position: relative;
-  bottom: 5px;
-}
-
-.hover-underline-animation {
-  display: inline-block;
-  position: relative;
-}
-
-.hover-underline-animation:after {
-  content: '';
-  position: absolute;
-  width: 17px;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: -0.5rem;
-  left: 0;
-  background-color: @white;
-  transform-origin: bottom right;
-  transition: transform 0.40s ease-out;
-}
-
-.hover-underline-animation:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
 .panel {
+  @media (min-width: @md){
+    background-color: @darkGray;
+    margin-top: 76px;
+  }
   img {
-    visibility: hidden;
-    max-width: 100%;
+    .hide;
+     max-width: 100%;
+
+     @media (min-width: @md){
+      .show;
+      max-width: 100%;
+    }
   }
 }
 
 @media (min-width: 768px){
-
- .panel {
-    background-color: @darkGray;
-    margin-top: 4.75rem;
-
-   img {
-      visibility: inherit;
-      max-width: 100%;
-    }
-  }
 
  .frame{
     background-color: @red;
@@ -90,30 +60,46 @@ ul {
  .underFrame{
    background-color: @gray;
    height: 10px;
- }
-
- .whiteFrame {
-   background-color: @white;
-   height: 2rem;
- }
-
- .linkList{
-          text-align: right;
- }
-
- ul {
-  li {
-    padding: 30px 0 0 0;
-    margin-right: 1.5rem;
   }
-}
 
- .loop{
-    display: inline-block;
-    margin-right: 3.5rem;
-    cursor: pointer;
-    img {
-      padding: 10px 0 10px 10px;
+  .whiteFrame {
+    background-color: @white;
+    .size(auto,2rem);
+  }
+
+  ul {
+    li {
+      padding: 30px 0 0 0;
+      margin-right: 1.5rem;
     }
- }
+  }
+
+  .hover-underline-animation {
+    display: inline-block;
+    position: relative;
+  }
+
+  .hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    .size(17px, 2px);
+    transform: scaleX(0);
+    background-color: @white;
+    transform-origin: bottom right;
+    transition: transform 0.40s ease-out;
+  }
+
+  .hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .person{
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    bottom: 14px;
+  }
 }

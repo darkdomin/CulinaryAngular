@@ -35,7 +35,8 @@
               "src/styles.less"
             ],
             "scripts": [
-              "node_modules/lodash/lodash.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
@@ -49,7 +50,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "5.5kb"
                 }
               ],
               "fileReplacements": [

@@ -1,50 +1,55 @@
-﻿<div class="row">
-  <div class="loginName col-xs-12">
-    <h1>Dane Użytkownika</h1>
-  </div>
-  <hr />
-</div>
+﻿
+    <div class="row">
+      <div class="loginName col-xs-12">
+        <h1>Dane Użytkownika</h1>
+      </div>
+      <hr />
+    </div>
 
-<div class="row">
-  <div class="col-6">
-    <h2>Login:</h2>
-  </div>
-  <div class="col-6">
-    <p>{{ user.email }}</p>
-  </div>
-  <div class="col-6">
-    <h2>Hasło:</h2>
-  </div>
-  <div class="col-6">
-    <p>**********</p>
-  </div>
-</div>
+    <div class="row loginRow">
+      <div class="col-6">
+        <h2>Login:</h2>
+      </div>
+      <div class="col-6">
+        <p>{{ user.email }}</p>
+      </div>
+    </div>
+    <div class="row passRow">
+      <div class="col-6">
+        <h2>Hasło:</h2>
+      </div>
+      <div class="col-6">
+        <p>**********</p>
+      </div>
+    </div>
 
-<div class="container" *ngIf="remover">
-  <rl-alertDelete
-    [data]="user"
-    [switcher]="remover"
-    (removedData)="onRemoveUser()"
-    (switched)="switchRemove()"
-    [dataText]="user.email"
-  >
-  </rl-alertDelete>
-</div>
+    <div class="container" *ngIf="remover">
+      <rl-alertDelete
+        [data]="user"
+        [switcher]="remover"
+        (removedData)="onRemoveUser()"
+        (switched)="switchRemove()"
+        [dataText]="user.email"
+      >
+      </rl-alertDelete>
+    </div>
 
-<div class="buttons">
-  <button
-    class="c-btnPrimary c-btnSizeMd"
-    (click)="switchRemove()"
-    [disabled]="user.isDeleting"
-  >
-    <span
-      class="spinner-border spinner-border-sm"
-      *ngIf="user.isDeleting"
-    ></span>
-    <span *ngIf="!user.isDeleting">Usuń</span>
-  </button>
+    <div class="buttons">
+      <button
+        class="c-btnPrimary c-btnSizeMd"
+        (click)="switchRemove()"
+        [disabled]="user.isDeleting"
+      >
+        <span
+          class="spinner-border spinner-border-sm"
+          *ngIf="user.isDeleting"
+        ></span>
+        <span *ngIf="!user.isDeleting">Usuń</span>
+      </button>
 
-  <button routerLink="edit/{{ user.id }}" class="buttonEdit">
-    Edycja
-  </button>
-</div>
+      <button routerLink="edit/{{ user.id }}" class="buttonEdit">Edycja</button>
+    </div>
+
+
+
+

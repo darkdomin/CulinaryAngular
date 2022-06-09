@@ -27,7 +27,7 @@ export class ExecutionTimeComponent implements OnInit {
       const time = new FilterData<Time>(times);
       this.times = times;
       const form = new FormMy(this.recipesForm);
-      let resultName = form.getFieldValue('timeId');
+      let resultName = form.getControlValue('timeId');
       let id = time.getId(resultName);
       //do przeniesienia
       this.recipesForm.patchValue({

@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
-import { User } from '../_models';
+import { User } from '../_models/index';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -26,7 +26,7 @@ export class AccountService {
 
     login(email: string, password: string) {
 
-     return this.http.post<User>(`${environment.apiUrl}/login`, { email, password })
+     return this.http.post<User>(`${environment.apiUrl}/account/login`, { email, password })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
@@ -44,19 +44,19 @@ export class AccountService {
     }
 
     register(user: User) {
-        return this.http.post(`${environment.apiUrl}/register`, user);
+        return this.http.post(`${environment.apiUrl}/account/register`, user);
      }
 
     getAll() {
-        return this.http.get<User[]>(`${environment.apiUrl}`);
+        return this.http.get<User[]>(`${environment.apiUrl}/account`);
     }
 
      getById(id: string) {
-        return this.http.get<User>(`${environment.apiUrl}/${id}`);
+        return this.http.get<User>(`${environment.apiUrl}/account/${id}`);
      }
 
      update(id: string, params: any) {
-        return this.http.put(`${environment.apiUrl}/${id}`, params)
+        return this.http.put(`${environment.apiUrl}/account/${id}`, params)
             .pipe(map(x => {
                 // update stored user if the logged in user updated their own record
                 if (id == this.userValue.id) {
@@ -73,7 +73,7 @@ export class AccountService {
 
      delete(id: string) {
        let idN: number = +id;
-        return this.http.delete<User>(`${environment.apiUrl}/${idN}`)
+        return this.http.delete<User>(`${environment.apiUrl}/account/${idN}`)
             .pipe(map(x => {
                 // auto logout if the logged in user deleted their own record
                 if (id == this.userValue.id) {

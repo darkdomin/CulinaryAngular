@@ -28,7 +28,7 @@ export class CuisinesListComponent  implements OnInit {
       const cuisine = new FilterData<Cuisine>(cuisines);
       this.cuisines = cuisines;
       const form = new FormMy(this.recipesForm);
-      let resultName = form.getFieldValue('cuisineId');
+      let resultName = form.getControlValue('cuisineId');
       let id = cuisine.getId(resultName);
       //do przeniesienia
       this.recipesForm.patchValue({

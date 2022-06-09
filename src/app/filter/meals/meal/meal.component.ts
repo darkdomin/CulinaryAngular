@@ -29,7 +29,7 @@ export class MealComponent implements OnInit {
       this.meals = m;
       console.log("Posiłek", m)
       const form = new FormMy(this.recipesForm);
-      let resultName = form.getFieldValue('mealId');
+      let resultName = form.getControlValue('mealId');
       let id = meal.getId(resultName);
       //do przeniesienia
       this.recipesForm.patchValue({

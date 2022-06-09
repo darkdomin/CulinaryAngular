@@ -1,8 +1,8 @@
 <div class="row">
-  <form [formGroup]="recipesForm" class="col meal" >
+  <form [formGroup]="recipesForm" class="meal" >
     <label class="c-label"  for="meal2">Posiłek:</label><br />
     <select id="meal2" formControlName= "mealId" class="c-select" >
-      <option value="meal.id"  *ngFor="let meal of meals" class="c-option" >
+      <option value="{{ meal.id }}"  *ngFor="let meal of meals">
         {{ meal.name }}
       </option>
     </select>

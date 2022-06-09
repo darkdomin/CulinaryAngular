@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AccountService, AlertService } from '../_services';
-import { User } from '../_models';
+import { User } from '../_models/index';
 
 @Component(
   {
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.form = this.formBuilder.group({
             email: ['CulinaryTest', Validators.required],
-            password: ['123456', Validators.required]
+            password: ['darkCulinary1', Validators.required]
         });
     }
 

@@ -4,9 +4,7 @@ import {
   RouterModule,
   Routes,
 } from '@angular/router';
-import { HomeMyComponent } from './recipes/home/home.component';
-import { RecipesCreatorComponent } from './recipes/recipes-creator/recipes-creator.component';
-import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
+import { HomeMyComponent, RecipesCreatorComponent, RecipesListComponent } from './recipes/index';
 import { AuthGuard } from './client/_helpers';
 
 
@@ -37,13 +35,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'recipes/creator',
+    path: 'creator',
     component: RecipesCreatorComponent,
     canActivate: [AuthGuard],
-  },
-
-  // otherwise redirect to home
-  // { path: '**', redirectTo: '' }
+  }
+  //{ path: '**', redirectTo: '' }
 ];
 const routerOptions: ExtraOptions = {
   scrollPositionRestoration: 'enabled',

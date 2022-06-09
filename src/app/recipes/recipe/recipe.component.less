@@ -1,101 +1,112 @@
-@import '../../../assets/styles/variables.less';
 @import '../../../assets/styles/base';
+@import '../../../assets/styles/components';
+@import '../../../assets/styles/helpers';
 
+// 1. Base style
+// 2. Photo style
+// 3. All Text Style
+
+
+//  -- 1. Base style
 .oneRecipe {
-  width: 90% ;
   cursor: pointer;
-  background-color: @white;
   margin-bottom: 1rem;
-  display: flex;
-}
+ .size(100%);
 
-.text {
-  flex-wrap: wrap;
-  padding: 0.7rem 0 2rem 1rem;
-  height: 6rem;
-  width: 16rem;
-  overflow: hidden;
-
-  p {
-    font-size: @font-size-6;
-    padding-bottom: 0.2rem;
-  }
-
-  h3 {
-    flex-wrap: wrap;
-    .title;
-    font-size: @font-size-6;
-  }
-
-  h6{
-    display: none;
-    line-height: 1.6;
+  @media(min-width:@md){
+    display: block;
+    margin-bottom: 2rem;
   }
 }
+
+
+ // -- 2. Photo ---
 
 .photo {
   overflow: hidden;
   object-fit:cover;
-  width: 10rem;
-  height: 7rem;
-}
+  .size(100%, 10rem);
 
-.read {
-  visibility: hidden;
-}
-
-@media (min-width: 768px){
-
-  .oneRecipe {
-    width: 21rem;
-    height: 25rem;
-    display: block;
-    margin-bottom: 2rem;
+  @media(min-width: @sm){
+    .size(100%, 7rem);
   }
 
-  .text {
-    width: 100%;
-    padding: 1.2rem 1rem 2rem 1.2rem;
-    height: 11rem;
+  @media(min-width: @md){
+    min-height: 11rem;
+    background-color: @white;
+  }
+}
 
-    p {
-      font-weight: 500;
-      text-transform: capitalize;
+.photoOverlay:hover{
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+
+// -- 3. Text
+
+.text {
+  padding: 0.7rem 0 0 1rem;
+  .size(100%, 5rem);
+  overflow: hidden;
+  background-color: @white;
+
+  @media(min-width:@sm){
+    .size(100%, 6rem);
+    padding-right: 0.5rem;
+  }
+
+  @media(min-width:@md){
+    .size(100%, 12rem);
+    padding: 1.2rem 1rem 0 1.2rem;
+  }
+
+  .meal {
+    .title(@font-size-6);
+    padding-bottom: 0.5rem;
+    @media(min-width:@md){
       margin-bottom: 0.5rem;
     }
+  }
 
-    h3{
+  .recipeName {
+    .title(@font-size-6, @gray);
+    font-weight: 500;
+
+    @media(min-width:@md){
+      font-family: @font-primary;
       height: 16px;
       line-height: 1.2;
       overflow: hidden;
-      font-size: @font-size-6;
       margin-bottom: 1rem;
     }
+  }
 
-    h6{
+  .description {
+    font-family: @font-text;
+    display: none;
+    line-height: 1.6;
+
+    @media(min-width:@md){
       display: block;
-      font-size: @font-size-base * 1.1;
+      font-size: @font-size-base * 1.4;
     }
   }
+}
 
-  .read {
-    font-family:"Spartan";
-    font-size: @font-size-6;
-    font-weight: 600;
-    padding: 0  0  0 1rem;
-    color: @red;
-    text-transform: capitalize;
-    visibility: inherit;
-  }
+.read {
 
-  .photo {
-    width: 100%;
-    min-height: 12rem;
-    background-color: @white;
-  }
+  background-color: @white;
+  padding: 0  0.5rem  0.3rem 0;
+  text-align: end;
+  font-weight: 600;
+  color: @red;
+  text-transform: capitalize;
+  font-family: @font-text;
+  font-size: @font-size-7;
 
-  .overlayT:hover{
-      opacity: 0.5;
-      transition: opacity 0.2s ease-in-out;
+  @media(min-width:@md){
+    padding: 0.5rem  0.7rem  0.5rem 0;
   }
 }
+
+

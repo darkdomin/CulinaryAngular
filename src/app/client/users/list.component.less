@@ -1,13 +1,36 @@
-@import '../../../assets/styles/variables.less';
 @import '../../../assets/styles/base.less';
 @import '../../../assets/styles/components.less';
+@import '../../../assets/styles/helpers.less';
 
-.loginName{
+
+.loginName {
+  .inline-center;
   margin-top: 2rem;
   margin-bottom: 3rem;
+
+  @media (min-width: @md){
+    margin-top: 1rem;
+    text-align: left;
+  }
 }
 
-h1{
+.loginRow {
+  .inline-center;
+
+  @media (min-width: @md){
+    text-align: left;
+  }
+}
+
+.passRow {
+  .inline-center;
+
+  @media (min-width: @md){
+    text-align: left;
+  }
+}
+
+h1 {
   margin: 1rem 0 0 1rem;
   font-weight: bold;
   font-size: @font-size-5;
@@ -18,20 +41,26 @@ h2 {
   font-size: @font-size-6;
 }
 
-p{
+p {
   font-size: @font-size-6;
   font-weight: bold;
 }
-hr{
+
+hr {
   margin-bottom: 1rem;
 }
 
 .buttons{
   margin-top: 2rem;
   padding-bottom: 1rem;
-  text-align: center;
+  .inline-center;
   :first-child{
     margin: 0 1rem;
+  }
+
+  @media (min-width: @md){
+    text-align: right;
+    margin-right: 2rem;
   }
 }
 
@@ -40,13 +69,4 @@ hr{
   .c-btnSizeMd;
 }
 
-@media (min-width: 768px){
-  .loginName{
-    margin-top: 1rem;
-  }
-
-  .buttons{
-    text-align: right;
-  }
-}
 

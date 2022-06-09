@@ -20,6 +20,6 @@ export class PhotoComponent {
   }
 
   private isPhotoEmpty() {
-    return this.recipe.photo.length <= 0;
+    return this.recipe.photo.length <= 20;
   }
 }

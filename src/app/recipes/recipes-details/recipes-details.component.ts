@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, SimpleChange, ViewChild} from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RecipesService } from '../recipes.service';
 import { Recipe } from '../models/recipe';
@@ -20,6 +20,8 @@ export class RecipesDetailsComponent implements OnInit {
   grammarTemp: string="";
   theChar: string = '+ ';
 
+  @ViewChild('spr') spr: ElementRef | undefined;
+
   constructor(
     private recipesService: RecipesService,
     private formBuilder: FormBuilder,
@@ -31,9 +33,14 @@ export class RecipesDetailsComponent implements OnInit {
 
     this.loadRecipe();
     this.grammarTemp = this.recipe.grammar;
-    this.recipe.grammar = this.addBulletPoint('\n');
+    this.recipe.grammar = this.addBulletPoint('\n',  this.recipe.grammar);
     this.recipesForm = this.buildRecipeForm();
+
   }
+
+  // ngAfterViewInit(){
+  //   this.splitText();
+  // }
 
   @HostListener('click') async onClick() {
     if (this.isUpdated && this.slide == false) {
@@ -97,8 +104,8 @@ export class RecipesDetailsComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
-  addBulletPoint(getChar: string): string {
-    let str = this.recipe.grammar;
+  addBulletPoint(getChar: string, str: string): string {
+    //let str = this.recipe.grammar;
     const iterator = str[Symbol.iterator]();
     let theChar = iterator.next();
     let line: string ="";
@@ -141,9 +148,19 @@ export class RecipesDetailsComponent implements OnInit {
   }
 
   onRecipesForm(recipe: Recipe){
-     this.recipe = recipe;
+    this.recipe = recipe;
+    this.recipe.grammar = this.addBulletPoint('\n', this.recipe.grammar);
   }
+
+  // splitText(){
+  //   let p: string[] = [];
+  //   const text: string = this.spr?.nativeElement.innerText;
+
+  //   if(text !== null){
+  //     console.log(text.split(/\r?\n/));
+  //   }
+  //   //console.log("CO jest  - ",p);
+  //  return p;
+  // }
 }
 
-
-// [routerLink]="['/home']"

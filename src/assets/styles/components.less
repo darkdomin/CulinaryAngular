@@ -1,4 +1,6 @@
-@import 'variables.less';
+@import 'sizes.less';
+@import 'colors.less';
+@import 'helpers.less';
 
           /*
                 BUTTONS
@@ -37,10 +39,18 @@
 }
 
 .c-btnSizeMd {
-  padding: 0.5rem;
+  padding: 0.6rem;
   width: 8rem;
   font-size: @font-size-7;
 }
+
+.c-btnSizeLong{
+  padding: 0.8rem;
+  width: 13rem;
+  font-size: @font-size-7;
+}
+
+
 
           /*
                 SELECT
@@ -50,17 +60,35 @@
   width:12rem;
   border: 1px solid #d2cfc6;
   height: @font-size-1;
-  padding: 0 0 0 @font-size-5;
-  margin: 0 auto;
+  padding-left: @font-size-5;
   font-variant: small-caps;
   font-size: @font-size-6;
 }
+
+.c-selectMd{
+  width: 9rem;
+  border: 1px solid #d2cfc6;
+  height: @font-size-2;
+  padding-left: @font-size-7;
+  font-variant: small-caps;
+  font-size: @font-size-6;
+}
+
+.c-selectSizeLG {
+  .size(12rem, @font-size-1);
+}
+
 
           /*
                LABEL
           */
 .c-label {
   font-size: @font-size-5;
+  font-variant: small-caps;
+}
+
+.c-labelMd {
+  font-size: @font-size-6;
   font-variant: small-caps;
 }
 
@@ -90,5 +118,18 @@
   margin: 0 auto;
   font-size: @font-size-6;
 }
+
+
+.container{
+  background-color: @beige;
+  margin: 0 auto 0 auto;
+  &:extend(.borderMy);
+}
+
+.borderMy{
+  border-radius: 2px;
+  box-shadow: 4px 4px 4px -2px rgba(121,83,38,0.30);
+}
+
 
 

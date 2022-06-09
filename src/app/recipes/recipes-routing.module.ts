@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RecipesDetailsComponent } from './recipes-details/recipes-details.component';
 import { RecipeResolve } from './recipe-resolve.service';
-import { RecipesListComponent } from './recipes-list/recipes-list.component';
 
 const detailsRouts: Routes = [
   {

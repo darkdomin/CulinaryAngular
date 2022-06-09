@@ -5,7 +5,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:5001/api/account'
+  apiUrl: 'https://localhost:5001/api'
+  //apiUrl: 'https://apiculinary.azurewebsites.net/api'
 };
 
 /*

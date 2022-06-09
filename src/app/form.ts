@@ -14,7 +14,7 @@ export class FormMy{
     });
   }
 
-  public getFieldValue(arg: string):string {
+  public getControlValue(arg: string):string {
     return this.form.get(arg)?.value
   }
 

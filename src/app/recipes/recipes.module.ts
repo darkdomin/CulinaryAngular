@@ -1,38 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RecipesListComponent } from './recipes-list/recipes-list.component';
-import { SharedModule } from '../shared-module/shared.module';
-import { RecipesDetailsComponent } from './recipes-details/recipes-details.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RecipesListComponent } from './recipes-list/recipes-list.component';
+import { SharedModule } from '../shared-module/index';
+import { RecipesDetailsComponent } from './recipes-details/recipes-details.component';
 import { RecipeResolve } from './recipe-resolve.service';
 import { RecipesCreatorComponent } from './recipes-creator/recipes-creator.component';
-import { TimesModule } from '../filter/times/times.module';
-import { MealModule } from '../filter/meals/meal.module';
-import { CuisinesModule } from '../filter/cuisines/cuisines.module';
-import { DifficultyLevelModule } from '../filter/difficulty-level/difficulty-level.module';
-import { ReactiveFormsModule } from '@angular/forms';
-import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
+import { TimesModule, MealModule, CuisinesModule, DifficultyLevelModule } from '../filter/index';
 import { HomeMyComponent } from './home/home.component';
 import { RecipeComponent } from './recipe/recipe.component';
-import { HeaderBodyComponent } from './header-body/header-body.component';
-import { NoRecipeComponent } from '../no-recipe/no-recipe.component';
+import { NoRecipeComponent } from './no-recipe/no-recipe.component';
 import { PhotoComponent } from './photo/photo.component';
 import { MainRecipesComponent } from './main-recipes/main-recipes.component';
 import { SearchEngineComponent } from './search-engine/search-engine.component';
-import { FormsModule } from '@angular/forms';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { PaginatorComponent } from './recipes-list/paginator/paginator.component';
-import { SharedMealService } from '../filter/meals/shared-meal.service';
+
 
 @NgModule({
   declarations: [
     RecipesListComponent,
     RecipesDetailsComponent,
     RecipesCreatorComponent,
-    UpdateRecipeComponent,
     HomeMyComponent,
     RecipeComponent,
-    HeaderBodyComponent,
     NoRecipeComponent,
     PhotoComponent,
     MainRecipesComponent,
@@ -51,7 +44,7 @@ import { SharedMealService } from '../filter/meals/shared-meal.service';
     FormsModule,
     NgxPaginationModule
   ],
-  providers:[RecipeResolve, SharedMealService],
-  exports: [RecipesListComponent, HomeMyComponent, HeaderBodyComponent, NoRecipeComponent]
+  providers:[RecipeResolve],
+  exports: [RecipesListComponent, HomeMyComponent, NoRecipeComponent]
 })
 export class RecipesModule { }

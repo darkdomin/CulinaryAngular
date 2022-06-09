@@ -1,46 +1,66 @@
-<header>
-  <nav>
-    <div class="row">
-      <div class="link col-xs-12 ">
-        <div class="linkList">
-        <ul>
-          <li
-            class="hover-underline-animation first"
-            [routerLink]="['/home']"
-            [routerLinkActive]="'active'"
-          >
-            Home
-          </li>
-          <li
-            class="hover-underline-animation"
-            [routerLink]="['/recipes']"
-            [routerLinkActive]="'active'"
-          >
-            Przepisy
-          </li>
-          <li
-            class="hover-underline-animation"
-            [routerLink]="['recipes/creator']"
-            [routerLinkActive]="'active'"
-          >
-            Stwórz
-          </li>
-          <li class="hover-underline-animation" (click)="logout()">
-            Logout
-          </li>
-          <li class="person"  [routerLink]="['users']">
-            <img src="../../../assets/user.svg" width="35" height="35" alt="user account" />
-          </li>
-        </ul>
-      </div>
-      </div>
-    </div>
-    <div class="panel">
-      <img src="../../../assets/panel.png" alt="culinary recipes" />
-    </div>
-    <div class="frame"></div>
-    <div class="underFrame"></div>
-    <div class="whiteFrame"></div>
-  </nav>
-</header>
+
+<nav class="link ps-2 navbar navbar-dark navbar-expand-md fixed-top">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#menuItems"
+    aria-controls="menuItems"
+    aria-expanded="false"
+    aria-label="Toggle Navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="linkMenu collapse navbar-collapse" id="menuItems">
+    <ul class="navbar-nav d-flex flex-sm-row-reverse">
+      <li
+        class="nav-item"
+        class="hover-underline-animation first"
+        [routerLink]="['/home']"
+        [routerLinkActive]="'active'"
+      >
+        Home
+      </li>
+      <li
+        class="hover-underline-animation nav-item"
+        [routerLink]="['/recipes']"
+        [routerLinkActive]="'active'"
+      >
+        Przepisy
+      </li>
+
+      <li
+        class="hover-underline-animation nav-item"
+        [routerLink]="['/creator']"
+        [routerLinkActive]="'active'"
+      >
+        Utwórz
+      </li>
+      <li class="hover-underline-animation nav-item" (click)="logout()">
+        Wyloguj
+      </li>
+      <li class="personWriting" *ngIf="isSmall" [routerLink]="['users']" [routerLinkActive]="'active'">
+        Konto
+      </li>
+      <li class="person" *ngIf="!isSmall" [routerLink]="['users']">
+        <img
+          src="../../../assets/user.svg"
+          width="35"
+          height="35"
+          alt="user account"
+        />
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+<div class="panel">
+  <img src="../../../assets/panel.png" alt="culinary recipes" />
+</div>
+<div class="frame"></div>
+<div class="underFrame"></div>
+<div class="whiteFrame"></div>
+
+
 

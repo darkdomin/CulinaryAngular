@@ -1,4 +1,4 @@
-<div class="container">
+<div class="containerMy">
   <div class="row" id="top">
     <div class="col-xs-12 col-lg-12">
       <div class="titleHeader">
@@ -42,28 +42,23 @@
 
   <div class="row">
     <div class="col-sm-12 gramm">
-      <rl-header-body
-        class="ingredient"
-        headerText="Składniki:"
-      ></rl-header-body>
-      <pre>{{ recipe.grammar }}</pre>
+        <span class="labelText">Składniki:</span>
+      <pre>{{ recipe.grammar }}
+      </pre>
     </div>
   </div>
 
   <div class="row">
     <div class="col-xs-12 col-lg-12">
       <div class="exec">
-        <rl-header-body
-          class="ingredient"
-          headerText="Wykonanie:"
-        ></rl-header-body>
+        <span class="labelText">Wykonanie:</span>
         <pre>{{ recipe.execution }}</pre>
       </div>
     </div>
   </div>
 
   <div class="container" *ngIf="remover">
-    
+
     <rl-alertDelete
     [data]="recipe"
     [switcher]="remover"
@@ -76,20 +71,39 @@
 
   <div class="row">
     <div class="col-sm-6 buttons" *ngIf="!isUpdated">
-      <button (click)="switchUpdate()" class="c-btnPrimary c-btnSizeLg" id="buttonUpdate">
+      <div class="butUpdate">
+      <button (click)="switchUpdate()" class="but" id="buttonUpdate">
         Aktualizuj
       </button>
-
+    </div>
+    <div class="butDelete">
       <button
-        class="col-sm-6 c-btnPrimary c-btnSizeLg"
+        class="col-sm-6 but"
         (click)="switchRemove()"
       >
         Usuń
       </button>
     </div>
+    </div>
 
     <div class="updateForm" *ngIf="isUpdated">
-      <rl-update-recipe
+
+      <rl-recipes-creator
+        [recipeId]="recipe.id"
+        [creator]="recipesForm"
+        id="upId"
+        [temp]="grammarTemp"
+        (recipesFormOut)="onRecipesForm($event)"
+        [isUpdated]="isUpdated"
+        (dataUpdated)="onIsUpdated($event)"
+      ></rl-recipes-creator>
+
+    </div>
+  </div>
+</div>
+
+
+      <!-- <rl-update-recipe
         [recipeId]="recipe.id"
         [updateForm]="recipesForm"
         id="upId"
@@ -97,7 +111,4 @@
         (recipesFormOut)="onRecipesForm($event)"
         [isUpdated]="isUpdated"
         (dataUpdated)="onIsUpdated($event)"
-      ></rl-update-recipe>
-    </div>
-  </div>
-</div>
+      ></rl-update-recipe> -->

@@ -1,11 +1,11 @@
-@import '../../../assets/styles/variables.less';
 @import '../../../assets/styles/base.less';
+@import '../../../assets/styles/colors.less';
+@import '../../../assets/styles/helpers.less';
 
 .rowMy{
-  width: 100%;
-  margin:0 auto;
-  text-align: center;
-  margin-top: 40px;
+  .size(100%);
+  .container-center;
+  .inline-center;
   background-color: @white;
 }
 
@@ -15,10 +15,14 @@
 
 .c-search{
   border: none;
-  width: 85%;
+  .size(85%);
   border-bottom: 1px solid @beige;
   padding: 8px;
   background-color: transparent;
+
+  @media (min-width: @md){
+    .size(65%);
+  }
 }
 
 input:focus {
@@ -29,21 +33,9 @@ input:focus {
   display: inline-block;
   cursor:pointer
 }
+
 img{
   padding: 10px;
 }
 
-.separator {
-  padding-bottom: 3rem;
-  background-color: @white;
-}
 
-
-@media (min-width: 768px){
- .rowMy{
-  margin-top: 0;
- }
- .c-search{
-   width: 50%;
- }
-}

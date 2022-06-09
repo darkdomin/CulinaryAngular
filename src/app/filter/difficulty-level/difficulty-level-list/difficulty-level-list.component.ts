@@ -27,7 +27,7 @@ export class DifficultyLevelListComponent implements OnInit { //extends DataSeek
       const level = new FilterData<Difficulty>(levels);
       this.difficultiesLevel = levels;
         const form = new FormMy(this.recipesForm);
-        let resultName = form.getFieldValue('difficultId');
+        let resultName = form.getControlValue('difficultId');
         let id = level.getId(resultName);
         //do przeniesienia
         this.recipesForm.patchValue({

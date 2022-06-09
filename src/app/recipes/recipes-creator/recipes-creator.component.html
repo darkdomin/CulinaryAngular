@@ -1,7 +1,7 @@
 <div class="container">
   <form [formGroup]="recipesForm" class="formArea">
     <div class="row" id="kotwica">
-      <div class="col name">
+      <div class="col name" id="test">
         <label for="name" class="c-label">Nazwa</label><br />
         <input
           formControlName="name"
@@ -71,47 +71,68 @@
     </div>
 
     <div class="row mt-5 selection">
-
-      <div class="col-6 col-lg-3 ">
-        <rl-meal [mealForm]="recipesForm" class="innerSelection"></rl-meal>
-      </div>
-      <br />
-
-      <div class="col-6 col-lg-3">
-        <rl-cuisines-list
-          [cuisineForm]="recipesForm"
-          class="innerSelection"
-        ></rl-cuisines-list>
-      </div>
-      <br />
-
-      <div class="col-6 col-lg-3">
-        <rl-difficulty-level-list
-          [levelForm]="recipesForm"
-          class="innerSelection"
+      <div class="col-xs-12 col-md-6 col-lg-3 innerSelection">
+        <rl-meal
+         #exportUpdatedNameRef
+         [mealForm]="recipesForm"
+         (exportedForm)="onExportMealForm($event)"
         >
-        </rl-difficulty-level-list>
+        </rl-meal>
       </div>
-      <br />
 
-      <div class="col-6 col-lg-3">
+      <div class="col-xs-12 col-md-6 col-lg-3  innerSelection">
+        <rl-cuisines-list
+        #exportUpdatedCuisineRef
+        [cuisineForm]="recipesForm"
+        (exportedForm)="onExportCuisineForm($event)"
+         >
+        </rl-cuisines-list>
+      </div>
+
+      <div class="col-xs-12 col-md-6 col-lg-3  innerSelection">
+        <rl-difficulty-level-list
+          #exportUpdatedLevelRef
+          [levelForm]="recipesForm"
+          (exportedForm)="onExportLevelForm($event)"
+        ></rl-difficulty-level-list>
+      </div>
+
+      <div class="col-xs-12 col-md-6 col-lg-3  innerSelection">
         <rl-execution-time
-          [timeForm]="recipesForm"
-          class="innerSelection"
-        ></rl-execution-time>
+        #exportUpdatedTimeRef
+        [timeForm]="recipesForm"
+        (exportedTimeForm)="onExportTimeForm($event)"
+        >
+      </rl-execution-time>
       </div>
     </div>
   </form>
   <br />
 
-  <div class="button">
+  <div class="button" *ngIf="isFormCreator">
     <button
-      class="c-btnPrimary c-btnSizeLg"
+      [disabled]="recipesForm.invalid"
+      class="blady"
+      [ngClass]="{'c-btnPrimary c-btnSizeLg': !recipesForm.invalid}"
       role="button"
       (click)="addRecipe()"
       (click)="execute()"
+      (click)="onClear()"
     >
-      Stwórz
+      Utwórz
     </button>
   </div>
+
+  <div class="button"  *ngIf="!isFormCreator"  >
+    <button class="c-btnPrimary c-btnSizeLg"
+      (click)="updateRecipe()"
+      (click)="exportForm()"
+      (click)="exportFilter()"
+      (click)="sendUpdated()"
+      >
+        Aktualizuj
+      </button>
+  </div>
 </div>
+
+

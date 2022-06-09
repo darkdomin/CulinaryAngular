@@ -1,68 +1,105 @@
-@import '../../../assets/styles/variables.less';
 @import '../../../assets/styles/base.less';
 @import '../../../assets/styles/components.less';
+@import '../../../assets/styles/helpers.less';
+@import '../../../assets/styles/typography.less';
+
 
 
 .titleHeader {
-  margin-top: @font-size-2;
-  margin-bottom: @font-size-1 ;
-  padding-left: 1rem;
+  margin: @font-size-1  auto;
+  padding: 1rem 1rem;
+
+  @media (min-width: @md){
+    margin-top: @font-size-2;
+    margin-bottom: @font-size-1 * 2;
+    padding-left: 1rem;
+  }
 
   p {
-    .title;
-    text-align: center;
-    font-size: @font-size-3;
+    .title(@font-size-3, @gray);
+    .inline-center;
+
+    @media (min-width: @md){
+      text-align: left;
+      margin-left: 1rem;
+    }
   }
 }
 
 .lineHr {
-  width: 95%;
+  .size(95%);
   margin: 0 auto 1rem auto;
 }
 
 .name{
   font-size: 2rem;
 
+  @media (min-width: @md){
+
+  }
+
   h3 {
     flex: wrap;
     font-size: @font-size-6;
     text-transform: capitalize;
+
+    @media (min-width: @md){
+
+    }
   }
 }
 
 .gramm {
   line-height: 1.7;
-  padding: 2rem 2rem 2rem 3.5rem;
+  padding: 2rem 1rem 1rem 1rem;
   background-color: @white;
   min-height: 100%;
   max-width: 100%;
   font-size: @font-size-5;
-  font-family: "Georgia";
+  font-family: @font-text;
+
+  @media (min-width: @md){
+    padding-left: 3.5rem;
+  }
 }
 
 .ingredient {
   margin-left: -2rem;
-  font-size: @font-size-4;
 }
 
 .photo {
   max-height: 24rem;
-  margin: 0 2rem 0 2rem;
+  margin: 0 1rem 0 1rem;
   overflow: hidden;
+
+  @media (min-width: @md){
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
 }
 
 .photo img{
   max-width: 100%;
-  padding: 0 0 -20px 2rem;
+  padding: 0 0 -20px 1rem;
   border-radius: 4px;
 }
 
 .underPhotoPanel {
-  color: black;
-  width: 100%;
-  text-align: center;
+  .size(100%);
+  .inline-center;
+  margin-top: 1rem;
   padding: 1rem 0;
   background-color: @beige;
+
+  @media (min-width: @md){
+    .borderMy;
+    margin-top: 0;
+    padding: 3rem 1rem 3rem 1rem;
+    .size(12.5rem);
+    text-align: left;
+    line-height: 2;
+    margin-left: 2rem;
+  }
 }
 
 .great{
@@ -76,17 +113,29 @@
   font-weight: 600;
   display: inline-block;
   padding-right: 1rem;
+
+  @media (min-width: @md){
+    display: block;
+    padding-right: 0;
+  }
+}
+
+.labelText{
+  .title(@font-size-4);
 }
 
 .exec {
   max-width: 50rem;
-  margin-top: 1rem;
   line-height: 1.7;
-  padding: 1rem 3.5rem;
-  color: black;
+  padding: 2rem 1rem 1rem 1rem;
   font-size: @font-size-5;
-  font-family: "Georgia";
+  font-family: @font-text;
   text-align: justify;
+
+  @media (min-width: @md){
+    text-align: left;
+    padding: 1rem 3.5rem;
+  }
 }
 
 pre{
@@ -94,70 +143,34 @@ pre{
 }
 
 .buttons {
-  text-align: center;
-  width: 100%;
+  .inline-center;
+  .size(100%);
   margin-top: 1rem;
   margin-bottom: 2rem;
-}
 
-.c-btnPrimary {
-  margin-left: 2rem;
-
-  &:first-child {
-    margin-left: 0;
+  @media (min-width: @md){
+    display:flex;
+    text-align: start;
+    .size(100%);
+    margin-top: 1rem;
+    margin-bottom: 2rem;
   }
 }
 
+.but{
+  .c-btnPrimary;
+  .c-btnSizeLong;
 
-  @media (min-width: 768px){
-
-    .titleHeader {
-      margin-top: @font-size-2;
-      margin-bottom: @font-size-1 * 2;
-      padding-left: 1rem;
-
-      p {
-        .title;
-        text-align: left;
-        font-size: @font-size-3;
-        margin-left: 1rem;
-      }
-    }
-
-    .photo {
-       margin-right: 0;
-       margin-bottom: 1rem;
-     }
-
-    .exec{
-      text-align: left;
-    }
-
-     .underPhotoPanel {
-       .borderMy;
-        padding: 3rem 1rem 3rem 1rem;
-        color: black;
-        width: 12.5rem;
-        text-align: left;
-        line-height: 2;
-        margin-left: 2rem;
-     }
-
-    .labelPanel {
-      display: block;
-      padding-right: 0;
-    }
-
-    .buttons {
-      text-align: start;
-      width: 100%;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .c-btnPrimary {
-      &:first-child{
-        margin-left: 2rem;
-      }
-    }
+  @media (min-width: @md){
+    .c-btnSizeLg;
   }
+}
+
+.butUpdate{
+  margin-bottom: 1rem;
+
+  @media (min-width: @md){
+    margin: 0 2rem;
+  }
+}
+

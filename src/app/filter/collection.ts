@@ -8,7 +8,7 @@ export class FilterData<T extends myColl> {
 
   //gets name from id
   public getName(id: number): string {
-    return this.col.find((e) => e.id == id)!.name;
+    return this.col.find(e => e.id == id)!.name;
   }
 }
 

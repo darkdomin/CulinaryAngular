@@ -1,4 +1,12 @@
-<rl-search-engine (inputText)="onNewText($event)"></rl-search-engine>
+<div class="search">
+  <rl-search-engine
+    (inputText)="onNewText($event)"
+    >
+  </rl-search-engine>
+</div>
+<div class="all">
+  <p>Wszystkie przepisy</p>
+</div>
 
 <rl-main-recipes
   [mainRecipe]="recipes"
