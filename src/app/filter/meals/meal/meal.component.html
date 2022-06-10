@@ -1,10 +1,11 @@
 <div class="row">
   <form [formGroup]="recipesForm" class="meal" >
     <label class="c-label"  for="meal2">Posiłek:</label><br />
-    <select id="meal2" formControlName= "mealId" class="c-select" >
+    <select id="meal2" formControlName= "mealId" >
       <option value="{{ meal.id }}"  *ngFor="let meal of meals">
         {{ meal.name }}
       </option>
     </select>
   </form>
 </div>
+

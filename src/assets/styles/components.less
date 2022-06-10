@@ -57,25 +57,35 @@
           */
 
 .c-select{
-  width:12rem;
-  border: 1px solid #d2cfc6;
-  height: @font-size-1;
+  &:extend(.selectExtend);
   padding-left: @font-size-5;
-  font-variant: small-caps;
-  font-size: @font-size-6;
 }
 
 .c-selectMd{
-  width: 9rem;
-  border: 1px solid #d2cfc6;
-  height: @font-size-2;
+  &:extend(.selectExtend);
   padding-left: @font-size-7;
+}
+
+.selectExtend {
+  box-shadow: 4px 4px 4px -2px rgba(121,83,38,0.30);
+  border: 1px solid @beige;
   font-variant: small-caps;
   font-size: @font-size-6;
+  background-color: white;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.c-selectSizeMd{
+  .size(9rem, @font-size-2 );
 }
 
 .c-selectSizeLG {
-  .size(12rem, @font-size-1);
+  .size(11rem, @font-size-2);
+}
+
+.c-selectSizeLong{
+  .size(80%, @font-size-2);
 }
 
 
@@ -98,27 +108,27 @@
                 INPUT
           */
 .c-input {
-  width:100%;
-  border: 1px solid @beige;
+  &:extend(.controleExtend);
   height: @font-size-1;
-  line-height: 1.8;
   padding: 0 0 0 @font-size-5;
-  font-size: @font-size-6;
 }
 
           /*
                 TEXTAREA
           */
 .c-textarea{
-  width:100%;
-  border: 1px solid @beige;
+  &:extend(.controleExtend);
   min-height: @font-size-1 * 7;
-  line-height: 1.8;
   padding: @font-size-5;
-  margin: 0 auto;
-  font-size: @font-size-6;
 }
 
+.controleExtend{
+  .size(100%);
+  border: 1px solid @beige;
+  line-height: 1.8;
+  font-size: @font-size-6;
+  border-radius: 4px;
+}
 
 .container{
   background-color: @beige;
