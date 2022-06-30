@@ -20,7 +20,7 @@ export class SidebarComponent {
               }
   @HostListener('window:resize') async onResize() {
 
-    if ((await ScreenMy.detectScreenSize()) < 768) {
+    if (await ScreenMy.detectScreenSize() < 768) {
       this.isSmall = true;
     } else {
       this.isSmall = false;

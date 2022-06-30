@@ -1,23 +1,52 @@
-<div class="search">
-  <rl-search-engine
-    (inputText)="onNewText($event)"
+<div class="button-filter" *ngIf="showButtonFilter">
+  <button
+    (click)="expandMenu = !expandMenu"
+    (click)="showHideRecipe = !showHideRecipe"
+    (click)="showButtonFilter = !showButtonFilter"
+  >
+    Filtry
+  </button>
+</div>
+<div class="filter" *ngIf="expandMenu" #mainFilter>
+  <h1><span class="mainHeader">Filtry</span></h1>
+  <h1>Posiłki</h1>
+  <rl-meal-radio (loadedMeal)="onLoadMeal($event)"></rl-meal-radio>
+  <h1>Czas Wykonania</h1>
+  <rl-time-radio (loadedTime)="onLoadTime($event)"></rl-time-radio>
+  <h1>Trudność</h1>
+  <rl-level-radio (loadedLevel)="onLoadLevel($event)"></rl-level-radio>
+  <h1>Rodzaj kuchnii</h1>
+  <rl-cuisine-radio (loadedCuisine)="onLoadCuisine($event)"></rl-cuisine-radio>
+  <div class="button-apply">
+    <button
+      (click)="load()"
+      (click)="showHideRecipe = true"
+      (click)="setFiltersVisibility()"
     >
-  </rl-search-engine>
+      Zastosuj
+    </button>
+  </div>
 </div>
-<div class="all">
-  <p>Wszystkie przepisy</p>
+
+<div *ngIf="showHideRecipe">
+  <div class="search">
+    <rl-search-engine (inputText)="onNewText($event)"> </rl-search-engine>
+  </div>
+
+  <div class="all">
+    <p>Wszystkie przepisy</p>
+  </div>
+
+  <rl-main-recipes
+    [mainRecipe]="recipes"
+    [mainHeader]="headerText"
+  ></rl-main-recipes>
+
+  <rl-paginator
+    [paginatorRecipes]="recipes"
+    [total]="totalItem"
+    (changedPage)="onHandlePageChange($event)"
+  >
+  </rl-paginator>
+  <!-- (changedPageSize)="onhandlePageSizeChange($event)" -->
 </div>
-
-<rl-main-recipes
-  [mainRecipe]="recipes"
-  [mainHeader]="headerText"
-></rl-main-recipes>
-
-<rl-paginator
-  [paginatorRecipes]="recipes"
-  [total]="totalItem"
-
-  (changedPage)="onHandlePageChange($event)"
->
-</rl-paginator>
-<!-- (changedPageSize)="onhandlePageSizeChange($event)" -->

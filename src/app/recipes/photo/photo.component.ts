@@ -8,18 +8,36 @@ import { Recipe } from '../models/recipe';
 })
 export class PhotoComponent {
 
-  @Input() recipe!: Recipe;
-  @Output() shownPhoto = new EventEmitter<Recipe>();
+  // @Input() recipe!: Recipe;
+  // @Output() shownPhoto = new EventEmitter<Recipe>();
+
+  // showPhoto(): string{
+  //   if(!this.isPhotoEmpty()){
+  //     return this.recipe.photo;
+  //   }else{
+  //     return '../../../assets/dinner.jpg';
+  //   }
+  // }
+
+  // private isPhotoEmpty() {
+  //   return this.recipe.photo.length <= 20;
+  // }
+
+
+
+  @Input() recipePhoto!: string;
+  @Output() shownPhoto = new EventEmitter<string>();
 
   showPhoto(): string{
+
     if(!this.isPhotoEmpty()){
-      return this.recipe.photo;
+      return this.recipePhoto;
     }else{
       return '../../../assets/dinner.jpg';
     }
   }
 
   private isPhotoEmpty() {
-    return this.recipe.photo.length <= 20;
+    return this.recipePhoto.length <= 20;
   }
 }

@@ -1,0 +1,6 @@
+<div class="container-level">
+  <fieldset *ngFor="let level of levels">
+    <label class="c-label"  for="level">{{level.name}}</label><br />
+    <input type="radio" value="{{ level.id }}" (click)="loadFilter(level)" name="level">
+  </fieldset>
+</div>

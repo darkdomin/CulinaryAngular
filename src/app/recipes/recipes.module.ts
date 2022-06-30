@@ -17,7 +17,8 @@ import { MainRecipesComponent } from './main-recipes/main-recipes.component';
 import { SearchEngineComponent } from './search-engine/search-engine.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PaginatorComponent } from './recipes-list/paginator/paginator.component';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { PaginatorComponent } from './recipes-list/paginator/paginator.component
     DifficultyLevelModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    CarouselModule,
+    BrowserAnimationsModule
   ],
   providers:[RecipeResolve],
   exports: [RecipesListComponent, HomeMyComponent, NoRecipeComponent]

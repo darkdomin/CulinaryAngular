@@ -25,7 +25,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppRoutingModule,
     RecipesRoutingModule,
     FormsModule,
-    NgxPaginationModule,
+    NgxPaginationModule
   ],
   providers: [RecipesService,
      HttpClient,

@@ -1,0 +1,8 @@
+<div class="container-time">
+  <fieldset *ngFor="let time of times">
+    <label   for="time">{{time.name}}</label><br />
+    <input type="radio" value="{{ time.id }}" (click)="loadFilter(time)" name="time">
+  </fieldset>
+</div>
+
+<!-- class="c-label" -->

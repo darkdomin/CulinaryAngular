@@ -23,6 +23,14 @@ export class RecipesService {
     return this.http.get<PagedResult<Recipe>>(`${environment.apiUrl}/recipes`, { params });
   }
 
+  browseHome(params: Params): Observable<PagedResult<Recipe>> {
+    return this.http.get<PagedResult<Recipe>>(`${environment.apiUrl}/recipes/home`, { params });
+  }
+
+  browsefavorite(params: Params): Observable<PagedResult<Recipe>> {
+    return this.http.get<PagedResult<Recipe>>(`${environment.apiUrl}/recipes/favorite`, { params });
+  }
+
   getRecipe(id: number): Observable<Recipe> {
     return this.http.get<Recipe>(`${environment.apiUrl}/recipes/${id}`);
   }

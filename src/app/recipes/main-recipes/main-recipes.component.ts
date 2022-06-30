@@ -1,8 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Params, Router } from '@angular/router';
 import * as _ from 'lodash';
+import { Meal, Time } from 'src/app/filter';
 import { Recipe } from '../models/recipe';
 import { RecipesService } from '../recipes.service';
+import { Difficulty } from '../../filter/difficulty-level/models/difficulty';
+import { Cuisine } from '../../filter/cuisines/cuisine';
 
 @Component({
   selector: 'rl-main-recipes',
@@ -16,11 +19,14 @@ export class MainRecipesComponent implements OnInit {
   searchPhrase: string = '';
   page: number = 1;
   pageSize: number = 12;
-  isHome = false;
+  meal: number = 0;
+  time: number = 0;
+  level: number = 0;
+  cuisine: number = 0;
 
   constructor(
     protected recipeService: RecipesService,
-    protected router: Router
+    protected router: Router,
   ) {}
 
   async ngOnInit(): Promise<void> {}
@@ -35,11 +41,16 @@ export class MainRecipesComponent implements OnInit {
     });
   }
 
+
   getRequestParams(
     page: number,
     pageSize: number,
     searchTitle: string,
-    isHome: boolean
+    meal: number,
+    time: number,
+    level: number,
+    cuisine: number
+
   ): Params {
     let params: Params = {};
 
@@ -55,10 +66,21 @@ export class MainRecipesComponent implements OnInit {
       params[`pageSize`] = pageSize;
     }
 
-    if (isHome) {
-      params['isHome'] = isHome;
+    if (meal) {
+      params[`meal`] = meal;
     }
 
+    if (time) {
+      params[`time`] = time;
+    }
+
+    if (level) {
+      params[`level`] = level;
+    }
+
+    if (cuisine) {
+      params[`cuisine`] = cuisine;
+    }
     return params;
   }
 

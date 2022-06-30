@@ -1,6 +1,29 @@
 <div class="recently">
   <p>Ostatnie przepisy</p>
 </div>
-<rl-main-recipes [mainRecipe]="recipes" [mainHeader]="headerText"></rl-main-recipes>
+<rl-main-recipes
+  [mainRecipe]="recipes"
+  [mainHeader]="headerText"
+></rl-main-recipes>
 
-
+<div class="favorit" *ngIf="favoriteRecipes && favoriteRecipes.length >= 6">
+  <div class="recently">
+    <p>ulubione przepisy</p>
+  </div>
+  <div class="container ms-auto me-auto pt-4 pb-2 mb-4" #container>
+    <div class="content">
+      <owl-carousel-o [options]="customOptions" #owl >
+        <ng-container  *ngFor="let recipe of favoriteRecipes" >
+          <ng-template carouselSlide [id]="recipe.id.toString()">
+            <div class="item">
+              <rl-recipe
+                [recipe]="recipe"
+                (click)="goToRecipeDetails(recipe)"
+              ></rl-recipe>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</div>

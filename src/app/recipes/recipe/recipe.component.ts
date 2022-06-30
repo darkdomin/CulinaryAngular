@@ -11,7 +11,8 @@ export class RecipeComponent  {
 
   @Input() recipe!: Recipe;
 
-  onShowPhoto(recipe: Recipe): string{
-    return recipe.photo;
+  onShowPhoto(recipePhoto: string): string{
+    this.recipe.photo = recipePhoto;
+    return this.recipe.photo
   }
 }

@@ -1,9 +1,53 @@
-@import '../../../assets/styles/typography.less';
-@import '../../../assets/styles/sizes.less';
+@import '../../../assets/styles/helpers.less';
+@import '../../../assets/styles/base.less';
+
 
 .recently{
   .title(@font-size-3);
   text-align: center;
   padding: 4rem 0 2rem 0;
 }
+
+.content {
+  .container-center;
+  @media (min-width: @lg){
+   .size(80%);
+  }
+  @media (min-width: @xl){
+    .size(100%);
+  }
+}
+
+.item {
+  @media (min-width: @sm){
+    margin: 7%;
+    .size(14rem);
+  }
+
+  @media (min-width: @md){
+    .size(19rem);
+  }
+
+  @media (min-width: @lg){
+    margin: 7%;
+    .size(20rem);
+  }
+
+  @media (min-width: @xl){
+     margin: 6%;
+    .size(21rem);
+  }
+
+  @media (min-width: 1400px){
+    margin: 12%;
+  }
+}
+
+// owl-carousel-o {
+//   align-content: center;
+// }
+
+// ::ng-deep .owl-item {
+//   align-content: center;
+//  }
 

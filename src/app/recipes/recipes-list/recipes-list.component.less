@@ -1,14 +1,50 @@
 @import '../../../assets/styles/base.less';
 @import '../../../assets/styles/typography.less';
-@import '../../../assets/styles/helpers.less';
+@import '../../../assets/styles/components.less';
+
+.button-filter{
+  padding: 2rem 0 0 0;
+  margin: 4rem 0 2rem 0;
+}
+
+.button-filter, .button-apply  {
+  .inline-center;
+
+  button{
+    .c-btnPrimary;
+    .c-btnSizeLong;
+  }
+}
+@media (min-width: @sm){
+
+  .button-apply  {
+    button{
+      .c-btnSizeLg;
+    }
+  }
+}
+
+.filter {
+  margin-top: 4rem;
+
+  h1 {
+    font-weight: 500;
+    font-size: @font-size-5;
+    .inline-center;
+    display: block;
+    padding-top: 2rem;
+  }
+  .mainHeader{
+    color: @red;
+    font-weight: 800;
+    text-transform: uppercase;
+
+  }
+}
 
 .search{
-  padding: 5rem 0 2rem 0;
+  padding: 2rem 0 2rem 0;
   background-color: @white;
-
-  @media (min-width: @md){
-    padding-top: 1rem;
-  }
 }
 .all{
   .title(@font-size-3);

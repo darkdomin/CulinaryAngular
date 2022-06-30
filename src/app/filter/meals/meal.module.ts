@@ -3,18 +3,20 @@ import { CommonModule } from '@angular/common';
 import { MealComponent } from './meal/meal.component';
 import { MealService } from './meals.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MealRadioComponent } from './meal-radio/meal-radio.component';
 
 
 
 @NgModule({
   declarations: [
-    MealComponent
+    MealComponent,
+    MealRadioComponent
   ],
   providers:[MealService],
   imports: [
     CommonModule,
     ReactiveFormsModule
   ],
-  exports:[MealComponent]
+  exports:[MealComponent, MealRadioComponent]
 })
 export class MealModule { }

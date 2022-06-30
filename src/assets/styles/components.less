@@ -45,9 +45,7 @@
 }
 
 .c-btnSizeLong{
-  padding: 0.8rem;
-  width: 13rem;
-  font-size: @font-size-7;
+  .size(80%, @font-size-2);
 }
 
 
@@ -116,13 +114,13 @@
           /*
                 TEXTAREA
           */
-.c-textarea{
+.c-textarea {
   &:extend(.controleExtend);
   min-height: @font-size-1 * 7;
   padding: @font-size-5;
 }
 
-.controleExtend{
+.controleExtend {
   .size(100%);
   border: 1px solid @beige;
   line-height: 1.8;
@@ -130,7 +128,7 @@
   border-radius: 4px;
 }
 
-.container{
+.container {
   background-color: @beige;
   margin: 0 auto 0 auto;
   &:extend(.borderMy);

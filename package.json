@@ -23,6 +23,7 @@
     "@popperjs/core": "^2.11.5",
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
+    "ngx-owl-carousel-o": "^7.0.2",
     "ngx-pagination": "^5.1.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
