@@ -8,16 +8,26 @@
   </button>
 </div>
 <div class="filter" *ngIf="expandMenu" #mainFilter>
-  <h1><span class="mainHeader">Filtry</span></h1>
-  <h1>Posiłki</h1>
-  <rl-meal-radio (loadedMeal)="onLoadMeal($event)"></rl-meal-radio>
-  <h1>Czas Wykonania</h1>
-  <rl-time-radio (loadedTime)="onLoadTime($event)"></rl-time-radio>
-  <h1>Trudność</h1>
-  <rl-level-radio (loadedLevel)="onLoadLevel($event)"></rl-level-radio>
-  <h1>Rodzaj kuchnii</h1>
-  <rl-cuisine-radio (loadedCuisine)="onLoadCuisine($event)"></rl-cuisine-radio>
-  <div class="button-apply">
+  <div class="header"><h1>Filtry</h1></div>
+  <div class="filters-group">
+    <h1>Posiłki</h1>
+    <rl-meal-radio [filterId]="meal" (loadedFilter)="onLoadMeal($event)"></rl-meal-radio>
+    <h1>Czas Wykonania</h1>
+    <rl-time-radio [filterId]="time" (loadedFilter)="onLoadTime($event)"></rl-time-radio>
+    <h1>Trudność</h1>
+    <rl-level-radio [filterId]="level" (loadedFilter)="onLoadLevel($event)"></rl-level-radio>
+    <h1>Rodzaj kuchnii</h1>
+    <rl-cuisine-radio [filterId]="cuisine" (loadedFilter)="onLoadCuisine($event)"
+    ></rl-cuisine-radio>
+  </div>
+  <div class="clear-filters" *ngIf="checkFilters()">
+    <button
+      (click)="clearFilters()"
+    >
+      Wyczyść filtry
+    </button>
+  </div>
+  <div class="button-apply fixed-bottom">
     <button
       (click)="load()"
       (click)="showHideRecipe = true"

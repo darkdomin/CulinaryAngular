@@ -7,7 +7,7 @@
   margin: 4rem 0 2rem 0;
 }
 
-.button-filter, .button-apply  {
+.button-filter  {
   .inline-center;
 
   button{
@@ -15,10 +15,23 @@
     .c-btnSizeLong;
   }
 }
+
+.button-apply {
+  button{
+    .size(100%, 2.5rem);
+    background-color: @red;
+    border: none;
+    color: @white;
+    font-weight: 600;
+    font-size: @font-size-6;
+  }
+
+}
 @media (min-width: @sm){
 
   .button-apply  {
     button{
+      .c-btnPrimary;
       .c-btnSizeLg;
     }
   }
@@ -28,18 +41,26 @@
   margin-top: 4rem;
 
   h1 {
-    font-weight: 500;
-    font-size: @font-size-5;
-    .inline-center;
+    font-weight: 600;
+    font-size: @font-size-6;
     display: block;
-    padding-top: 2rem;
-  }
-  .mainHeader{
-    color: @red;
-    font-weight: 800;
+    padding: 2rem 0 1rem 0;
     text-transform: uppercase;
-
   }
+  .header{
+    h1 {
+      .inline-center;
+      color: @red;
+      font-weight: 800;
+      font-size: @font-size-5;
+      padding: 2rem 0 0 0;
+    }
+  }
+}
+
+.filters-group {
+  padding-left: 5%;
+  padding-bottom: 4rem;
 }
 
 .search{
@@ -50,4 +71,22 @@
   .title(@font-size-3);
   .inline-center;
   margin: 2rem 0;
+}
+
+.clear-filters{
+
+ position:fixed;
+ width:100%;
+ z-index: 1000000;
+ top:5rem;
+
+ button{
+  .size(100%, 2.5rem);
+  background-color: @red;
+  border: none;
+  color: @white;
+  font-weight: 600;
+  font-size: @font-size-6;
+}
+
 }

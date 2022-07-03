@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FilterRadioComponent } from '../../filter-radio/filter-radio.component';
 import { Cuisine } from '../cuisine';
 import { CuisinesService } from '../cuisines.service';
 
@@ -7,25 +8,22 @@ import { CuisinesService } from '../cuisines.service';
   templateUrl: './cuisine-radio.component.html',
   styleUrls: ['./cuisine-radio.component.less']
 })
-export class CuisineRadioComponent implements OnInit {
+export class CuisineRadioComponent extends FilterRadioComponent<Cuisine>  implements OnInit {
+  createIndividualId(): number {
+    return 3567;
+  }
 
-  cuisines!: Cuisine[];
-  @Output() loadedCuisine = new EventEmitter<number>();
-  constructor(private cuisineService: CuisinesService) {}
+  constructor(private cuisineService: CuisinesService) {
+    super();
+  }
 
   ngOnInit(): void {
-    this.loadCuisines();
+    this.load();
   }
 
-  loadCuisines(): void {
+  load(): void {
     this.cuisineService.getCuisines().subscribe(c => {
-     this.cuisines = c
+     this.filters = c
     });
   }
-
-  loadFilter(cuisine: Cuisine){
-    console.log("posilek id - EXPORTER", cuisine);
-    this.loadedCuisine.emit(cuisine.id);
-  }
-
 }

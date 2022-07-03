@@ -1,30 +1,30 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { MealService } from '../meals.service';
 import { Meal } from '../models/meal';
+import { FilterRadioComponent } from '../../filter-radio/filter-radio.component';
 
 @Component({
   selector: 'rl-meal-radio',
   templateUrl: './meal-radio.component.html',
   styleUrls: ['./meal-radio.component.less']
 })
-export class MealRadioComponent implements OnInit {
+export class MealRadioComponent extends  FilterRadioComponent<Meal>  implements OnInit  {
 
-  meals!: Meal[];
-  @Output() loadedMeal = new EventEmitter<number>();
-  constructor(private mealService: MealService) {}
-
-  ngOnInit(): void {
-    this.loadMeals();
+  constructor(private mealService: MealService) {
+    super();
   }
 
-  loadMeals(): void {
+  ngOnInit(): void {
+    this.load();
+  }
+
+  load(): void {
     this.mealService.getMeals().subscribe(m => {
-     this.meals = m
+     this.filters = m
     });
   }
 
-  loadFilter(meal: Meal){
-    console.log("posilek id - EXPORTER", meal);
-    this.loadedMeal.emit(meal.id);
+  createIndividualId(): number {
+    return 0;
   }
 }

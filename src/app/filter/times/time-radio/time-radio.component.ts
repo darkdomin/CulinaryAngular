@@ -1,31 +1,30 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ExecutionTimeService } from '../execution-time.service';
 import { Time } from '../model/time';
+import { FilterRadioComponent } from '../../filter-radio/filter-radio.component';
 
 @Component({
   selector: 'rl-time-radio',
   templateUrl: './time-radio.component.html',
   styleUrls: ['./time-radio.component.less']
 })
-export class TimeRadioComponent implements OnInit {
+export class TimeRadioComponent extends FilterRadioComponent<Time> implements OnInit {
 
-
-  times!: Time[];
-  @Output() loadedTime = new EventEmitter<number>();
-  constructor(private timeService: ExecutionTimeService) {}
-
-  ngOnInit(): void {
-    this.loadTimes();
+  constructor(private timeService: ExecutionTimeService) {
+    super();
   }
 
-  loadTimes(): void {
+  ngOnInit(): void {
+    this.load();
+  }
+
+  load(): void {
     this.timeService.getTimes().subscribe(t => {
-     this.times = t
+     this.filters = t
     });
   }
 
-  loadFilter(time: Time){
-    console.log("posilek id - EXPORTER", time);
-    this.loadedTime.emit(time.id);
+  createIndividualId(): number {
+    return 6745;
   }
 }

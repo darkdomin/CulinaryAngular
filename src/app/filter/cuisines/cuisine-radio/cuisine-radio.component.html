@@ -1,6 +1,14 @@
 <div class="container-cuisine">
-  <fieldset *ngFor="let cuisine of cuisines">
-    <label class="c-label"  for="cuisine">{{cuisine.name}}</label><br>
-    <input type="radio" value="{{ cuisine.id }}" (click)="loadFilter(cuisine)" name="cuisine">
+  <fieldset *ngFor="let cuisine of filters">
+    <input
+      type="radio"
+      class="option-input"
+      value="{{ cuisine.id }}"
+      (click)="loadFilter(cuisine)"
+      name="cuisine"
+      checked="{{ checkedButton(cuisine) }}"
+      [id]="[cuisine.id + createIndividualId()]"
+    />
+    <label class="c-labelLower" [for]="[cuisine.id + createIndividualId()]">{{ cuisine.name }}</label>
   </fieldset>
 </div>

@@ -1,6 +1,15 @@
 <div class="container-level">
-  <fieldset *ngFor="let level of levels">
-    <label class="c-label"  for="level">{{level.name}}</label><br />
-    <input type="radio" value="{{ level.id }}" (click)="loadFilter(level)" name="level">
+  <fieldset *ngFor="let level of filters">
+
+    <input
+      type="radio"
+      class="option-input"
+      value="{{ level.id }}"
+      (click)="loadFilter(level)"
+      name="level"
+      checked="{{ checkedButton(level) }}"
+      [id]="[level.id +  createIndividualId()]"
+    />
+    <label name="level" class="c-labelLower" [for]="[level.id +  createIndividualId()]">{{ level.name }} </label>
   </fieldset>
 </div>

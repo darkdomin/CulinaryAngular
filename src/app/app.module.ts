@@ -10,11 +10,13 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './client/_helpers';
 import { AlertComponent } from './client/_components/alert.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FilterRadioComponent } from './filter/filter-radio/filter-radio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AlertComponent
+    AlertComponent,
+    FilterRadioComponent
   ],
   imports: [
     BrowserModule,

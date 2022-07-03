@@ -1,31 +1,31 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DifficultyLevelService } from '../difficulty-level.service';
 import { Difficulty } from '../models/difficulty';
+import { FilterRadioComponent } from '../../filter-radio/filter-radio.component';
 
 @Component({
   selector: 'rl-level-radio',
   templateUrl: './level-radio.component.html',
   styleUrls: ['./level-radio.component.less']
 })
-export class LevelRadioComponent implements OnInit {
+export class LevelRadioComponent extends FilterRadioComponent<Difficulty> implements OnInit {
 
-  levels!: Difficulty[];
-  @Output() loadedLevel = new EventEmitter<number>();
-  constructor(private levelService: DifficultyLevelService) {}
-
-  ngOnInit(): void {
-    this.loadLevels();
+  constructor(private levelService: DifficultyLevelService) {
+    super();
   }
 
-  loadLevels(): void {
+  ngOnInit(): void {
+    this.load();
+  }
+
+  load(): void {
     this.levelService.getDifficultyLevels().subscribe(l => {
-     this.levels = l
+     this.filters = l
     });
   }
 
-  loadFilter(level: Difficulty){
-    console.log("posilek id - EXPORTER", level);
-    this.loadedLevel.emit(level.id);
+  createIndividualId(): number {
+    return 1345;
   }
 
 }

@@ -137,4 +137,15 @@ export class RecipesListComponent
     this.loadRecipes(params);
   }
 
+  checkFilters(): boolean{
+   return this.meal > 0 || this.cuisine > 0 || this.level > 0 || this.time > 0 ? true : false;
+  }
+
+  clearFilters(){
+    this.meal = 0;
+    this.cuisine = 0;
+    this.level = 0;
+    this.time = 0;
+  }
+
 }
